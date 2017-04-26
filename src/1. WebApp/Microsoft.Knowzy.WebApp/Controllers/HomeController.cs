@@ -1,15 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Knowzy.Service.DataSource.Contracts;
 
 namespace Microsoft.Knowzy.WebApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IDataSourceService _dataSourceService;
+
+        public HomeController(IDataSourceService dataSourceService)
+        {
+            _dataSourceService = dataSourceService;
+        }
+
         public IActionResult Index()
         {
+            // TODO retrieve grid values
+            var shippings = _dataSourceService.GetShippings();
+
             return View();
         }
 
