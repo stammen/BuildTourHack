@@ -9,6 +9,8 @@
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/header.css" />
+        <link rel="stylesheet" href="~/css/footer.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -19,31 +21,39 @@
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Microsoft.Knowzy.WebApp</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
-            </div>
+    <header>
+        <div>
+            <img class="logo" src="~/images/Knowz-logo.png"/>
+            <img class="clowns" src="~/images/clowns.png"/>
         </div>
-    </nav>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @*<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Microsoft.Knowzy.WebApp</a>*@
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a  asp-area="" asp-controller="Home" asp-action="Index">Shipping</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">Receiving</a></li>
+                        @*<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>*@
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div class="container body-content">
         @RenderBody()
-        <hr />
         <footer>
-            <p>&copy; 2017 - Microsoft.Knowzy.WebApp</p>
+            <div>
+                <img class="bar" src="~/images/bottom-bar.png" height="68" />
+            </div>
+            <p class="text">&copy; 2017 - Adventure Works Knowzy. All rights reserved</p>
         </footer>
     </div>
 
