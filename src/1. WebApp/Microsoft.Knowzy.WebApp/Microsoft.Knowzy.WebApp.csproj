@@ -16,9 +16,11 @@
     <Content Include="wwwroot\css\footer.css">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+    <Content Include="wwwroot\css\grid.css" />
     <Content Include="wwwroot\css\header.css" />
     <Content Include="wwwroot\Data\order.json" />
     <Content Include="wwwroot\fonts\segoeui.ttf" />
+    <Content Include="wwwroot\images\add.svg" />
     <Content Include="wwwroot\images\bg art.png" />
     <Content Include="wwwroot\images\bottom-bar.png" />
     <Content Include="wwwroot\images\clowns.png" />
