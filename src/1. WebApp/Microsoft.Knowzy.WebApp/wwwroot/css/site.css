@@ -1,5 +1,10 @@
-﻿body {
-    padding-top: 50px;
+﻿@font-face {
+    font-family: Segoe UI;
+    src: url("fonts/segoeui.ttf");
+}
+
+body {
+    padding-top: 0px;
     padding-bottom: 20px;
 }
 

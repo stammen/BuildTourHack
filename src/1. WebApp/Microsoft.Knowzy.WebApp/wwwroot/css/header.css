@@ -1,0 +1,52 @@
+﻿.navbar-default {
+    border: none;
+    background: url("../images/menu-bar1.png");
+    height: 68px;
+}
+
+.navbar-nav > li {
+    width: 160px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+    font-family: Segoe UI;
+    font-size: 24px;
+    padding-top: 26px;
+    text-align: center;
+}
+
+.navbar-default .navbar-nav li > a:hover {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav li.active > a,
+.navbar-default .navbar-nav li.active > a:hover,
+.navbar-default .navbar-nav li.active > a:focus {
+    border-bottom: 7px solid #f9bd39;
+    color: white;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+header div:first-child {
+    width: 80%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 276px;
+    height: 127px;
+    margin-top: 36px;
+    margin-bottom: 24px;
+}
+
+.clowns {
+    position: absolute;
+    width: 366px;
+    height: 96px;
+    bottom: 0;
+    right: 0;
+}

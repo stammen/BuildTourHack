@@ -13,7 +13,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\css\footer.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\css\header.css" />
     <Content Include="wwwroot\Data\order.json" />
+    <Content Include="wwwroot\fonts\segoeui.ttf" />
+    <Content Include="wwwroot\images\bg art.png" />
+    <Content Include="wwwroot\images\bottom-bar.png" />
+    <Content Include="wwwroot\images\clowns.png" />
+    <Content Include="wwwroot\images\Knowz-logo.png" />
+    <Content Include="wwwroot\images\menu-bar1.png" />
     <Content Include="wwwroot\lib\bootstrap\.bower.json" />
     <Content Include="wwwroot\lib\bootstrap\bower.json" />
     <Content Include="wwwroot\lib\bootstrap\CHANGELOG.md" />
