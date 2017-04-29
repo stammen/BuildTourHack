@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="~/css/header.css" />
         <link rel="stylesheet" href="~/css/footer.css" />
+        <link rel="stylesheet" href="~/css/grid.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -22,9 +23,11 @@
 </head>
 <body>
     <header>
-        <div>
-            <img class="logo" src="~/images/Knowz-logo.png"/>
-            <img class="clowns" src="~/images/clowns.png"/>
+        <div class="images">
+            <div class="container">
+                <img class="logo" src="~/images/Knowz-logo.png" />
+                <img class="clowns" src="~/images/clowns.png" />
+            </div>
         </div>
         <nav class="navbar navbar-default">
             <div class="container">
@@ -35,7 +38,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @*<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Microsoft.Knowzy.WebApp</a>*@
+                    <p asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" data-toggle="collapse" data-target=".navbar-collapse">Shipping Information</p>
+                    <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target=".navbar-collapse" />
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -47,6 +51,7 @@
             </div>
         </nav>
     </header>
+    <div class="background"></div>
     <div class="container body-content">
         @RenderBody()
         <footer>

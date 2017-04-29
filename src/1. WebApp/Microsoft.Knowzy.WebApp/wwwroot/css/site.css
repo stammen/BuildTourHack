@@ -6,6 +6,10 @@
 body {
     padding-top: 0px;
     padding-bottom: 20px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    
 }
 
 /* Wrapping element */
@@ -13,6 +17,7 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
@@ -22,21 +27,10 @@ textarea {
     max-width: 280px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
-
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+.background {
+    background: url("../images/bg art.png") no-repeat center center fixed;
+    width: 1920px;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
 }
