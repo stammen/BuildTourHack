@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\3. Domain\Models\Microsoft.Knowzy.Domain.Models\Microsoft.Knowzy.Domain.Models.csproj" />
+    <ProjectReference Include="..\..\..\3. Domain\Microsoft.Knowzy.Models\Microsoft.Knowzy.Models.csproj" />
     <ProjectReference Include="..\Microsoft.Knowzy.Service.DataSource.Contracts\Microsoft.Knowzy.Service.DataSource.Contracts.csproj" />
   </ItemGroup>
 

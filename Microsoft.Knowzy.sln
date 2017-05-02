@@ -9,15 +9,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Services", "2. Services"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Knowzy.WebApp", "src\1. WebApp\Microsoft.Knowzy.WebApp\Microsoft.Knowzy.WebApp.csproj", "{2756A505-4131-40FB-B671-E84659856385}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Service.DataSource.Contracts", "src\2. Services\DataSourceService\Microsoft.Knowzy.Service.DataSource.Contracts\Microsoft.Knowzy.Service.DataSource.Contracts.csproj", "{0EA22DA1-B9F7-4FCF-B631-BFE8C6D166D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Knowzy.Service.DataSource.Contracts", "src\2. Services\DataSourceService\Microsoft.Knowzy.Service.DataSource.Contracts\Microsoft.Knowzy.Service.DataSource.Contracts.csproj", "{0EA22DA1-B9F7-4FCF-B631-BFE8C6D166D7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataSource", "DataSource", "{2820687F-09BF-40D3-98D3-6A9DC8AE1C1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Service.DataSource.Core", "src\2. Services\DataSourceService\Microsoft.Knowzy.Service.DataSource.Core\Microsoft.Knowzy.Service.DataSource.Core.csproj", "{CA292DF4-1980-4048-BCA8-F46DAC9478E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Knowzy.Service.DataSource.Core", "src\2. Services\DataSourceService\Microsoft.Knowzy.Service.DataSource.Core\Microsoft.Knowzy.Service.DataSource.Core.csproj", "{CA292DF4-1980-4048-BCA8-F46DAC9478E1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Domain", "3. Domain", "{1E29BA0E-66F1-4F2B-B1EB-1F5DD0C20205}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Domain.Models", "src\3. Domain\Models\Microsoft.Knowzy.Domain.Models\Microsoft.Knowzy.Domain.Models.csproj", "{770CC402-FE12-4806-BE1E-3A624295376E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.Knowzy.Domain", "src\3. Domain\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj", "{770CC402-FE12-4806-BE1E-3A624295376E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Domain.Data", "src\3. Domain\Microsoft.Knowzy.Domain.Data\Microsoft.Knowzy.Domain.Data.csproj", "{CB6242CB-0AFD-4BB2-8714-46212211A964}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Infrastructure", "4. Infrastructure", "{3AEB4600-B6E8-4828-B354-C3D392650AB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "src\4. Infrastructure\Extensions\Extensions.csproj", "{346773CC-DD45-47AD-BA35-3F2BC50BD4BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Models", "src\3. Domain\Microsoft.Knowzy.Models\Microsoft.Knowzy.Models.csproj", "{7722F49C-77FF-4D01-AD5B-BCA4926E65AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +49,18 @@ Global
 		{770CC402-FE12-4806-BE1E-3A624295376E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{770CC402-FE12-4806-BE1E-3A624295376E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{770CC402-FE12-4806-BE1E-3A624295376E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB6242CB-0AFD-4BB2-8714-46212211A964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB6242CB-0AFD-4BB2-8714-46212211A964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB6242CB-0AFD-4BB2-8714-46212211A964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB6242CB-0AFD-4BB2-8714-46212211A964}.Release|Any CPU.Build.0 = Release|Any CPU
+		{346773CC-DD45-47AD-BA35-3F2BC50BD4BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{346773CC-DD45-47AD-BA35-3F2BC50BD4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{346773CC-DD45-47AD-BA35-3F2BC50BD4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{346773CC-DD45-47AD-BA35-3F2BC50BD4BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7722F49C-77FF-4D01-AD5B-BCA4926E65AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7722F49C-77FF-4D01-AD5B-BCA4926E65AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7722F49C-77FF-4D01-AD5B-BCA4926E65AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7722F49C-77FF-4D01-AD5B-BCA4926E65AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,5 +71,8 @@ Global
 		{2820687F-09BF-40D3-98D3-6A9DC8AE1C1E} = {1C09AF31-89F7-4A97-8748-A4CCB64065CB}
 		{CA292DF4-1980-4048-BCA8-F46DAC9478E1} = {2820687F-09BF-40D3-98D3-6A9DC8AE1C1E}
 		{770CC402-FE12-4806-BE1E-3A624295376E} = {1E29BA0E-66F1-4F2B-B1EB-1F5DD0C20205}
+		{CB6242CB-0AFD-4BB2-8714-46212211A964} = {1E29BA0E-66F1-4F2B-B1EB-1F5DD0C20205}
+		{346773CC-DD45-47AD-BA35-3F2BC50BD4BF} = {3AEB4600-B6E8-4828-B354-C3D392650AB5}
+		{7722F49C-77FF-4D01-AD5B-BCA4926E65AE} = {1E29BA0E-66F1-4F2B-B1EB-1F5DD0C20205}
 	EndGlobalSection
 EndGlobal

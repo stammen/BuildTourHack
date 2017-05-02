@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\3. Domain\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj" />
+    <ProjectReference Include="..\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj" />
   </ItemGroup>
 
 </Project>

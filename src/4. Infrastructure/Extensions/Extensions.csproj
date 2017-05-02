@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\3. Domain\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="1.1.1" />
   </ItemGroup>
 
 </Project>
