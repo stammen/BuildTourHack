@@ -1,5 +1,5 @@
-﻿using Microsoft.Knowzy.Domain.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Microsoft.Knowzy.Domain;
 
 namespace Microsoft.Knowzy.Service.DataSource.Contracts
 {
@@ -10,7 +10,7 @@ namespace Microsoft.Knowzy.Service.DataSource.Contracts
         IEnumerable<Receiving> GetReceivings();
         IEnumerable<Receiving> GetReceivings(int pageNumber, int pageCount);
         Shipping GetShipping(string orderNumber);
-        Receiving GetReceiving(string receiptNumber);
+        Receiving GetReceiving(string orderNumber);
         int GetShippingCount();
         int GetReceivingCount();
     }

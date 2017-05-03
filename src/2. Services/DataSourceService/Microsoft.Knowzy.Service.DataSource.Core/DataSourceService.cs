@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.Knowzy.Domain.Models;
 using Microsoft.Knowzy.Service.DataSource.Contracts;
 using Newtonsoft.Json;
 using System.IO;
@@ -8,6 +7,8 @@ using Newtonsoft.Json.Serialization;
 using Microsoft.AspNetCore.Hosting;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Knowzy.Domain;
+using Microsoft.Knowzy.Models;
 
 namespace Microsoft.Knowzy.Service.DataSource.Core
 {
@@ -17,7 +18,7 @@ namespace Microsoft.Knowzy.Service.DataSource.Core
 
         private IEnumerable<Shipping> _shippings = new List<Shipping>();
         private IEnumerable<Receiving> _receivings = new List<Receiving>();
-        private string _jsonCompletePath;
+        private readonly string _jsonCompletePath;
 
         #endregion
 
@@ -33,9 +34,9 @@ namespace Microsoft.Knowzy.Service.DataSource.Core
 
         #region Public Methods
 
-        public Receiving GetReceiving(string receiptNumber)
+        public Receiving GetReceiving(string orderNumber)
         {
-            return _receivings.FirstOrDefault(receiving => receiving.ReceiptNumber == receiptNumber);
+            return _receivings.FirstOrDefault(receiving => receiving.OrderNumber == orderNumber);
         }
 
         public IEnumerable<Receiving> GetReceivings()
@@ -80,20 +81,20 @@ namespace Microsoft.Knowzy.Service.DataSource.Core
         private async Task ImportData()
         {
             var dataAsString = await ReadDataFromFile(_jsonCompletePath);
-            var order = JsonConvert.DeserializeObject<Order>(dataAsString, new JsonSerializerSettings
+            var data = JsonConvert.DeserializeObject<DataImport>(dataAsString, new JsonSerializerSettings
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
                 NullValueHandling = NullValueHandling.Ignore
             });
 
-            _receivings = order.Receivings;
-            _shippings = order.Shippings;
+            _receivings = data.Receivings;
+            _shippings = data.Shippings;
         }
 
         private async Task<string> ReadDataFromFile(string path)
         {
-            var result = string.Empty;
+            string result;
 
             using (var reader = File.OpenText(path))
             {

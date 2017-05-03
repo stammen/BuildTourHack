@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Knowzy.Domain.Data;
 using Microsoft.Knowzy.Service.DataSource.Core;
 using Microsoft.Knowzy.Service.DataSource.Contracts;
 
@@ -14,8 +16,8 @@ namespace Microsoft.Knowzy.WebApp
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddJsonFile("appsettings.json", false, true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
@@ -26,6 +28,12 @@ namespace Microsoft.Knowzy.WebApp
         {
             services.AddMvc();
             services.AddSingleton<IConfiguration>(Configuration);
+
+            services.AddEntityFrameworkSqlServer()
+                .AddDbContext<KnowzyContext>(options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("KnowzyContext"));
+                });
 
             services.AddSingleton<IDataSourceService, DataSourceService>();
         }
@@ -39,6 +47,16 @@ namespace Microsoft.Knowzy.WebApp
             {
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
+
+                using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                {
+                    var knowzyContext = serviceScope.ServiceProvider.GetService<KnowzyContext>();
+                    var configuration = serviceScope.ServiceProvider.GetService<IConfiguration>();
+                    var hostingEnvironment = serviceScope.ServiceProvider.GetService<IHostingEnvironment>();
+                    knowzyContext.Database.EnsureDeleted();
+                    knowzyContext.Database.Migrate();
+                    DatabaseInitializer.Seed(hostingEnvironment, configuration, knowzyContext).Wait();
+                }               
             }
             else
             {
@@ -50,8 +68,8 @@ namespace Microsoft.Knowzy.WebApp
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    "default",
+                    "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

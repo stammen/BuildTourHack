@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>$(SolutionDir)\bin\Debug\netcoreapp1.1\</OutputPath>
+    <OutputPath>bin\Debug\netcoreapp1.1\netcoreapp1.1\netcoreapp1.1\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -402,6 +402,8 @@
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
   </ItemGroup>
@@ -411,6 +413,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\2. Services\DataSourceService\Microsoft.Knowzy.Service.DataSource.Contracts\Microsoft.Knowzy.Service.DataSource.Contracts.csproj" />
     <ProjectReference Include="..\..\2. Services\DataSourceService\Microsoft.Knowzy.Service.DataSource.Core\Microsoft.Knowzy.Service.DataSource.Core.csproj" />
+    <ProjectReference Include="..\..\3. Domain\Microsoft.Knowzy.Domain.Data\Microsoft.Knowzy.Domain.Data.csproj" />
   </ItemGroup>
 
 </Project>
