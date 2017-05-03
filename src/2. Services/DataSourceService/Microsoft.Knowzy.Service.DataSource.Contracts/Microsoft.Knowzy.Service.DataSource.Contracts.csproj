@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\3. Domain\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj" />
+    <ProjectReference Include="..\..\..\3. Domain\Microsoft.Knowzy.Models\Microsoft.Knowzy.Models.csproj" />
   </ItemGroup>
 
 </Project>
