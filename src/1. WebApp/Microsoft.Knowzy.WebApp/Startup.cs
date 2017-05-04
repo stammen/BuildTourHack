@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +28,8 @@ namespace Microsoft.Knowzy.WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddAutoMapper();
+
             services.AddSingleton<IConfiguration>(Configuration);
 
             services.AddEntityFrameworkSqlServer()
@@ -35,7 +38,7 @@ namespace Microsoft.Knowzy.WebApp
                     options.UseSqlServer(Configuration.GetConnectionString("KnowzyContext"));
                 });
 
-            services.AddSingleton<IDataSourceService, DataSourceService>();
+            services.AddSingleton<IOrderQueries, OrderQueriesDatabase>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

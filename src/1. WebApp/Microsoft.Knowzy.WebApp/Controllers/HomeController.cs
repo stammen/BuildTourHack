@@ -1,21 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Knowzy.Service.DataSource.Contracts;
 
 namespace Microsoft.Knowzy.WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IDataSourceService _dataSourceService;
+        private readonly IOrderQueries _orderQueries;
 
-        public HomeController(IDataSourceService dataSourceService)
+        public HomeController(IOrderQueries orderQueries)
         {
-            _dataSourceService = dataSourceService;
+            _orderQueries = orderQueries;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             // TODO retrieve grid values
-            var shippings = _dataSourceService.GetShippings();
+            var shippings = await _orderQueries.GetShippings();
 
             return View();
         }
