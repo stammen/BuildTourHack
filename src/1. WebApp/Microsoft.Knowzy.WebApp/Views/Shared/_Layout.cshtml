@@ -4,7 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Microsoft.Knowzy.WebApp</title>
-
+    
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -12,54 +18,16 @@
         <link rel="stylesheet" href="~/css/footer.css" />
         <link rel="stylesheet" href="~/css/grid.css" />
     </environment>
-    <environment names="Staging,Production">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+
 </head>
 <body>
-    <header>
-        <div class="images">
-            <div class="container">
-                <img class="logo" src="~/images/Knowz-logo.png" />
-                <img class="clowns" src="~/images/clowns.png" />
-            </div>
+    @Html.Partial("Header")
+    <div class="body-content">
+        <div class="container">
+            @RenderBody()       
         </div>
-        <nav class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <p asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" data-toggle="collapse" data-target=".navbar-collapse">Shipping Information</p>
-                    <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target=".navbar-collapse" />
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a  asp-area="" asp-controller="Home" asp-action="Index">Shipping</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="About">Receiving</a></li>
-                        @*<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>*@
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="background"></div>
-    <div class="container body-content">
-        @RenderBody()
-        <footer>
-            <div>
-                <img class="bar" src="~/images/bottom-bar.png" height="68" />
-            </div>
-            <p class="text">&copy; 2017 - Adventure Works Knowzy. All rights reserved</p>
-        </footer>
     </div>
-
+    @Html.Partial("Footer")
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>

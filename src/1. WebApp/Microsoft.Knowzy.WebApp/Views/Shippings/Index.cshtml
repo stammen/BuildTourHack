@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Microsoft.Knowzy.Models.ViewModels.ShippingsViewModel>
+
+@{
+    ViewData["Title"] = "Shippings";
+}
+
+<div class="toolbar hidden-xs">
+    <span class="section-title">@ViewData["Title"] Information</span>
+    <button type="button" class="btn btn-default button-default">
+        <object data='images/add.svg' type='image/svg+xml'></object> Add new order
+    </button>
+</div>
+
+<table class="table table-striped table-responsive main-grid">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th class="hidden-xs">
+            @Html.DisplayNameFor(model => model.Tracking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td class="hidden-xs">
+                @Html.DisplayFor(modelItem => item.Tracking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

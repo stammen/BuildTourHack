@@ -1,86 +1,32 @@
-﻿.toolbar {
-    margin-bottom: 20px;
-    margin-top:70px;
-}
-
-.toolbar-left {
-    float: left;
-    margin-bottom: 20px;
-}
-
-.toolbar-right {
-    float: right;
-    margin-bottom: 20px;
-}
-
-.grid-header {
-    background-color: #f9bd39;
-    font-family: Segoe UI;
-    font-size: 18px;
-}
-
-.grid-item {
-    font-family: Segoe UI;
-    font-size: 18px;
-    
-}
-
-th {
-    font-weight: normal;
-}
-.fixed-table-container {
-    margin-bottom:100px;
-    margin-top:55px;
-}
-
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color: #0078d7;
-    color: white;
-}
-
-.btn-primary {
-    width: 259px;
-    height: 49px;
-    background-color: #f9bd39;
-    font-size: 18px;
-    border-color: transparent;
-    color:black;
-}
-
-.shipping-information {
-    font-family: Segoe UI;
-    font-size: 30px;
-    color: #000000;
-}
-
-.table-responsive{
+﻿.main-grid {
     border: none;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-@media (max-width: 767px) {
-    .toolbar-left {
-        display: none;
+    .main-grid th, .main-grid td {
+        height: 60px;
+        color: black;
+        font-size: 18px;
+        border: none !important;
+        vertical-align: middle !important;
+        padding-left: 20px !important;
+        font-weight: normal !important;
     }
 
-    .toolbar-right {
-        display: none;
+    .main-grid > tbody > tr:nth-of-type(even) {
+        background-color: #ebebeb;
     }
 
-    .toolbar {
-        margin-bottom: 0px;
-        margin-top: 0px;
+    .main-grid > thead > tr {
+        background-color: #f9bd39;
     }
 
-    .body-content{
-        padding: 0px;
+    .main-grid > tbody > tr:hover {
+        background-color: #0078d7;
+        cursor: pointer;
     }
 
-    .navbar-default{
-        margin-bottom: 0px;
-    }
-
-    .fixed-table-container {
-        margin-bottom: 100px;
-        margin-top: 0px;
-    }
-}
+        .main-grid > tbody > tr:hover > td {
+            color: white;
+        }
