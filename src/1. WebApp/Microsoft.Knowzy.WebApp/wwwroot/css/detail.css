@@ -1,0 +1,75 @@
+﻿.detail-item dt, .detail-item dd {
+    font-size: 18px;
+    text-align: left;
+    color: #000000;
+}
+
+.detail-item dt {
+    font-weight: 600;
+}
+
+.detail-item-number dt {
+    width: 125px;
+}
+
+.detail-item-number dd{
+    margin-left: 125px;
+}
+
+.detail-item-status dt {
+    width: 60px;
+    padding-left: 5px;
+}
+
+.detail-item-status dd {
+    margin-left: 60px;
+}
+
+dt, dd {
+    margin-top: 52px;
+}
+
+    dt:first-child {
+        margin-top: 0;
+    }
+
+.button-action {
+    width: 259px;
+    height: 49px;
+    font-size: 18px;
+    margin-top: 49px;
+}
+
+.button-action object {
+    margin-right: 29px;
+}
+
+.details-right {
+    padding-left: 10%;
+}
+
+@media screen and (max-width: 767px) {
+    dl {
+        padding: 0 20px;
+    }
+
+    dt {
+        float: left;  
+    }
+
+    dd {
+        margin-left: 175px;
+    }
+
+    .button-action {        
+        margin-bottom: 49px;
+    }
+
+    .detail-item-status {
+        padding-left: 65px;
+    }
+
+    .details-right {
+        padding-left: 15px;
+    }
+}

@@ -13,6 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\css\detail.css" />
+    <Content Include="wwwroot\css\edit.css" />
     <Content Include="wwwroot\css\footer.css">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
@@ -26,6 +28,13 @@
     <Content Include="wwwroot\images\clowns.png" />
     <Content Include="wwwroot\images\Knowz-logo.png" />
     <Content Include="wwwroot\images\menu-bar1.png" />
+    <Content Include="wwwroot\images\pencil.svg" />
+    <Content Include="wwwroot\images\pink.png" />
+    <Content Include="wwwroot\images\red.png" />
+    <Content Include="wwwroot\images\saveIcon.svg" />
+    <Content Include="wwwroot\images\trash.svg" />
+    <Content Include="wwwroot\images\X.svg" />
+    <Content Include="wwwroot\images\yellow.png" />
     <Content Include="wwwroot\lib\bootstrap\.bower.json" />
     <Content Include="wwwroot\lib\bootstrap\bower.json" />
     <Content Include="wwwroot\lib\bootstrap\CHANGELOG.md" />

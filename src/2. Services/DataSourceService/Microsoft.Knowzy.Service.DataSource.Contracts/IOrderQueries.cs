@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.Knowzy.Domain;
 using Microsoft.Knowzy.Models.ViewModels;
 
 namespace Microsoft.Knowzy.Service.DataSource.Contracts
@@ -12,6 +13,8 @@ namespace Microsoft.Knowzy.Service.DataSource.Contracts
         Task<IEnumerable<ReceivingsViewModel>> GetReceivings(int pageNumber, int pageCount);
         Task<ShippingViewModel> GetShipping(string orderNumber);
         Task<ReceivingViewModel> GetReceiving(string orderNumber);
+        Task<IEnumerable<Item>> GetItems();
+        Task<IEnumerable<PostalCarrier>> GetPostalCarriers();
         Task<int> GetShippingCount();
         Task<int> GetReceivingCount();
     }

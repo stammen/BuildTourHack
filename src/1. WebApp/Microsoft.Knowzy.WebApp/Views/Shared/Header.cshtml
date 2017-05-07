@@ -17,14 +17,14 @@
             </div>
             <div class="toolbar visible-xs collapse in" aria-expanded="false">
                 <span class="section-title">@ViewData["Title"] information</span>
-                <button type="button" class="btn btn-default button-default">
-                    <object data='images/add.svg' type='image/svg+xml'></object>
+                <button type="button" class="btn btn-default button-default button-header">
+                    <object data='/images/add.svg' type='image/svg+xml'></object>
                 </button>
             </div>
             <div class="navbar-collapse collapse" id="navbar-xs" aria-expanded="false">
                 <ul class="nav navbar-nav">
-                    <li nav-controller="Shippings" nav-action="Index"><a asp-controller="Shippings" asp-action="Index">Shipping</a></li>
-                    <li nav-controller="Shippings" nav-action="Index"><a asp-controller="Receivings" asp-action="Error">Receiving</a></li>
+                    <li nav-controller="Shippings"><a asp-controller="Shippings" asp-action="Index">Shipping</a></li>
+                    <li nav-controller="Shippings"><a asp-action="Error">Receiving</a></li>
                 </ul>                
             </div> 
             

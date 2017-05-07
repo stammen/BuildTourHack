@@ -74,6 +74,23 @@ namespace Microsoft.Knowzy.Service.DataSource.Core
                                         .FirstOrDefault(receiving => receiving.OrderNumber == orderNumber));
         }
 
+        public async Task<IEnumerable<Item>> GetItems()
+        {
+            return await Task.Run(() => _shippings
+                .SelectMany(shipping => shipping.OrderLines.Select(orderLine => orderLine.Item))
+                .GroupBy(item => item.Number)
+                .First()
+                .ToList());
+        }
+
+        public async Task<IEnumerable<PostalCarrier>> GetPostalCarriers()
+        {
+            return await Task.Run(() => _shippings.Select(shipping => shipping.PostalCarrier)
+                .GroupBy(postalCarrier => postalCarrier.Id)
+                .First()
+                .ToList());
+        }
+
         public async Task<int> GetShippingCount()
         {
             return await Task.Run(() => _shippings.Count());

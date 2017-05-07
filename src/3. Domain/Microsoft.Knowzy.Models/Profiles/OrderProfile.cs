@@ -11,7 +11,7 @@ namespace Microsoft.Knowzy.Models.Profiles
             CreateMap<Order, OrdersViewModel>();
 
             CreateMap<Order, OrderViewModel>()
-                .ForMember(orderViewModel => orderViewModel.PostalCarrier,
+                .ForMember(orderViewModel => orderViewModel.PostalCarrierName,
                     options => options.ResolveUsing(order => order.PostalCarrier.Name));
         }
     }
