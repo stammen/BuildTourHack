@@ -1,10 +1,11 @@
-@using Microsoft.Knowzy.Domain
+﻿@using Microsoft.Knowzy.Domain
 @model Microsoft.Knowzy.Models.ViewModels.ShippingViewModel
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<form asp-action="Edit">
+
+<form asp-action="Create">
     <div class="row">
         <div class="col-xs-12 col-sm-6">
             <div class="row">
@@ -18,33 +19,33 @@
                 <div class="col-xs-5">
                     <dl class="dl-horizontal detail-item detail-item-status">
                         <dt>@Html.DisplayNameFor(model => model.Status)</dt>
-                        <dd>@Html.DropDownListFor(model => model.Status, Html.GetEnumSelectList<OrderStatus>(), " --- ", new { @class = "form-control form-input" })</dd>
+                        <dd>@Html.DropDownListFor(model=> model.Status, Html.GetEnumSelectList<OrderStatus>(), " --- ", new {@class = "form-control form-input" })</dd>
                     </dl>
                 </div>
             </div>
             <div class="row">
                 <table class="table table-striped table-responsive items-grid">
                     <thead>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.OrderLines[0].ItemNumber)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.OrderLines[0].ItemNumber)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.OrderLines[0].Quantity)
-                            </th>
-                            <th></th>
-                        </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.OrderLines[0].ItemNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.OrderLines[0].ItemNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.OrderLines[0].Quantity)
+                        </th>
+                        <th></th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @{
-                            for (var i=0; i < Model.OrderLines.Count; i++)
-                            {
-                                @Html.EditorFor(model => Model.OrderLines[i])
-                            }
+                    @{
+                        for (var i=0; i < Model.OrderLines.Count; i++)
+                        {
+                            @Html.EditorFor(model => Model.OrderLines[i])
                         }
+                    }
                     </tbody>
                 </table>
             </div>
@@ -59,15 +60,15 @@
                 <dt><label asp-for="ContactPerson"></label></dt>
                 <dd><input asp-for="ContactPerson" class="form-control form-input" /></dd>
                 <dt><label asp-for="Email"></label></dt>
-                <dd><input asp-for="Email" class="form-control form-input" /></dd>
+                <dd><input asp-for="Email" class="form-control form-input" /></dd>   
                 <dt><label asp-for="PhoneNumber"></label></dt>
-                <dd><input asp-for="PhoneNumber" class="form-control form-input" /></dd>
+                <dd><input asp-for="PhoneNumber" class="form-control form-input" /></dd>           
                 <dt><label asp-for="Address"></label></dt>
-                <dd><input asp-for="Address" class="form-control form-input" /></dd>
+                <dd><input asp-for="Address" class="form-control form-input" /></dd>           
                 <dt><label asp-for="Tracking"></label></dt>
-                <dd><input asp-for="Tracking" class="form-control form-input" /></dd>
+                <dd><input asp-for="Tracking" class="form-control form-input" /></dd>           
                 <dt><label asp-for="PostalCarrierName"></label></dt>
-                <dd>@Html.DropDownListFor(model => model.PostalCarrierName, new SelectList(ViewBag.PostalCarrier, "Name", "Name"), " --- ", new { @class = "form-control form-input" })</dd>
+                <dd>@Html.DropDownListFor(model => model.PostalCarrierName, new SelectList(ViewBag.PostalCarrier, "Name", "Name"), " --- ", new { @class = "form-control form-input" })</dd>           
             </dl>
         </div>
     </div>
