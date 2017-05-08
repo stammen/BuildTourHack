@@ -1,21 +1,12 @@
-﻿footer {
-    width: 100%;
-    position: absolute;
-    height: 26%;
-    left: 0;
-    background-color: #333333;
+﻿footer .bar {
+    background: url("../images/bottom-bar.png");
+    height: 68px;
 }
 
 footer .text {
+    height: 189px;
+    background-color: #333333;
     color: white;
-    margin-top: 40px;
-    margin-left: 50px;
-    font-size: 16px;
-    font-family: Segoe UI;
-}
-
-@media screen and (max-width: 767px) {
-    footer {
-        display: none;
-    }
+    padding: 40px 0 0 50px;
+    font-size: 16px;   
 }

@@ -1,0 +1,33 @@
+﻿<header>
+    <div class="container images">
+        <img class="logo" src="~/images/Knowz-logo.png" />
+        <img class="clowns hidden-xs" src="~/images/clowns.png" />
+    </div>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-xs" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-close glyphicon glyphicon-remove"></span>
+                </button>
+            </div>
+            <div class="toolbar visible-xs collapse in" aria-expanded="false">
+                <span class="section-title">@ViewData["Title"] information</span>
+                <button type="button" class="btn btn-default button-default">
+                    <object data='images/add.svg' type='image/svg+xml'></object>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-xs" aria-expanded="false">
+                <ul class="nav navbar-nav">
+                    <li nav-controller="Shippings" nav-action="Index"><a asp-controller="Shippings" asp-action="Index">Shipping</a></li>
+                    <li nav-controller="Shippings" nav-action="Index"><a asp-controller="Receivings" asp-action="Error">Receiving</a></li>
+                </ul>                
+            </div> 
+            
+        </div>
+    </nav>
+</header>

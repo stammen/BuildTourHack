@@ -13,6 +13,8 @@ namespace Microsoft.Knowzy.WebApp
 {
     public class Startup
     {
+        public IConfigurationRoot Configuration { get; }
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -23,13 +25,11 @@ namespace Microsoft.Knowzy.WebApp
             Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
             services.AddAutoMapper();
-
+            
             services.AddSingleton<IConfiguration>(Configuration);
 
             services.AddEntityFrameworkSqlServer()
@@ -72,7 +72,7 @@ namespace Microsoft.Knowzy.WebApp
             {
                 routes.MapRoute(
                     "default",
-                    "{controller=Home}/{action=Index}/{id?}");
+                    "{controller=Shippings}/{action=Index}/{id?}");
             });
         }
     }
