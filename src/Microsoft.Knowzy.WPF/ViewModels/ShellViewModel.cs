@@ -16,14 +16,14 @@ namespace Microsoft.Knowzy.WPF.ViewModels
     public class ShellViewModel : Conductor<Screen>
     {
         private readonly MainViewModel _mainViewModel;
-        private readonly AddNewItemViewModel _addNewItemViewModel;
+        private readonly EditItemViewModel _editItemViewModel;
         private readonly IEventAggregator _eventAggregator;
         private readonly IWindowManager _windowManager;
 
-        public ShellViewModel(MainViewModel mainViewModel, AddNewItemViewModel addNewItemViewModel, IEventAggregator eventAggregator, IWindowManager windowManager)
+        public ShellViewModel(MainViewModel mainViewModel, EditItemViewModel editItemViewModel, IEventAggregator eventAggregator, IWindowManager windowManager)
         {
             _mainViewModel = mainViewModel;
-            _addNewItemViewModel = addNewItemViewModel;
+            _editItemViewModel = editItemViewModel;
             _eventAggregator = eventAggregator;
             _windowManager = windowManager;
         }
