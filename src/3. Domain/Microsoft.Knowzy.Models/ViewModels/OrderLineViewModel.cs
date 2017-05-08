@@ -12,6 +12,7 @@ namespace Microsoft.Knowzy.Models.ViewModels
         public string ItemNumber { get; set; }
         [Display(Name = "Item image")]
         public string ItemImage { get; set; }
+        public decimal ItemPrice { get; set; }
         public int Quantity { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

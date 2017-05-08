@@ -13,7 +13,8 @@ namespace Microsoft.Knowzy.Models.Profiles
             CreateMap<Order, OrderViewModel>()
                 .ForMember(orderViewModel => orderViewModel.PostalCarrierName,
                     options => options.ResolveUsing(order => order.PostalCarrier.Name))
-                .ReverseMap();
+                .ForMember(orderViewModel => orderViewModel.PostalCarrierId,
+                    options => options.ResolveUsing(order => order.PostalCarrier.Id));       
         }
     }
 }

@@ -86,7 +86,7 @@
                     <span asp-validation-for="Tracking" class="text-danger"></span>
                 </dd>           
                 <dt><label asp-for="PostalCarrierName"></label></dt>
-                <dd>@Html.DropDownListFor(model => model.PostalCarrierName, new SelectList(ViewBag.PostalCarrier, "Name", "Name"), " --- ", new { @class = "form-control form-input" })</dd>           
+                <dd>@Html.DropDownListFor(model => model.PostalCarrierId, new SelectList(ViewBag.PostalCarrier, "Id", "Name"), " --- ", new { @class = "form-control form-input" })</dd>           
             </dl>
         </div>
     </div>
