@@ -57,6 +57,14 @@ a {
         border-color: transparent;
     }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
 @media screen and (max-width: 767px) {
     .body-content {
         padding: 0;
