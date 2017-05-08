@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Microsoft.Knowzy.Domain.Data
 {
-    public class KnowzyContext : DbContext
+    public class KnowzyContext : DbContext, IUnitOfWork
     {
         public KnowzyContext(DbContextOptions options) : base(options) { }
 

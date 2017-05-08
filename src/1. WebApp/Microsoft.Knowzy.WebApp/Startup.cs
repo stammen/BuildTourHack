@@ -6,8 +6,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Knowzy.Domain.Data;
+using Microsoft.Knowzy.Repositories.Core;
 using Microsoft.Knowzy.Service.DataSource.Core;
 using Microsoft.Knowzy.Service.DataSource.Contracts;
+using Micrososft.Knowzy.Repositories.Contracts;
 
 namespace Microsoft.Knowzy.WebApp
 {
@@ -38,6 +40,7 @@ namespace Microsoft.Knowzy.WebApp
                     options.UseSqlServer(Configuration.GetConnectionString("KnowzyContext"));
                 });
 
+            services.AddSingleton<IOrderRepository, OrderRepository>();
             services.AddSingleton<IOrderQueries, OrderQueriesDatabase>();
         }
 

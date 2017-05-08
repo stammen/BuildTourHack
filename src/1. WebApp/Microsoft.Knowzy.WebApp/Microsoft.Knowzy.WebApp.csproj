@@ -425,8 +425,10 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\2. Services\Commands\Microsoft.Knowzy.Commands.OrderCommands\Microsoft.Knowzy.Commands.OrderCommands.csproj" />
     <ProjectReference Include="..\..\2. Services\DataSourceService\Microsoft.Knowzy.Service.DataSource.Contracts\Microsoft.Knowzy.Service.DataSource.Contracts.csproj" />
     <ProjectReference Include="..\..\2. Services\DataSourceService\Microsoft.Knowzy.Service.DataSource.Core\Microsoft.Knowzy.Service.DataSource.Core.csproj" />
+    <ProjectReference Include="..\..\2. Services\Repositories\Microsoft.Knowzy.Repositories.Core\Microsoft.Knowzy.Repositories.Core.csproj" />
     <ProjectReference Include="..\..\3. Domain\Microsoft.Knowzy.Domain.Data\Microsoft.Knowzy.Domain.Data.csproj" />
   </ItemGroup>
   <ItemGroup>

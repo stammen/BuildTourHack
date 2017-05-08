@@ -10,7 +10,7 @@ namespace Microsoft.Knowzy.Models.Profiles
         {
             CreateMap<Shipping, ShippingsViewModel>();
 
-            CreateMap<Shipping, ShippingViewModel>();
+            CreateMap<Shipping, ShippingViewModel>().ReverseMap();
         }
     }
 }

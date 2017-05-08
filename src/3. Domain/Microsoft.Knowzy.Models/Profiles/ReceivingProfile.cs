@@ -10,7 +10,7 @@ namespace Microsoft.Knowzy.Models.Profiles
         {
             CreateMap<Receiving, ReceivingsViewModel>();
 
-            CreateMap<Receiving, ReceivingViewModel>();
+            CreateMap<Receiving, ReceivingViewModel>().ReverseMap();
         }
     }
 }
