@@ -9,14 +9,12 @@
 //
 //*********************************************************
 
+using Microsoft.Knowzy.Domain;
 
-namespace Microsoft.Knowzy.WPF.Views
+namespace Microsoft.Knowzy.Common.Contracts
 {
-    public partial class AddNewItemView
+    public interface IDataProvider
     {
-        public AddNewItemView()
-        {
-            InitializeComponent();
-        }
+        DevelopmentItem[] GetData();
     }
 }

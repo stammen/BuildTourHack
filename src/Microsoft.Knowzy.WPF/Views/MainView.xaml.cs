@@ -1,5 +1,4 @@
-﻿/**
-//*********************************************************
+﻿//*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
 // This code is licensed under the MIT License (MIT).
@@ -9,7 +8,7 @@
 // PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
 //
 //*********************************************************
-**/
+
 
 namespace Microsoft.Knowzy.WPF.Views
 {
