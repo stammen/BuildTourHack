@@ -1,0 +1,22 @@
+@using HtmlHelpers.BeginCollectionItemCore
+
+@model Microsoft.Knowzy.Models.ViewModels.OrderLineViewModel
+<tr>
+@using (Html.BeginCollectionItem("OrderLines"))
+{      
+        <td>
+            @Html.HiddenFor(model => model.Id, new { @class = "form-control" })
+            <img src='@Html.DisplayFor(model => model.ItemImage)'/>
+        </td>
+        <td class="itemNumber">
+            @Html.DisplayFor(model => model.ItemNumber)
+            @Html.HiddenFor(model => model.ItemNumber, new { @class = "form-control"})
+        </td>
+        <td>
+            @Html.TextBoxFor(model => model.Quantity, new {@class = "form-control form-input form-quantity"})
+        </td>
+        <td>
+            <div class="delete">Delete</div>
+        </td>
+}
+</tr>  

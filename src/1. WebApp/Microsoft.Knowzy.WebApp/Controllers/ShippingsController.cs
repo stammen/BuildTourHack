@@ -1,5 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Knowzy.Models.ViewModels;
 using Microsoft.Knowzy.Service.DataSource.Contracts;
 
 namespace Microsoft.Knowzy.WebApp.Controllers
@@ -38,8 +41,34 @@ namespace Microsoft.Knowzy.WebApp.Controllers
             var getShippingsTask = _orderQueries.GetShipping(orderNumber);
             await Task.WhenAll(GenerateDropdowns(), getShippingsTask);
             return View(getShippingsTask.Result);
+        }
 
-        }      
+        public async Task<IActionResult> Create()
+        {
+            await GenerateDropdowns();
+            return View(new ShippingViewModel{OrderLines = new List<OrderLineViewModel>()});
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ShippingViewModel shipping)
+        {
+            return null;
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(ShippingViewModel shipping)
+        {
+            return RedirectToAction("Details", "Shippings", new { shipping.OrderNumber});
+        }
+
+        public async Task<IActionResult> AddOrderItem(IEnumerable<string> itemNumbers)
+        {
+            var itemToAdd =  (await _orderQueries.GetItems()).FirstOrDefault(item => itemNumbers.All(number => number != item.Number));            
+            var orderLineViewmodel = new OrderLineViewModel{ ItemImage = itemToAdd.Image, ItemNumber = itemToAdd.Number, Quantity = 1 };
+            return PartialView("EditorTemplates/OrderLineViewModel", orderLineViewmodel);
+        }
 
         public IActionResult Error()
         {
@@ -52,12 +81,7 @@ namespace Microsoft.Knowzy.WebApp.Controllers
 
         private async Task GenerateDropdowns()
         {
-            var itemsTask = _orderQueries.GetItems();
-            var postalCarrierTask = _orderQueries.GetPostalCarriers();
-
-            await Task.WhenAll(itemsTask, postalCarrierTask);
-            ViewBag.PostalCarrier = postalCarrierTask.Result;
-            ViewBag.Item = itemsTask.Result;
+            ViewBag.PostalCarrier = await _orderQueries.GetPostalCarriers();
         }
 
         #endregion
