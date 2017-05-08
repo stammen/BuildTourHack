@@ -9,14 +9,17 @@
 //
 //*********************************************************
 
+using System;
+using Microsoft.Knowzy.Common.Contracts;
+using Microsoft.Knowzy.Domain;
 
-namespace Microsoft.Knowzy.WPF.Views
+namespace Microsoft.Knowzy.JsonDataProvider
 {
-    public partial class AddNewItemView
+    public class JsonDataProvider : IDataProvider
     {
-        public AddNewItemView()
+        public DevelopmentItem[] GetData()
         {
-            InitializeComponent();
+            throw new NotImplementedException();
         }
     }
 }

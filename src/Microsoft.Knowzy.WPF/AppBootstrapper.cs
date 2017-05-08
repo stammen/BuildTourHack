@@ -1,4 +1,3 @@
-/**
 //*********************************************************
 //
 // Copyright (c) Microsoft. All rights reserved.
@@ -9,7 +8,6 @@
 // PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
 //
 //*********************************************************
-**/
 
 using System;
 using Autofac;

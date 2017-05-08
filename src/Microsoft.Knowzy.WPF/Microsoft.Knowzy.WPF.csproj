@@ -156,5 +156,11 @@
   <ItemGroup>
     <Folder Include="Converters\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj">
+      <Project>{f1f587fe-c52d-43db-b82d-7531aebb720a}</Project>
+      <Name>Microsoft.Knowzy.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
