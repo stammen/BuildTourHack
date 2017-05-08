@@ -9,7 +9,6 @@
 //
 //*********************************************************
 
-
 using Caliburn.Micro;
 
 namespace Microsoft.Knowzy.WPF.ViewModels

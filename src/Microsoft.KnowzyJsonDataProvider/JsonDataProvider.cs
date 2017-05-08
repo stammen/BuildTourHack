@@ -9,17 +9,34 @@
 //
 //*********************************************************
 
-using System;
 using Microsoft.Knowzy.Common.Contracts;
 using Microsoft.Knowzy.Domain;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 
 namespace Microsoft.Knowzy.JsonDataProvider
 {
     public class JsonDataProvider : IDataProvider
     {
+        public JsonDataProvider()
+        {
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                Formatting = Formatting.Indented,
+                NullValueHandling = NullValueHandling.Ignore,
+            };
+        }
+
         public DevelopmentItem[] GetData()
         {
-            throw new NotImplementedException();
+            // TODO: Read json file 
+            string strData = "";
+
+            return string.IsNullOrWhiteSpace(strData)
+            ? default(DevelopmentItem[])
+            : JsonConvert.DeserializeObject<DevelopmentItem[]>(strData, new StringEnumConverter());
         }
     }
 }
