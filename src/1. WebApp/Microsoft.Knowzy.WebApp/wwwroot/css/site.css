@@ -62,11 +62,7 @@ a {
         padding: 0;
     }
 
-   .body-content .container {
-       padding: 0;
-   }
-
     .body-content:after {
         display: none;
-    }   
+    } 
 }

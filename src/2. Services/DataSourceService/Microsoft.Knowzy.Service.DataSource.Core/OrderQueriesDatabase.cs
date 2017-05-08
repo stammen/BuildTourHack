@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Knowzy.Domain;
 using Microsoft.Knowzy.Domain.Data;
 using Microsoft.Knowzy.Models.ViewModels;
 using Microsoft.Knowzy.Service.DataSource.Contracts;
@@ -64,6 +65,16 @@ namespace Microsoft.Knowzy.Service.DataSource.Core
         {
             return await _context.Receivings.ProjectTo<ReceivingViewModel>()
                         .FirstOrDefaultAsync(receiving => receiving.OrderNumber == orderNumber);
+        }
+
+        public async Task<IEnumerable<Item>> GetItems()
+        {
+            return await _context.Items.ToListAsync();
+        }
+
+        public async Task<IEnumerable<PostalCarrier>> GetPostalCarriers()
+        {
+            return await _context.PostalCarriers.ToListAsync();
         }
 
         public async Task<int> GetShippingCount()

@@ -1,0 +1,51 @@
+
+@using Microsoft.Knowzy.Domain
+@model Microsoft.Knowzy.Models.ViewModels.ShippingViewModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form asp-action="Edit">
+<div class="row">
+    <div class="col-xs-12 col-sm-6">
+        <div class="row">
+            <div class="col-xs-7">
+                <dl class="dl-horizontal detail-item detail-item-number">
+                    <dt>@Html.DisplayNameFor(model => model.OrderNumber)</dt>
+                    <dd>@Html.DisplayFor(model => model.OrderNumber)</dd>
+                </dl>
+            </div>
+            <div class="col-xs-5">
+                <dl class="dl-horizontal detail-item detail-item-status">
+                    <dt>@Html.DisplayNameFor(model => model.Status)</dt>
+                    <dd>@Html.DropDownListFor(model=> model.Status, Html.GetEnumSelectList<OrderStatus>(), " --- ", new {@class = "form-control form-input" })</dd>
+                </dl>
+            </div>
+        </div>
+        @Html.Partial("OrderLines", Model.OrderLines)
+    </div>
+    <div class="col-xs-12 col-sm-6 details-right">
+        <dl class="dl-horizontal detail-item">
+            <dt><label asp-for="CompanyName"></label></dt>
+            <dd><input asp-for="CompanyName" class="form-control form-input" /></dd>
+            <dt><label asp-for="ContactPerson"></label></dt>
+            <dd><input asp-for="ContactPerson" class="form-control form-input" /></dd>
+            <dt><label asp-for="Email"></label></dt>
+            <dd><input asp-for="Email" class="form-control form-input" /></dd>   
+            <dt><label asp-for="PhoneNumber"></label></dt>
+            <dd><input asp-for="PhoneNumber" class="form-control form-input" /></dd>           
+            <dt><label asp-for="Address"></label></dt>
+            <dd><input asp-for="Address" class="form-control form-input" /></dd>           
+            <dt><label asp-for="Tracking"></label></dt>
+            <dd><input asp-for="Tracking" class="form-control form-input" /></dd>           
+            <dt><label asp-for="PostalCarrierName"></label></dt>
+            <dd>@Html.DropDownListFor(model => model.PostalCarrierName, new SelectList(ViewBag.PostalCarrier, "Id", "Name"), " --- ", new { @class = "form-control form-input " })</dd>           
+        </dl>
+    </div>
+</div>
+<div class="row">
+    <button type="button" class="center-block btn btn-default button-default button-action">
+        <object data='/images/pencil.svg' type='image/svg+xml'></object> Edit order
+    </button>
+</div>
+</form>

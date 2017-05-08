@@ -71,14 +71,14 @@ header .images { position: relative; }
     right: 0;
 }
 
-.btn-default {
+.button-header {
     width: 259px;
     height: 49px;
     font-size: 18px;
     float: right;
 }
 
-.btn-default:hover object {
+.button-header:hover object {
     color: white;
 }
 
@@ -188,7 +188,7 @@ header .images { position: relative; }
         padding-left: 5px;
     }
 
-    .btn-default {
+    .button-header {
         width: 45px;
         height: 39px;
         border-radius: 10px;
