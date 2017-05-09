@@ -5,9 +5,10 @@
 @using (Html.BeginCollectionItem("OrderLines"))
 {      
         <td>
-            @Html.HiddenFor(model => model.Id, new { @class = "form-control" })
-            <img src='@Html.DisplayFor(model => model.ItemImage)'/>
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.ItemPrice)
             @Html.HiddenFor(model => model.ItemImage)
+            <img src='@Html.DisplayFor(model => model.ItemImage)'/>            
         </td>
         <td class="itemNumber">
             @Html.DisplayFor(model => model.ItemNumber)

@@ -24,6 +24,7 @@ namespace Microsoft.Knowzy.Models.ViewModels
         public string Tracking { get; set; }
         [Display(Name = "Postal Carrier:")]
         public string PostalCarrierName { get; set; }
+        public int PostalCarrierId { get; set; }
         [Display(Name = "Status:")]
         public OrderStatus Status { get; set; }
         public List<OrderLineViewModel> OrderLines { get; set; }

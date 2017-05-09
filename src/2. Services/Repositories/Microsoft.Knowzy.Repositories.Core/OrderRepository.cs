@@ -49,7 +49,9 @@ namespace Microsoft.Knowzy.Repositories.Core
             if (existingParent != null)
             {
                 _context.Entry(existingParent).CurrentValues.SetValues(shippingToUpdate);
-
+                existingParent.PostalCarrier = await 
+                    _context.PostalCarriers.FirstOrDefaultAsync(
+                        postalCarrier => postalCarrier.Id == shippingToUpdate.PostalCarrier.Id);
                 foreach (var existingChild in existingParent.OrderLines.ToList())
                 {
                     if (shippingToUpdate.OrderLines.All(c => c.Id != existingChild.Id))

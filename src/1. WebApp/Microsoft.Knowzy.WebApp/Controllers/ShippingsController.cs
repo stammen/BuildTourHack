@@ -64,7 +64,12 @@ namespace Microsoft.Knowzy.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var command = new AddShippingCommand(_mapper.Map<ShippingViewModel, Shipping>(shipping));
+                var shippingModel = _mapper.Map<ShippingViewModel, Shipping>(shipping);
+                if (shippingModel.PostalCarrier == null)
+                {
+                    shippingModel.PostalCarrier = new PostalCarrier { Id = shipping.PostalCarrierId };
+                }
+                var command = new AddShippingCommand(shippingModel);
                 var handler = new AddShippingCommandHandler(_orderRepository);
                 await handler.Execute(command);
                 return RedirectToAction("Index", "Shippings");
@@ -79,7 +84,12 @@ namespace Microsoft.Knowzy.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var command = new EditOrderCommand(_mapper.Map<ShippingViewModel, Shipping>(shipping));
+                var shippingModel = _mapper.Map<ShippingViewModel, Shipping>(shipping);
+                if (shippingModel.PostalCarrier == null)
+                {
+                    shippingModel.PostalCarrier = new PostalCarrier {Id = shipping.PostalCarrierId};
+                }
+                var command = new EditOrderCommand(shippingModel);
                 var handler = new EditOrderCommandHandler(_orderRepository);
                 await handler.Execute(command);
                 return RedirectToAction("Details", "Shippings", new { shipping.OrderNumber });
@@ -91,7 +101,7 @@ namespace Microsoft.Knowzy.WebApp.Controllers
         public async Task<IActionResult> AddOrderItem(IEnumerable<string> itemNumbers)
         {
             var itemToAdd =  (await _orderQueries.GetItems()).FirstOrDefault(item => itemNumbers.All(number => number != item.Number));            
-            var orderLineViewmodel = new OrderLineViewModel{ ItemImage = itemToAdd.Image, ItemNumber = itemToAdd.Number, Quantity = 1 };
+            var orderLineViewmodel = new OrderLineViewModel{ ItemImage = itemToAdd.Image, ItemNumber = itemToAdd.Number, ItemPrice = itemToAdd.Price, Quantity = 1 };
             return PartialView("EditorTemplates/OrderLineViewModel", orderLineViewmodel);
         }
 
