@@ -29,20 +29,18 @@ namespace Microsoft.Knowzy.WebApp
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-            services.AddAutoMapper();
-            
-            services.AddSingleton<IConfiguration>(Configuration);
-
+            ConfigureCommonServices(services);
             services.AddEntityFrameworkSqlServer()
                 .AddDbContext<KnowzyContext>(options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("KnowzyContext"));
-                });
-
-            services.AddSingleton<IOrderRepository, OrderRepository>();
-            services.AddSingleton<IOrderQueries, OrderQueriesDatabase>();
+                    options.UseSqlServer(Configuration.GetConnectionString("KnowzyContext")));
         }
+
+        public void ConfigureDevelopmentServices(IServiceCollection services)
+        {
+            ConfigureCommonServices(services);
+            services.AddEntityFrameworkSqlServer().AddDbContext<KnowzyContext>(
+                options => options.UseInMemoryDatabase());
+        }       
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
@@ -59,10 +57,8 @@ namespace Microsoft.Knowzy.WebApp
                     var knowzyContext = serviceScope.ServiceProvider.GetService<KnowzyContext>();
                     var configuration = serviceScope.ServiceProvider.GetService<IConfiguration>();
                     var hostingEnvironment = serviceScope.ServiceProvider.GetService<IHostingEnvironment>();
-                    knowzyContext.Database.EnsureDeleted();
-                    knowzyContext.Database.Migrate();
                     DatabaseInitializer.Seed(hostingEnvironment, configuration, knowzyContext).Wait();
-                }               
+                }
             }
             else
             {
@@ -77,6 +73,16 @@ namespace Microsoft.Knowzy.WebApp
                     "default",
                     "{controller=Shippings}/{action=Index}/{id?}");
             });
+        }
+
+        private void ConfigureCommonServices(IServiceCollection services)
+        {
+            services.AddMvc();
+            services.AddAutoMapper();
+
+            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderQueries, OrderQueriesDatabase>();
         }
     }
 }
