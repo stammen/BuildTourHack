@@ -52,7 +52,7 @@
     }
 
     .items-grid > thead > tr {
-        background-color: #cc0202;        
+        background-color: #cc0202;
     }
 
         .items-grid > thead > tr > th {
@@ -61,6 +61,10 @@
         }
 
 @media screen and (max-width: 767px) {
+    .items-grid td {
+        height: 60px;
+    }
+
     .items-grid > tbody > tr > td img {
         width: 57px;
         height: 45px;

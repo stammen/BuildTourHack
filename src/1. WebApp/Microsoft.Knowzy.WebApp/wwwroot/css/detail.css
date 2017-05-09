@@ -48,6 +48,16 @@ dt, dd {
     padding-left: 10%;
 }
 
+.details-close {
+    float: right;
+    font-size: 25px;
+}
+
+    .details-close:hover {
+        color: #0078d7;
+        cursor: pointer;
+    }
+
 @media screen and (max-width: 767px) {
     dl {
         padding: 0 20px;

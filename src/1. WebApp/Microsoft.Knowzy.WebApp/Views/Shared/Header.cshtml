@@ -15,13 +15,30 @@
                     <span class="icon-close glyphicon glyphicon-remove"></span>
                 </button>
             </div>
-            <div class="toolbar visible-xs collapse in" aria-expanded="false">
-                <span class="section-title">@ViewData["Title"] information</span>
-                <button type="button" class="btn btn-default button-default button-header">
-                    <object data='/images/add.svg' type='image/svg+xml'></object>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse" id="navbar-xs" aria-expanded="false">
+            @{
+                if (ViewContext.RouteData.Values["action"].ToString() == "Index")
+                {
+                    <div class="toolbar visible-xs collapse in" aria-expanded="false">
+                        <span class="section-title">@ViewData["Title"] information</span>
+                        <button type="button" class="btn btn-default button-default button-header"
+                                onclick="location.href = '@(Url.Action("Create", ViewContext.RouteData.Values["controller"].ToString()))'">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </div>
+                }
+                else
+                {
+                    <div class="toolbar toolbar-details visible-xs collapse in" aria-expanded="false">
+                        <span class="section-title section-title-centered">Order details</span>
+                        <button type="button" class="btn btn-default button-default button-header"
+                                onclick="location.href = '@(Url.Action("Index", ViewContext.RouteData.Values["controller"].ToString()))'">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </div>
+                }
+            }
+            
+            <div class="navbar-collapse collapse navbar-xs" id="navbar-xs" aria-expanded="false">
                 <ul class="nav navbar-nav">
                     <li nav-controller="Shippings"><a asp-controller="Shippings" asp-action="Index">Shipping</a></li>
                     <li nav-controller="Shippings"><a asp-action="Error">Receiving</a></li>
