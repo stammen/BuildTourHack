@@ -19,8 +19,11 @@ namespace Microsoft.Knowzy.JsonDataProvider
 {
     public class JsonDataProvider : IDataProvider
     {
-        public JsonDataProvider()
+        private readonly IConfiguration _configuration;
+
+        public JsonDataProvider(IConfiguration configuration)
         {
+            _configuration = configuration;
             JsonConvert.DefaultSettings = () => new JsonSerializerSettings
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
@@ -31,8 +34,9 @@ namespace Microsoft.Knowzy.JsonDataProvider
 
         public DevelopmentItem[] GetData()
         {
+            var jsonFilePath = _configuration.Configuration.JsonFilePath;
             // TODO: Read json file 
-            string strData = "";
+            var strData = "";
 
             return string.IsNullOrWhiteSpace(strData)
             ? default(DevelopmentItem[])
