@@ -1,20 +1,20 @@
 ﻿using System.Threading.Tasks;
 using Micrososft.Knowzy.Repositories.Contracts;
 
-namespace Microsoft.Knowzy.Commands.OrderCommands.EditOrder
+namespace Microsoft.Knowzy.Commands.OrderCommands.Add
 {
-    public class EditOrderCommandHandler
+    public class AddReceivingCommandHandler
     {
         private readonly IOrderRepository _orderRepository;
 
-        public EditOrderCommandHandler(IOrderRepository orderRepository)
+        public AddReceivingCommandHandler(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
         }
 
-        public async Task Execute(EditOrderCommand command)
+        public async Task Execute(AddReceivingCommand command)
         {
-            await _orderRepository.UpdateShipping(command.ShippingToEdit);
+            await _orderRepository.AddReceiving(command.ReceivingToAdd);
             await _orderRepository.UnitOfWork.SaveChangesAsync();
         }
     }

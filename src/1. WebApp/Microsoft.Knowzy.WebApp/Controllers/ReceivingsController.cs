@@ -12,7 +12,7 @@ using Micrososft.Knowzy.Repositories.Contracts;
 
 namespace Microsoft.Knowzy.WebApp.Controllers
 {
-    public class ShippingsController : Controller
+    public class ReceivingsController : Controller
     {
         #region Fields
 
@@ -24,7 +24,7 @@ namespace Microsoft.Knowzy.WebApp.Controllers
 
         #region Constructor
 
-        public ShippingsController(IOrderQueries orderQueries, IOrderRepository orderRepository, IMapper mapper)
+        public ReceivingsController(IOrderQueries orderQueries, IOrderRepository orderRepository, IMapper mapper)
         {
             _orderQueries = orderQueries;
             _orderRepository = orderRepository;
@@ -37,71 +37,71 @@ namespace Microsoft.Knowzy.WebApp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _orderQueries.GetShippings());
+            return View(await _orderQueries.GetReceivings());
         }
 
         public async Task<IActionResult> Details(string orderNumber)
         {
-            return View(await _orderQueries.GetShipping(orderNumber));
+            return View(await _orderQueries.GetReceiving(orderNumber));
         }
 
         public async Task<IActionResult> Edit(string orderNumber)
         {
-            var getShippingsTask = _orderQueries.GetShipping(orderNumber);
-            await Task.WhenAll(GenerateDropdowns(), getShippingsTask);
-            return View(getShippingsTask.Result);
+            var getReceivingTask = _orderQueries.GetReceiving(orderNumber);
+            await Task.WhenAll(GenerateDropdowns(), getReceivingTask);
+            return View(getReceivingTask.Result);
         }
 
         public async Task<IActionResult> Create()
         {
             await GenerateDropdowns();
-            return View(new ShippingViewModel{OrderLines = new List<OrderLineViewModel>()});
+            return View(new ReceivingViewModel { OrderLines = new List<OrderLineViewModel>() });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ShippingViewModel shipping)
+        public async Task<IActionResult> Create(ReceivingViewModel receiving)
         {
             if (ModelState.IsValid)
             {
-                var shippingModel = _mapper.Map<ShippingViewModel, Shipping>(shipping);
-                if (shippingModel.PostalCarrier == null)
+                var receivingModel = _mapper.Map<ReceivingViewModel, Receiving>(receiving);
+                if (receivingModel.PostalCarrier == null)
                 {
-                    shippingModel.PostalCarrier = new PostalCarrier { Id = shipping.PostalCarrierId };
+                    receivingModel.PostalCarrier = new PostalCarrier { Id = receiving.PostalCarrierId };
                 }
-                var command = new AddShippingCommand(shippingModel);
-                var handler = new AddShippingCommandHandler(_orderRepository);
+                var command = new AddReceivingCommand(receivingModel);
+                var handler = new AddReceivingCommandHandler(_orderRepository);
                 await handler.Execute(command);
-                return RedirectToAction("Index", "Shippings");
+                return RedirectToAction("Index", "Receivings");
             }
             await GenerateDropdowns();
-            return View(shipping);
+            return View(receiving);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(ShippingViewModel shipping)
+        public async Task<IActionResult> Edit(ReceivingViewModel receiving)
         {
             if (ModelState.IsValid)
             {
-                var shippingModel = _mapper.Map<ShippingViewModel, Shipping>(shipping);
-                if (shippingModel.PostalCarrier == null)
+                var receivingModel = _mapper.Map<ReceivingViewModel, Receiving>(receiving);
+                if (receivingModel.PostalCarrier == null)
                 {
-                    shippingModel.PostalCarrier = new PostalCarrier {Id = shipping.PostalCarrierId};
+                    receivingModel.PostalCarrier = new PostalCarrier { Id = receiving.PostalCarrierId };
                 }
-                var command = new EditShippingCommand(shippingModel);
-                var handler = new EditShippingCommandHandler(_orderRepository);
+                var command = new EditReceivingCommand(receivingModel);
+                var handler = new EditReceivingCommandHandler(_orderRepository);
                 await handler.Execute(command);
-                return RedirectToAction("Details", "Shippings", new { shipping.OrderNumber });
+                return RedirectToAction("Details", "Receivings", new { receiving.OrderNumber });
             }
             await GenerateDropdowns();
-            return View(shipping);
+            return View(receiving);
         }
 
         public async Task<IActionResult> AddOrderItem(IEnumerable<string> itemNumbers)
         {
-            var itemToAdd =  (await _orderQueries.GetItems()).FirstOrDefault(item => itemNumbers.All(number => number != item.Number));            
-            var orderLineViewmodel = new OrderLineViewModel{ ItemImage = itemToAdd.Image, ItemNumber = itemToAdd.Number, ItemPrice = itemToAdd.Price, Quantity = 1 };
+            var itemToAdd = (await _orderQueries.GetItems()).FirstOrDefault(item => itemNumbers.All(number => number != item.Number));
+            var orderLineViewmodel = new OrderLineViewModel { ItemImage = itemToAdd.Image, ItemNumber = itemToAdd.Number, ItemPrice = itemToAdd.Price, Quantity = 1 };
             return PartialView("EditorTemplates/OrderLineViewModel", orderLineViewmodel);
         }
 

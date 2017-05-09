@@ -8,6 +8,8 @@ namespace Micrososft.Knowzy.Repositories.Contracts
     {
         Task AddShipping(Shipping shipping);
         Task UpdateShipping(Shipping shipping);
+        Task AddReceiving(Receiving receiving);
+        Task UpdateReceiving(Receiving receiving);
         IUnitOfWork UnitOfWork { get; }
     }
 }
