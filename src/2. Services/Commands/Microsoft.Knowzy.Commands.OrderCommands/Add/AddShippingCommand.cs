@@ -1,6 +1,6 @@
 ﻿using Microsoft.Knowzy.Domain;
 
-namespace Microsoft.Knowzy.Commands.OrderCommands.AddOrder
+namespace Microsoft.Knowzy.Commands.OrderCommands.Add
 {
     public class AddShippingCommand
     {

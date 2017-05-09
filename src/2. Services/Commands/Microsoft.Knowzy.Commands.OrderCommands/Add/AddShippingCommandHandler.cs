@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Micrososft.Knowzy.Repositories.Contracts;
 
-namespace Microsoft.Knowzy.Commands.OrderCommands.AddOrder
+namespace Microsoft.Knowzy.Commands.OrderCommands.Add
 {
     public class AddShippingCommandHandler
     {

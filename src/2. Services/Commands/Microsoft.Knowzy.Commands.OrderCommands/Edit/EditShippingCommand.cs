@@ -1,11 +1,11 @@
 ﻿using Microsoft.Knowzy.Domain;
 
-namespace Microsoft.Knowzy.Commands.OrderCommands.EditOrder
+namespace Microsoft.Knowzy.Commands.OrderCommands.Edit
 {
-    public class EditOrderCommand
+    public class EditShippingCommand
     {
         public Shipping ShippingToEdit { get; }
-        public EditOrderCommand(Shipping shippingToEdit)
+        public EditShippingCommand(Shipping shippingToEdit)
         {
             ShippingToEdit = shippingToEdit;
         }

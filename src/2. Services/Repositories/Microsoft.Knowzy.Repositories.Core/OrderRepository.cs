@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +16,7 @@ namespace Microsoft.Knowzy.Repositories.Core
 
         #endregion
 
-        #region Properties
+        #region Properties     
 
         public IUnitOfWork UnitOfWork => _context;
 
@@ -39,26 +38,70 @@ namespace Microsoft.Knowzy.Repositories.Core
             return _context.AddAsync(shipping);
         }
 
-        public async Task UpdateShipping(Shipping shippingToUpdate)
+        public async Task UpdateShipping(Shipping shipping)
         {
             var existingParent = await  _context.Shippings
-                .Include(shipping => shipping.OrderLines)
-                .Where(shipping => shipping.OrderNumber == shippingToUpdate.OrderNumber)                
+                .Include(shippingItem => shippingItem.OrderLines)
+                .Where(shippingItem => shippingItem.OrderNumber == shipping.OrderNumber)                
                 .SingleOrDefaultAsync();
 
             if (existingParent != null)
             {
-                _context.Entry(existingParent).CurrentValues.SetValues(shippingToUpdate);
+                _context.Entry(existingParent).CurrentValues.SetValues(shipping);
                 existingParent.PostalCarrier = await 
                     _context.PostalCarriers.FirstOrDefaultAsync(
-                        postalCarrier => postalCarrier.Id == shippingToUpdate.PostalCarrier.Id);
+                        postalCarrier => postalCarrier.Id == shipping.PostalCarrier.Id);
                 foreach (var existingChild in existingParent.OrderLines.ToList())
                 {
-                    if (shippingToUpdate.OrderLines.All(c => c.Id != existingChild.Id))
+                    if (shipping.OrderLines.All(c => c.Id != existingChild.Id))
                         _context.OrderLines.Remove(existingChild);
                 }
 
-                foreach (var childModel in shippingToUpdate.OrderLines)
+                foreach (var childModel in shipping.OrderLines)
+                {
+                    var existingChild = existingParent.OrderLines
+                        .SingleOrDefault(c => c.Id == childModel.Id);
+
+                    if (existingChild != null)
+                        _context.Entry(existingChild).CurrentValues.SetValues(childModel);
+                    else
+                    {
+                        var newChild = new OrderLine
+                        {
+                            Item = childModel.Item,
+                            Quantity = childModel.Quantity
+                        };
+                        existingParent.OrderLines.Add(newChild);
+                    }
+                }
+            }
+        }
+
+        public Task AddReceiving(Receiving receiving)
+        {
+            return _context.AddAsync(receiving);
+        }
+
+        public async Task UpdateReceiving(Receiving receiving)
+        {
+            var existingParent = await _context.Receivings
+                .Include(receivingItem => receivingItem.OrderLines)
+                .Where(receivingItem => receivingItem.OrderNumber == receiving.OrderNumber)
+                .SingleOrDefaultAsync();
+
+            if (existingParent != null)
+            {
+                _context.Entry(existingParent).CurrentValues.SetValues(receiving);
+                existingParent.PostalCarrier = await
+                    _context.PostalCarriers.FirstOrDefaultAsync(
+                        postalCarrier => postalCarrier.Id == receiving.PostalCarrier.Id);
+                foreach (var existingChild in existingParent.OrderLines.ToList())
+                {
+                    if (receiving.OrderLines.All(c => c.Id != existingChild.Id))
+                        _context.OrderLines.Remove(existingChild);
+                }
+
+                foreach (var childModel in receiving.OrderLines)
                 {
                     var existingChild = existingParent.OrderLines
                         .SingleOrDefault(c => c.Id == childModel.Id);
