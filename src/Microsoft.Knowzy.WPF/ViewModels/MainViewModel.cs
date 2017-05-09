@@ -10,10 +10,18 @@
 //*********************************************************
 
 using Caliburn.Micro;
+using Microsoft.Knowzy.Common.Contracts;
+using Microsoft.Knowzy.Domain;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
     public class MainViewModel : Screen
     {
+        private readonly IDataProvider _dataProvider;
+
+        public MainViewModel(IDataProvider dataProvider)
+        {
+            _dataProvider = dataProvider;
+        }
     }
 }

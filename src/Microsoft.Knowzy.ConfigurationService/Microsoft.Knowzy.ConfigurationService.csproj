@@ -7,8 +7,8 @@
     <ProjectGuid>{98369EF9-AFFA-4164-92E1-9E449515AF1F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.Knowzy.Configuration</RootNamespace>
-    <AssemblyName>Microsoft.Knowzy.Configuration</AssemblyName>
+    <RootNamespace>Microsoft.Knowzy.ConfigurationService</RootNamespace>
+    <AssemblyName>Microsoft.Knowzy.ConfigurationService</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -36,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
+    <Compile Include="ConfigurationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +44,11 @@
       <Project>{b05257e2-fbec-4cb5-8c87-1cc89e193cfd}</Project>
       <Name>Microsoft.Knowzy.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

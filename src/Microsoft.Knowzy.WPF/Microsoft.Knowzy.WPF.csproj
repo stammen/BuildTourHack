@@ -137,6 +137,9 @@
     </EmbeddedResource>
     <Resource Include="Assets\Fonts\segoeui.ttf" />
     <Resource Include="Assets\Fonts\segoeuil.ttf" />
+    <None Include="DevelopmentData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -149,6 +152,24 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Knowzy.Common\Microsoft.Knowzy.Common.csproj">
+      <Project>{b05257e2-fbec-4cb5-8c87-1cc89e193cfd}</Project>
+      <Name>Microsoft.Knowzy.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Knowzy.ConfigurationService\Microsoft.Knowzy.ConfigurationService.csproj">
+      <Project>{98369ef9-affa-4164-92e1-9e449515af1f}</Project>
+      <Name>Microsoft.Knowzy.ConfigurationService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj">
+      <Project>{f1f587fe-c52d-43db-b82d-7531aebb720a}</Project>
+      <Name>Microsoft.Knowzy.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.KnowzyJsonDataProvider\Microsoft.Knowzy.JsonDataProvider.csproj">
+      <Project>{e7dfaac0-bd7d-4391-9e74-c7310df96559}</Project>
+      <Name>Microsoft.Knowzy.JsonDataProvider</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -20,7 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Common", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.JsonDataProvider", "src\Microsoft.KnowzyJsonDataProvider\Microsoft.Knowzy.JsonDataProvider.csproj", "{E7DFAAC0-BD7D-4391-9E74-C7310DF96559}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Configuration", "src\Microsoft.Knowzy.Configuration\Microsoft.Knowzy.Configuration.csproj", "{98369EF9-AFFA-4164-92E1-9E449515AF1F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.ConfigurationService", "src\Microsoft.Knowzy.ConfigurationService\Microsoft.Knowzy.ConfigurationService.csproj", "{98369EF9-AFFA-4164-92E1-9E449515AF1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

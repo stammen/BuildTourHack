@@ -13,6 +13,9 @@ using System;
 using Autofac;
 using Caliburn.Micro;
 using Microsoft.Knowzy.WPF.ViewModels;
+using Microsoft.Knowzy.Configuration;
+using Microsoft.Knowzy.Common.Contracts;
+using Microsoft.Knowzy.DataProvider;
 
 namespace Microsoft.Knowzy.WPF
 {
@@ -34,6 +37,9 @@ namespace Microsoft.Knowzy.WPF
             builder.RegisterType<ShellViewModel>().SingleInstance();
             builder.RegisterType<MainViewModel>().SingleInstance();
             builder.RegisterType<AddNewItemViewModel>().SingleInstance();
+
+            builder.RegisterType<JsonDataProvider>().As<IDataProvider>().SingleInstance();
+            builder.RegisterType<ConfigurationService>().As<IConfigurationService>().SingleInstance();
 
             _container = builder.Build();
         }

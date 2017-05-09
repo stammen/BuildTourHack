@@ -9,12 +9,10 @@
 //
 //*********************************************************
 
-using Microsoft.Knowzy.Common.Models;
-
 namespace Microsoft.Knowzy.Common.Contracts
 {
-    public interface IConfiguration
+    public interface IConfigurationService
     {
-        ConfigurationModel Configuration { get; }
+        IConfigurationModel Configuration { get; }
     }
 }
