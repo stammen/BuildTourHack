@@ -7,6 +7,7 @@
         <td>
             @Html.HiddenFor(model => model.Id, new { @class = "form-control" })
             <img src='@Html.DisplayFor(model => model.ItemImage)'/>
+            @Html.HiddenFor(model => model.ItemImage)
         </td>
         <td class="itemNumber">
             @Html.DisplayFor(model => model.ItemNumber)

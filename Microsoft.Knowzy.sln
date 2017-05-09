@@ -27,6 +27,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "src\4. Infras
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Models", "src\3. Domain\Microsoft.Knowzy.Models\Microsoft.Knowzy.Models.csproj", "{7722F49C-77FF-4D01-AD5B-BCA4926E65AE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{71F90FF4-2E48-4332-B60B-4FD4D4973C21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micrososft.Knowzy.Repositories.Contracts", "src\2. Services\Repositories\Micrososft.Knowzy.Repositories.Contracts\Micrososft.Knowzy.Repositories.Contracts.csproj", "{B6F5698E-C7F6-40DC-83CD-E0FF64E81E52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Repositories.Core", "src\2. Services\Repositories\Microsoft.Knowzy.Repositories.Core\Microsoft.Knowzy.Repositories.Core.csproj", "{80A14156-7863-4B6C-BFAE-94807F4D813C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commands", "Commands", "{C50678B8-50A6-4687-BFA1-DD2F6E81E4C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Commands.OrderCommands", "src\2. Services\Commands\Microsoft.Knowzy.Commands.OrderCommands\Microsoft.Knowzy.Commands.OrderCommands.csproj", "{D1509D1D-CFD7-4375-B0D9-5DA56ECD734A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +71,18 @@ Global
 		{7722F49C-77FF-4D01-AD5B-BCA4926E65AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7722F49C-77FF-4D01-AD5B-BCA4926E65AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7722F49C-77FF-4D01-AD5B-BCA4926E65AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6F5698E-C7F6-40DC-83CD-E0FF64E81E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6F5698E-C7F6-40DC-83CD-E0FF64E81E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6F5698E-C7F6-40DC-83CD-E0FF64E81E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6F5698E-C7F6-40DC-83CD-E0FF64E81E52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80A14156-7863-4B6C-BFAE-94807F4D813C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80A14156-7863-4B6C-BFAE-94807F4D813C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80A14156-7863-4B6C-BFAE-94807F4D813C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80A14156-7863-4B6C-BFAE-94807F4D813C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1509D1D-CFD7-4375-B0D9-5DA56ECD734A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1509D1D-CFD7-4375-B0D9-5DA56ECD734A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1509D1D-CFD7-4375-B0D9-5DA56ECD734A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1509D1D-CFD7-4375-B0D9-5DA56ECD734A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,5 +96,10 @@ Global
 		{CB6242CB-0AFD-4BB2-8714-46212211A964} = {1E29BA0E-66F1-4F2B-B1EB-1F5DD0C20205}
 		{346773CC-DD45-47AD-BA35-3F2BC50BD4BF} = {3AEB4600-B6E8-4828-B354-C3D392650AB5}
 		{7722F49C-77FF-4D01-AD5B-BCA4926E65AE} = {1E29BA0E-66F1-4F2B-B1EB-1F5DD0C20205}
+		{71F90FF4-2E48-4332-B60B-4FD4D4973C21} = {1C09AF31-89F7-4A97-8748-A4CCB64065CB}
+		{B6F5698E-C7F6-40DC-83CD-E0FF64E81E52} = {71F90FF4-2E48-4332-B60B-4FD4D4973C21}
+		{80A14156-7863-4B6C-BFAE-94807F4D813C} = {71F90FF4-2E48-4332-B60B-4FD4D4973C21}
+		{C50678B8-50A6-4687-BFA1-DD2F6E81E4C0} = {1C09AF31-89F7-4A97-8748-A4CCB64065CB}
+		{D1509D1D-CFD7-4375-B0D9-5DA56ECD734A} = {C50678B8-50A6-4687-BFA1-DD2F6E81E4C0}
 	EndGlobalSection
 EndGlobal
