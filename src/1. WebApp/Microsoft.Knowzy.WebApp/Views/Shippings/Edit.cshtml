@@ -4,6 +4,8 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<div class="details-close glyphicon glyphicon-remove hidden-xs" onclick="location.href = '@(Url.Action("Index", ViewContext.RouteData.Values["controller"].ToString()))'"></div>
 <form asp-action="Edit">
     <div class="row">
         <div class="col-xs-12 col-sm-6">
@@ -91,7 +93,7 @@
     </div>
     <div class="row">
         <button type="submit" class="center-block btn btn-default button-default button-action">
-            <object data='/images/pencil.svg' type='image/svg+xml'></object> Save changes
+            <span class="glyphicon glyphicon-floppy-disk"></span><span>Save changes</span>
         </button>
     </div>
 </form>

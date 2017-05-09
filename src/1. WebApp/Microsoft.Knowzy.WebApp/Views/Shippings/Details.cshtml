@@ -4,6 +4,8 @@
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
+
+<div class="details-close glyphicon glyphicon-remove hidden-xs" onclick="location.href = '@(Url.Action("Index", ViewContext.RouteData.Values["controller"].ToString()))'"></div>
 <div class="row">
     <div class="col-xs-12 col-sm-6">
         <div class="row">
@@ -44,6 +46,6 @@
 <div class="row">
     <button type="button" class="center-block btn btn-default button-default button-action"
             onclick="location.href='@(Url.Action("Edit", "Shippings", new { orderNumber = Model.OrderNumber }))'">
-        <object data='/images/pencil.svg' type='image/svg+xml'></object> Edit order
+        <span class="glyphicon glyphicon-pencil"></span><span>Edit order</span>
     </button>
 </div>

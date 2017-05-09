@@ -16,3 +16,7 @@
 .add-item:hover {
     cursor: pointer;
 }
+
+.button-action .glyphicon {
+    margin-right: 15px;
+}

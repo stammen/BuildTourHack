@@ -37,6 +37,10 @@ textarea {
     max-width: 280px;
 }
 
+button:focus {
+    outline: 0 !important;
+}
+
 a {
     cursor: pointer;
 }
