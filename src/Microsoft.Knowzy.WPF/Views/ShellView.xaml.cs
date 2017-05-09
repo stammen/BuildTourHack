@@ -9,9 +9,6 @@
 //
 //*********************************************************
 
-
-using System.Windows;
-
 namespace Microsoft.Knowzy.WPF.Views
 {
     public partial class ShellView

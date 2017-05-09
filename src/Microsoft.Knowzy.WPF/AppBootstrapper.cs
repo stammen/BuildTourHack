@@ -34,7 +34,7 @@ namespace Microsoft.Knowzy.WPF
             builder.RegisterType<ShellViewModel>().SingleInstance();
             builder.RegisterType<MainViewModel>().SingleInstance();
             builder.RegisterType<AddNewItemViewModel>().SingleInstance();
-            
+
             _container = builder.Build();
         }
 
