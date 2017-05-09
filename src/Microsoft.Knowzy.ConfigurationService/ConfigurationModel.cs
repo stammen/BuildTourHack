@@ -9,9 +9,11 @@
 //
 //*********************************************************
 
+using Microsoft.Knowzy.Common.Contracts;
+
 namespace Microsoft.Knowzy.Common.Models
 {
-    public class ConfigurationModel
+    public class ConfigurationModel : IConfigurationModel
     {
         public string JsonFilePath { get; set; }
         public string DataSourceUrl { get; set; }

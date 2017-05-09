@@ -10,37 +10,25 @@
 //*********************************************************
 
 using Microsoft.Knowzy.Common.Contracts;
+using Microsoft.Knowzy.Common.Helpers;
 using Microsoft.Knowzy.Domain;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
 
-namespace Microsoft.Knowzy.JsonDataProvider
+namespace Microsoft.Knowzy.DataProvider
 {
     public class JsonDataProvider : IDataProvider
     {
-        private readonly IConfiguration _configuration;
+        private readonly IConfigurationService _configuration;
 
-        public JsonDataProvider(IConfiguration configuration)
+        public JsonDataProvider(IConfigurationService configuration)
         {
             _configuration = configuration;
-            JsonConvert.DefaultSettings = () => new JsonSerializerSettings
-            {
-                ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                Formatting = Formatting.Indented,
-                NullValueHandling = NullValueHandling.Ignore,
-            };
         }
 
         public DevelopmentItem[] GetData()
         {
             var jsonFilePath = _configuration.Configuration.JsonFilePath;
-            // TODO: Read json file 
-            var strData = "";
 
-            return string.IsNullOrWhiteSpace(strData)
-            ? default(DevelopmentItem[])
-            : JsonConvert.DeserializeObject<DevelopmentItem[]>(strData, new StringEnumConverter());
+            return JsonHelper.Deserialize<DevelopmentItem[]>(FileHelper.ReadTextFile(jsonFilePath));
         }
     }
 }
