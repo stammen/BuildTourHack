@@ -12,9 +12,10 @@
             @Html.DisplayFor(model => model.ItemNumber)
             @Html.HiddenFor(model => model.ItemNumber, new { @class = "form-control"})
         </td>
-        <td>
-            @Html.TextBoxFor(model => model.Quantity, new {@class = "form-control form-input form-quantity"})
-        </td>
+    <td>
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+        @Html.TextBoxFor(model => model.Quantity, new {@class = "form-control form-input form-quantity", @type = "number"})
+    </td>
         <td>
             <div class="delete">Delete</div>
         </td>

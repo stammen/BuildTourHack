@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using Microsoft.Knowzy.Domain;
+using Microsoft.Knowzy.Models.ViewModels.Validators;
 
 namespace Microsoft.Knowzy.Models.ViewModels
 {
-    public class OrderViewModel
+    public class OrderViewModel : IValidatableObject
     {
         [Display(Name = "Order Number:")]
         public string OrderNumber { get; set; }
@@ -25,5 +27,12 @@ namespace Microsoft.Knowzy.Models.ViewModels
         [Display(Name = "Status:")]
         public OrderStatus Status { get; set; }
         public List<OrderLineViewModel> OrderLines { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            var validator = new OrderViewModelValidator();
+            var result = validator.Validate(this);
+            return result.Errors.Select(item => new ValidationResult(item.ErrorMessage, new[] { item.PropertyName }));
+        }
     }
 }
