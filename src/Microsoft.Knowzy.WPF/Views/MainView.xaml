@@ -17,8 +17,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:localization="clr-namespace:Microsoft.Knowzy.WPF.Localization"
-        xmlns:caliburn="http://www.caliburnproject.org"
-        mc:Ignorable="d" HorizontalContentAlignment="Stretch"
+             mc:Ignorable="d" HorizontalContentAlignment="Stretch"
         d:DesignHeight="200" d:DesignWidth="800">
 
     <Grid>
@@ -73,13 +72,15 @@
                     <TextBlock Grid.Row="0" Grid.Column="4" Text="{x:Static localization:Resources.Status_Header}" Style="{StaticResource TitleTextBlockStyle}"/>
 
                     <ListBox Grid.ColumnSpan="5" Grid.Row="1" HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="0" Margin="0"
-                        ItemsSource="{Binding DevelopmentItems}" ItemContainerStyle="{StaticResource ListViewStyle}"/>
+                             ItemContainerStyle="{StaticResource ListViewStyle}" 
+                             ItemsSource="{Binding DevelopmentItems}" 
+                             SelectedItem="{Binding SelectedDevelopmentItem}"/>
                 </Grid>
             </TabItem>
             <TabItem HeaderTemplate="{StaticResource GridDataTemplate}"/>
         </TabControl>
 
-        <!--<Button Grid.Row="1" Height="30" x:Name="EditItemViewModel" Content="Edit"></Button>-->
+        <Button Grid.Row="1" Height="30" x:Name="EditItem" Content="Edit"></Button>
     </Grid>
 
 </UserControl>

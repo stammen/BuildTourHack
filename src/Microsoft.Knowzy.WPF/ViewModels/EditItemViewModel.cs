@@ -11,17 +11,13 @@
 
 using Caliburn.Micro;
 using System.Windows;
+using Microsoft.Knowzy.Domain;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
     public class EditItemViewModel : Screen
     {
-        private readonly IWindowManager _windowManager;
-
-        public EditItemViewModel(IWindowManager windowManager)
-        {
-            _windowManager = windowManager;
-        }
+        public DevelopmentItem Item { get; set; }
 
         public void CloseEditItemViewModel()
         {
