@@ -13,29 +13,41 @@ using System.Collections.Generic;
 using Caliburn.Micro;
 using Microsoft.Knowzy.Common.Contracts;
 using Microsoft.Knowzy.Domain;
-using System.Collections.ObjectModel;
 using System.Linq;
+using Microsoft.Knowzy.Common.Messages;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
     public class MainViewModel : Screen
     {
-        private readonly IWindowManager _windowManager;
         private readonly IDataProvider _dataProvider;
+        private readonly IEventAggregator _eventAggregator;
         private readonly EditItemViewModel _editItemViewModel;
+        private DevelopmentItem _selectedDevelopmentItem;
 
-        public MainViewModel(IWindowManager windowManager, EditItemViewModel editItemViewModel, IDataProvider dataProvider)
+        public MainViewModel(EditItemViewModel editItemViewModel, IDataProvider dataProvider, IEventAggregator eventAggregator)
         {
-            _windowManager = windowManager;
             _editItemViewModel = editItemViewModel;
             _dataProvider = dataProvider;
+            _eventAggregator = eventAggregator;
         }
 
         public List<DevelopmentItem> DevelopmentItems { get; private set; }
 
+        public DevelopmentItem SelectedDevelopmentItem
+        {
+            get { return _selectedDevelopmentItem; }
+            set
+            {
+                if (Equals(value, _selectedDevelopmentItem)) return;
+                _selectedDevelopmentItem = value;
+                NotifyOfPropertyChange(() => SelectedDevelopmentItem);
+            }
+        }
+
         public void  EditItem()
         {
-            _windowManager.ShowWindow(_editItemViewModel);
+            _eventAggregator.PublishOnUIThread(new EditItemMessage(SelectedDevelopmentItem));
         }
 
         protected override void OnActivate()

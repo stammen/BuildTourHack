@@ -10,10 +10,11 @@
 //*********************************************************
 
 using Caliburn.Micro;
+using Microsoft.Knowzy.Common.Messages;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
-    public class ShellViewModel : Conductor<Screen>
+    public class ShellViewModel : Conductor<Screen>, IHandle<EditItemMessage>
     {
         private readonly MainViewModel _mainViewModel;
         private readonly EditItemViewModel _editItemViewModel;
@@ -39,6 +40,12 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         {
             _eventAggregator.Unsubscribe(this);
             base.OnDeactivate(close);
+        }
+
+        public void Handle(EditItemMessage message)
+        {
+            _editItemViewModel.Item = message.Item;
+            _windowManager.ShowDialog(_editItemViewModel);
         }
     }
 }
