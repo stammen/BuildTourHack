@@ -2,6 +2,12 @@
     border: none;
     margin-top: 0;
     margin-bottom: 0;
+    table-layout: fixed;
+    word-wrap: break-word;
+    /* Hyphens is not yet supported in Chrome 55 in Windows platforms*/
+    hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
 }
 
     .main-grid th, .main-grid td {
