@@ -10,10 +10,22 @@
 //*********************************************************
 
 using Caliburn.Micro;
+using System.Windows;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
-    public class AddNewItemViewModel : Screen
+    public class EditItemViewModel : Screen
     {
+        private readonly IWindowManager _windowManager;
+
+        public EditItemViewModel(IWindowManager windowManager)
+        {
+            _windowManager = windowManager;
+        }
+
+        public void CloseEditItemViewModel()
+        {
+            (GetView() as Window).Close();
+        }
     }
 }

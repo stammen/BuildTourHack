@@ -10,11 +10,12 @@
 //*********************************************************
 
 
+
 namespace Microsoft.Knowzy.WPF.Views
 {
-    public partial class AddNewItemView
+    public partial class EditItemView 
     {
-        public AddNewItemView()
+        public EditItemView()
         {
             InitializeComponent();
         }

@@ -16,6 +16,7 @@ using Microsoft.Knowzy.WPF.ViewModels;
 using Microsoft.Knowzy.Configuration;
 using Microsoft.Knowzy.Common.Contracts;
 using Microsoft.Knowzy.DataProvider;
+using System.Threading;
 
 namespace Microsoft.Knowzy.WPF
 {
@@ -36,7 +37,8 @@ namespace Microsoft.Knowzy.WPF
 
             builder.RegisterType<ShellViewModel>().SingleInstance();
             builder.RegisterType<MainViewModel>().SingleInstance();
-            builder.RegisterType<AddNewItemViewModel>().SingleInstance();
+            builder.RegisterType<EditItemViewModel>().SingleInstance();
+            
 
             builder.RegisterType<JsonDataProvider>().As<IDataProvider>().SingleInstance();
             builder.RegisterType<ConfigurationService>().As<IConfigurationService>().SingleInstance();
@@ -56,6 +58,7 @@ namespace Microsoft.Knowzy.WPF
 
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
         {
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
             DisplayRootViewFor<ShellViewModel>();
         }
     }
