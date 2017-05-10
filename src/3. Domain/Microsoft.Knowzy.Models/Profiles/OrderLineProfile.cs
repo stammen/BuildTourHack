@@ -18,12 +18,11 @@ namespace Microsoft.Knowzy.Models.Profiles
 
             CreateMap<OrderLineViewModel, OrderLine>()
                 .ForMember(orderLine => orderLine.Price,
-                    options => options.ResolveUsing(orderLineViewModel => orderLineViewModel.Quantity * orderLineViewModel.ItemPrice))
-                .ForMember(orderLine => orderLine.Item,
-                    options => options.MapFrom(orderLineViewModel => new Item
-                    {
-                        Number = orderLineViewModel.ItemNumber                    
-                    }));
+                    options => options.ResolveUsing(
+                        orderLineViewModel => orderLineViewModel.Quantity * orderLineViewModel.ItemPrice))
+                .ForMember(orderLine => orderLine.ItemNumber,
+                    options => options.ResolveUsing(
+                        orderLineViewModel => orderLineViewModel.ItemNumber));
         }
     }
 }

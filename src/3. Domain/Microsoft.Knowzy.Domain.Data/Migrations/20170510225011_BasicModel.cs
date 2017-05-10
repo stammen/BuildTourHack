@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Microsoft.Knowzy.Domain.Data.Migrations
 {
-    public partial class Orders : Migration
+    public partial class BasicModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,7 +43,7 @@ namespace Microsoft.Knowzy.Domain.Data.Migrations
                     Email = table.Column<string>(),
                     OrderType = table.Column<string>(),
                     PhoneNumber = table.Column<string>(),
-                    PostalCarrierId = table.Column<int>(nullable: true),
+                    PostalCarrierId = table.Column<int>(),
                     Status = table.Column<int>(),
                     Tracking = table.Column<string>()
                 },
@@ -55,7 +55,7 @@ namespace Microsoft.Knowzy.Domain.Data.Migrations
                         x => x.PostalCarrierId,
                         "PostalCarriers",
                         "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

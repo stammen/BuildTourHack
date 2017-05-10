@@ -12,8 +12,8 @@ namespace Microsoft.Knowzy.Domain.Data.Mappings
             builder.HasDiscriminator<string>("OrderType")
                 .HasValue<Shipping>("Shipping")
                 .HasValue<Receiving>("Receiving");
-            builder.HasMany(order => order.OrderLines).WithOne(orderLine => orderLine.Order);
-            builder.HasOne(order => order.PostalCarrier);
+            builder.HasOne(order => order.PostalCarrier).WithMany(postalCarrier => postalCarrier.Orders)
+                .HasForeignKey(order => order.PostalCarrierId);
             builder.Property(order => order.Email).IsRequired();
             builder.Property(order => order.Address).IsRequired();
             builder.Property(order => order.CompanyName).IsRequired();
