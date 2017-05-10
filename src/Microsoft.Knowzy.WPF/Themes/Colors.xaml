@@ -22,6 +22,7 @@
     <Color x:Key="SecondaryRedColor">#CC0202</Color>
     <Color x:Key="SecondaryYellowColor">#FFB900</Color>
     <Color x:Key="SecondaryBlueColor">#0078D7</Color>
+    <Color x:Key="SecondaryRedDarkColor">#950000</Color>
 
     <SolidColorBrush x:Key="PrimaryDarkColorBrush" Color="{StaticResource PrimaryDarkColor}"/>
     <SolidColorBrush x:Key="PrimaryMediumDarkColorBrush" Color="{StaticResource PrimaryMediumDarkColor}"/>
@@ -30,5 +31,6 @@
     <SolidColorBrush x:Key="SecondaryRedColorBrush" Color="{StaticResource SecondaryRedColor}"/>
     <SolidColorBrush x:Key="SecondaryYellowColorBrush" Color="{StaticResource SecondaryYellowColor}"/>
     <SolidColorBrush x:Key="SecondaryBlueColorBrush" Color="{StaticResource SecondaryBlueColor}"/>
+    <SolidColorBrush x:Key="SecondaryRedDarkColorBrush" Color="{StaticResource SecondaryRedDarkColor}"/>
 
 </ResourceDictionary>

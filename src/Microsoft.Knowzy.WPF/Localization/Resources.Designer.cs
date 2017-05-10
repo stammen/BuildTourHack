@@ -29,7 +29,7 @@ namespace Microsoft.Knowzy.WPF.Localization {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        public Resources() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -59,7 +59,7 @@ namespace Microsoft.Knowzy.WPF.Localization {
                 resourceCulture = value;
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
@@ -68,7 +68,7 @@ namespace Microsoft.Knowzy.WPF.Localization {
                 return ResourceManager.GetString("Engineer_Header", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
@@ -77,7 +77,7 @@ namespace Microsoft.Knowzy.WPF.Localization {
                 return ResourceManager.GetString("File_Menu", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
@@ -86,7 +86,7 @@ namespace Microsoft.Knowzy.WPF.Localization {
                 return ResourceManager.GetString("GridView_Tab", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
@@ -95,7 +95,7 @@ namespace Microsoft.Knowzy.WPF.Localization {
                 return ResourceManager.GetString("Help_Menu", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
@@ -104,7 +104,7 @@ namespace Microsoft.Knowzy.WPF.Localization {
                 return ResourceManager.GetString("ItemNo_Header", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
@@ -113,7 +113,7 @@ namespace Microsoft.Knowzy.WPF.Localization {
                 return ResourceManager.GetString("ListView_Tab", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
@@ -122,7 +122,7 @@ namespace Microsoft.Knowzy.WPF.Localization {
                 return ResourceManager.GetString("Login_Menu", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
@@ -131,7 +131,7 @@ namespace Microsoft.Knowzy.WPF.Localization {
                 return ResourceManager.GetString("Menu_Menu", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
@@ -140,7 +140,7 @@ namespace Microsoft.Knowzy.WPF.Localization {
                 return ResourceManager.GetString("NewProduct_Header", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
@@ -149,7 +149,25 @@ namespace Microsoft.Knowzy.WPF.Localization {
                 return ResourceManager.GetString("RowMaterial_Header", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SortAscending_Menu {
+            get {
+                return ResourceManager.GetString("SortAscending_Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SortDescending_Menu {
+            get {
+                return ResourceManager.GetString("SortDescending_Menu", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
@@ -158,7 +176,7 @@ namespace Microsoft.Knowzy.WPF.Localization {
                 return ResourceManager.GetString("Status_Header", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>

@@ -147,6 +147,12 @@
   <data name="RowMaterial_Header" xml:space="preserve">
     <value />
   </data>
+  <data name="SortAscending_Menu" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SortDescending_Menu" xml:space="preserve">
+    <value />
+  </data>
   <data name="Status_Header" xml:space="preserve">
     <value />
   </data>
