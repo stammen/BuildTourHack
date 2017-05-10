@@ -269,3 +269,7 @@ __pycache__/
 
 # Libraries
 lib/
+
+#min files
+*.min.js
+*.min.css

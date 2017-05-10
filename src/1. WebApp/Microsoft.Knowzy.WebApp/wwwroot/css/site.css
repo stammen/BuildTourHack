@@ -1,6 +1,8 @@
 ﻿@font-face {
     font-family: Segoe UI;
-    src: url("../fonts/segoeui.ttf");
+    src: url('../fonts/segoeui/segoeui.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/segoeui/segoeui.woff') format('woff'),
+         url('../fonts/segoeui/segoeui.ttf') format('truetype');
 }
 
 html {

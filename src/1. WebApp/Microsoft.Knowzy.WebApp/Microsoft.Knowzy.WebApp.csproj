@@ -21,7 +21,9 @@
     <Content Include="wwwroot\css\grid.css" />
     <Content Include="wwwroot\css\header.css" />
     <Content Include="wwwroot\Data\order.json" />
-    <Content Include="wwwroot\fonts\segoeui.ttf" />
+    <Content Include="wwwroot\fonts\segoeui\segoeui.eot" />
+    <Content Include="wwwroot\fonts\segoeui\segoeui.ttf" />
+    <Content Include="wwwroot\fonts\segoeui\segoeui.woff" />
     <Content Include="wwwroot\images\add.svg" />
     <Content Include="wwwroot\images\bg art.png" />
     <Content Include="wwwroot\images\bottom-bar.png" />
