@@ -17,5 +17,6 @@ namespace Microsoft.Knowzy.Service.DataSource.Contracts
         Task<IEnumerable<PostalCarrier>> GetPostalCarriers();
         Task<int> GetShippingCount();
         Task<int> GetReceivingCount();
+        Task<int> GetItemsCount();
     }
 }

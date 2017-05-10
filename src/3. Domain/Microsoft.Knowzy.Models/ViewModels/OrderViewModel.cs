@@ -29,6 +29,8 @@ namespace Microsoft.Knowzy.Models.ViewModels
         public OrderStatus Status { get; set; }
         public List<OrderLineViewModel> OrderLines { get; set; }
 
+        public int MaxAvailableItems { get; set; }
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             var validator = new OrderViewModelValidator();

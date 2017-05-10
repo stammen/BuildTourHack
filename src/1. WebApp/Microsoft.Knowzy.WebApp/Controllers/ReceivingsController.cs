@@ -48,8 +48,11 @@ namespace Microsoft.Knowzy.WebApp.Controllers
         public async Task<IActionResult> Edit(string orderNumber)
         {
             var getReceivingTask = _orderQueries.GetReceiving(orderNumber);
-            await Task.WhenAll(GenerateDropdowns(), getReceivingTask);
-            return View(getReceivingTask.Result);
+            var getNumberOfAvailableItems = _orderQueries.GetItemsCount();
+            await Task.WhenAll(GenerateDropdowns(), getReceivingTask, getNumberOfAvailableItems);
+            var order = getReceivingTask.Result;
+            order.MaxAvailableItems = getNumberOfAvailableItems.Result;
+            return View(order);
         }
 
         public async Task<IActionResult> Create()

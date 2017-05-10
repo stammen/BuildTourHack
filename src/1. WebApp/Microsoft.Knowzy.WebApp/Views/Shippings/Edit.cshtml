@@ -51,7 +51,7 @@
                 </table>
             </div>
             <div class="row">
-                <span id="addItem" class="add-item">Add new Item</span>
+                <span id="addItem" class="add-item @(Model.OrderLines.Count < Model.MaxAvailableItems ? "show" : "hide")">Add new Item</span>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 details-right">

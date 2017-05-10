@@ -87,6 +87,11 @@ namespace Microsoft.Knowzy.Service.DataSource.Core
             return await _context.Receivings.CountAsync();
         }
 
+        public async Task<int> GetItemsCount()
+        {
+            return await _context.Items.CountAsync();
+        }
+
         #endregion
     }
 }
