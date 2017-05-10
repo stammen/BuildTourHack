@@ -142,6 +142,7 @@
     </EmbeddedResource>
     <Resource Include="Assets\Fonts\segoeui.ttf" />
     <Resource Include="Assets\Fonts\segoeuil.ttf" />
+    <Resource Include="Assets\Fonts\segoeuib.ttf" />
     <None Include="DevelopmentData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

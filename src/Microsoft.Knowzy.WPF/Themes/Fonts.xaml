@@ -4,5 +4,6 @@
 
     <FontFamily x:Key="SegoeRegular">ms-appx:///Assets/Fonts/segoeui.ttf#Segoe UI</FontFamily>
     <FontFamily x:Key="SegoeLight">ms-appx:///Assets/Fonts/segoeuil.ttf#Segoe UI Light</FontFamily>
+    <FontFamily x:Key="SegoeBold">ms-appx:///Assets/Fonts/segoeuib.ttf#Segoe UI Bold</FontFamily>
 
 </ResourceDictionary>

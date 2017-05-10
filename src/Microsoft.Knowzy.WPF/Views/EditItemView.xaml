@@ -15,9 +15,75 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:caliburn="http://www.caliburnproject.org"
-        mc:Ignorable="d" Height="620" Width="920">
+        mc:Ignorable="d" MinHeight="620" MinWidth="920">
+   
     <Grid Background="{StaticResource PrimaryMediumColorBrush}">
-       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="95"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="32" />
+            <ColumnDefinition Width="185" />
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="32"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource DialogTextBlockStyle}"
+                   Text="Item No." />
+        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource DialogTextBlockStyle}"
+                   Text="Engineer:" />
+        <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource DialogTextBlockStyle}" 
+                   Text="New product name:"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource DialogTextBlockStyle}" 
+                   Text="Raw material:"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" Style="{StaticResource DialogTextBlockStyle}" 
+                   Text="Development start date:"/>
+        <TextBlock Grid.Row="6" Grid.Column="1" Style="{StaticResource DialogTextBlockStyle}" 
+                   Text="Expected completion date:"/>
+        <TextBlock Grid.Row="7" Grid.Column="1" Style="{StaticResource DialogTextBlockStyle}" 
+                   Text="Supply management contact:"/>
+        <TextBlock Grid.Row="8" Grid.Column="1" Style="{StaticResource DialogTextBlockStyle}" 
+                   Text="Status:"/>
+        <TextBlock Grid.Row="9" Grid.Column="1" Style="{StaticResource DialogTextBlockStyle}" VerticalAlignment="Top" Margin="0,18,0,0" 
+                   Text="Notes:"/>
+
+        <TextBox Grid.Row="1" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
+        <TextBox Grid.Row="3" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
+        <TextBox Grid.Row="4" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
+        <TextBox Grid.Row="5" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
+        <TextBox Grid.Row="6" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
+        <TextBox Grid.Row="7" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
+        <TextBox Grid.Row="8" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
+        <TextBox Grid.Row="9" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}" Margin="4"/>
+        
+        <StackPanel Grid.Row="1" Grid.Column="4" Grid.RowSpan="9">
+            <TextBlock Style="{StaticResource DialogTextBlockStyle}" VerticalAlignment="Top" Margin="0,18,0,8" 
+                       Text="Product photo:"/>
+            <Border BorderBrush="Gray" BorderThickness="1" MinHeight="290" Background="White">
+                <Image />
+            </Border>
+            <Button Width="138" Height="37" HorizontalAlignment="Right" Margin="0,10" 
+                    Content="Upload new photo"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="10" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right"
+                    Margin="0,0,11,19" VerticalAlignment="Bottom">
+            <Button Width="109" Height="37" Margin="0,0,15,0"
+                    Content="Save"/>
+            <Button Width="109" Height="37" 
+                    Content="Cancel"/>
+        </StackPanel>
     </Grid>
 </UserControl>
