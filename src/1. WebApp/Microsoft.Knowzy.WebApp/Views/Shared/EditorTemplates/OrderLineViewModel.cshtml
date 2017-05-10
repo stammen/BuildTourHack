@@ -16,7 +16,8 @@
         </td>
     <td>
         <span asp-validation-for="Quantity" class="text-danger"></span>
-        @Html.TextBoxFor(model => model.Quantity, new {@class = "form-control form-input form-quantity", @type = "number"})
+        @Html.TextBoxFor(model => model.Quantity, new {@class = "form-control form-input form-quantity", type = "number",
+                         oninput = "this.value=this.value.slice(0, this.maxLength)", maxlength = "3" })
     </td>
         <td>
             <div class="delete">Delete</div>
