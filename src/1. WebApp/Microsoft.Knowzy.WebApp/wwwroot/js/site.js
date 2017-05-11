@@ -13,7 +13,7 @@
                     tableBody.append(partialView);
                 });
             });
-        (actualItems.length === 3) ? $('#addItem').hide() : $('#addItem').show();
+        (actualItems.length === 3) ? $('#addItem').removeClass('show').hide() : $('#addItem').show();
     });
 
     $("table").on("click", ".delete", function(event) {
@@ -22,7 +22,7 @@
         tr.fadeOut(400,
             function() {
                 tr.remove();
-                $('#addItem').show();
+                $('#addItem').removeClass('hide').show();
             });
     });
 });

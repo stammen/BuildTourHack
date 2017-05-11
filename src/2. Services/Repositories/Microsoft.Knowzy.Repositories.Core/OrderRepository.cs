@@ -40,27 +40,29 @@ namespace Microsoft.Knowzy.Repositories.Core
 
         public async Task UpdateShipping(Shipping shipping)
         {
-            var existingParent = await  _context.Shippings
+            var existingParent = await _context.Shippings
                 .Include(shippingItem => shippingItem.OrderLines)
-                .Where(shippingItem => shippingItem.OrderNumber == shipping.OrderNumber)                
+                .Where(shippingItem => shippingItem.OrderNumber == shipping.OrderNumber)
                 .SingleOrDefaultAsync();
 
             if (existingParent != null)
             {
                 _context.Entry(existingParent).CurrentValues.SetValues(shipping);
-                existingParent.PostalCarrier = await 
-                    _context.PostalCarriers.FirstOrDefaultAsync(
-                        postalCarrier => postalCarrier.Id == shipping.PostalCarrier.Id);
+
                 foreach (var existingChild in existingParent.OrderLines.ToList())
                 {
                     if (shipping.OrderLines.All(c => c.Id != existingChild.Id))
                         _context.OrderLines.Remove(existingChild);
                 }
 
+                var existingChilds = existingParent.OrderLines.ToList();
+
                 foreach (var childModel in shipping.OrderLines)
                 {
-                    var existingChild = existingParent.OrderLines
-                        .SingleOrDefault(c => c.Id == childModel.Id);
+                    var existingChild = existingChilds
+                        .SingleOrDefault(child => child.Id == childModel.Id);
+
+                    childModel.OrderNumber = existingParent.OrderNumber;
 
                     if (existingChild != null)
                         _context.Entry(existingChild).CurrentValues.SetValues(childModel);
@@ -68,8 +70,9 @@ namespace Microsoft.Knowzy.Repositories.Core
                     {
                         var newChild = new OrderLine
                         {
-                            Item = childModel.Item,
-                            Quantity = childModel.Quantity
+                            ItemNumber = childModel.ItemNumber,
+                            Quantity = childModel.Quantity,
+                            OrderNumber = childModel.OrderNumber
                         };
                         existingParent.OrderLines.Add(newChild);
                     }
@@ -92,19 +95,21 @@ namespace Microsoft.Knowzy.Repositories.Core
             if (existingParent != null)
             {
                 _context.Entry(existingParent).CurrentValues.SetValues(receiving);
-                existingParent.PostalCarrier = await
-                    _context.PostalCarriers.FirstOrDefaultAsync(
-                        postalCarrier => postalCarrier.Id == receiving.PostalCarrier.Id);
+
                 foreach (var existingChild in existingParent.OrderLines.ToList())
                 {
                     if (receiving.OrderLines.All(c => c.Id != existingChild.Id))
                         _context.OrderLines.Remove(existingChild);
                 }
 
+                var existingChilds = existingParent.OrderLines.ToList();
+
                 foreach (var childModel in receiving.OrderLines)
                 {
-                    var existingChild = existingParent.OrderLines
-                        .SingleOrDefault(c => c.Id == childModel.Id);
+                    var existingChild = existingChilds
+                        .SingleOrDefault(child => child.Id == childModel.Id);
+
+                    childModel.OrderNumber = existingParent.OrderNumber;
 
                     if (existingChild != null)
                         _context.Entry(existingChild).CurrentValues.SetValues(childModel);
@@ -112,8 +117,9 @@ namespace Microsoft.Knowzy.Repositories.Core
                     {
                         var newChild = new OrderLine
                         {
-                            Item = childModel.Item,
-                            Quantity = childModel.Quantity
+                            ItemNumber = childModel.ItemNumber,
+                            Quantity = childModel.Quantity,
+                            OrderNumber = childModel.OrderNumber
                         };
                         existingParent.OrderLines.Add(newChild);
                     }

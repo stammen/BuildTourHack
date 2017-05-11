@@ -68,10 +68,6 @@ namespace Microsoft.Knowzy.WebApp.Controllers
             if (ModelState.IsValid)
             {
                 var shippingModel = _mapper.Map<ShippingViewModel, Shipping>(shipping);
-                if (shippingModel.PostalCarrier == null)
-                {
-                    shippingModel.PostalCarrier = new PostalCarrier { Id = shipping.PostalCarrierId };
-                }
                 var command = new AddShippingCommand(shippingModel);
                 var handler = new AddShippingCommandHandler(_orderRepository);
                 await handler.Execute(command);
@@ -88,10 +84,6 @@ namespace Microsoft.Knowzy.WebApp.Controllers
             if (ModelState.IsValid)
             {
                 var shippingModel = _mapper.Map<ShippingViewModel, Shipping>(shipping);
-                if (shippingModel.PostalCarrier == null)
-                {
-                    shippingModel.PostalCarrier = new PostalCarrier {Id = shipping.PostalCarrierId};
-                }
                 var command = new EditShippingCommand(shippingModel);
                 var handler = new EditShippingCommandHandler(_orderRepository);
                 await handler.Execute(command);

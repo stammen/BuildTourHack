@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Microsoft.Knowzy.Domain.Data.Migrations
 {
     [DbContext(typeof(KnowzyContext))]
-    [Migration("20170502151726_Initial")]
+    [Migration("20170510224720_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

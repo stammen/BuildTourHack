@@ -50,7 +50,7 @@ namespace Microsoft.Knowzy.Domain.Data.Migrations
                     b.Property<string>("PhoneNumber")
                         .IsRequired();
 
-                    b.Property<int?>("PostalCarrierId");
+                    b.Property<int>("PostalCarrierId");
 
                     b.Property<int>("Status");
 
@@ -123,14 +123,15 @@ namespace Microsoft.Knowzy.Domain.Data.Migrations
             modelBuilder.Entity("Microsoft.Knowzy.Domain.Order", b =>
                 {
                     b.HasOne("Microsoft.Knowzy.Domain.PostalCarrier", "PostalCarrier")
-                        .WithMany()
-                        .HasForeignKey("PostalCarrierId");
+                        .WithMany("Orders")
+                        .HasForeignKey("PostalCarrierId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.Knowzy.Domain.OrderLine", b =>
                 {
                     b.HasOne("Microsoft.Knowzy.Domain.Item", "Item")
-                        .WithMany()
+                        .WithMany("OrderLines")
                         .HasForeignKey("ItemNumber");
 
                     b.HasOne("Microsoft.Knowzy.Domain.Order", "Order")
