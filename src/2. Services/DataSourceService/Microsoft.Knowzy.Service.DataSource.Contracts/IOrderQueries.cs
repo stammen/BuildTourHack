@@ -11,12 +11,13 @@ namespace Microsoft.Knowzy.Service.DataSource.Contracts
         Task<IEnumerable<ShippingsViewModel>> GetShippings(int pageNumber, int pageCount);
         Task<IEnumerable<ReceivingsViewModel>> GetReceivings();
         Task<IEnumerable<ReceivingsViewModel>> GetReceivings(int pageNumber, int pageCount);
-        Task<ShippingViewModel> GetShipping(string orderNumber);
-        Task<ReceivingViewModel> GetReceiving(string orderNumber);
-        Task<IEnumerable<Item>> GetItems();
+        Task<ShippingViewModel> GetShipping(string orderId);
+        Task<ReceivingViewModel> GetReceiving(string orderId);
+        Task<IEnumerable<Product>> GetProducts();
         Task<IEnumerable<PostalCarrier>> GetPostalCarriers();
+        Task<IEnumerable<Customer>> GetCustomers();
         Task<int> GetShippingCount();
         Task<int> GetReceivingCount();
-        Task<int> GetItemsCount();
+        Task<int> GetProductCount();
     }
 }

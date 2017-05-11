@@ -2,6 +2,8 @@
     font-size: 18px;
     text-align: left;
     color: #000000;
+    word-wrap: break-word;
+    -ms-word-wrap: break-word;
 }
 
 .detail-item dt {

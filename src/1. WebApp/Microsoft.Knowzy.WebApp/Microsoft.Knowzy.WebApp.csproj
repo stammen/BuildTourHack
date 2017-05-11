@@ -20,7 +20,9 @@
     </Content>
     <Content Include="wwwroot\css\grid.css" />
     <Content Include="wwwroot\css\header.css" />
-    <Content Include="wwwroot\Data\order.json" />
+    <Content Include="wwwroot\Data\customers.json" />
+    <Content Include="wwwroot\Data\orders.json" />
+    <Content Include="wwwroot\Data\products.json" />
     <Content Include="wwwroot\fonts\segoeui\segoeui.eot" />
     <Content Include="wwwroot\fonts\segoeui\segoeui.ttf" />
     <Content Include="wwwroot\fonts\segoeui\segoeui.woff" />

@@ -12,9 +12,9 @@
             <div class="row">
                 <div class="col-xs-7">
                     <dl class="dl-horizontal detail-item detail-item-number">
-                        <dt>@Html.DisplayNameFor(model => model.OrderNumber)</dt>
-                        <dd>@Html.DisplayFor(model => model.OrderNumber)</dd>
-                        @Html.HiddenFor(model => model.OrderNumber)
+                        <dt>@Html.DisplayNameFor(model => model.Id)</dt>
+                        <dd>@Html.DisplayFor(model => model.Id)</dd>
+                        @Html.HiddenFor(model => model.Id)
                     </dl>
                 </div>
                 <div class="col-xs-5">
@@ -29,10 +29,10 @@
                     <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.OrderLines[0].ItemImage)
+                            @Html.DisplayNameFor(model => model.OrderLines[0].ProductImage)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.OrderLines[0].ItemNumber)
+                            @Html.DisplayNameFor(model => model.OrderLines[0].ProductId)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.OrderLines[0].Quantity)

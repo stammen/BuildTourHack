@@ -14,7 +14,7 @@ namespace Microsoft.Knowzy.Models.Profiles
                 .ForMember(orderViewModel => orderViewModel.PostalCarrierName,
                     options => options.ResolveUsing(order => order.PostalCarrier.Name))
                 .ForMember(orderViewModel => orderViewModel.PostalCarrierId,
-                    options => options.ResolveUsing(order => order.PostalCarrier.Id));       
+                    options => options.ResolveUsing(order => order.PostalCarrier.Id));
         }
     }
 }

@@ -9,13 +9,13 @@
 <div class="row">
     <div class="col-xs-12 col-sm-6">
         <div class="row">
-            <div class="col-xs-7">
+            <div class="col-xs-12 col-lg-7">
                 <dl class="dl-horizontal detail-item detail-item-number">
-                    <dt>@Html.DisplayNameFor(model => model.OrderNumber)</dt>
-                    <dd>@Html.DisplayFor(model => model.OrderNumber)</dd>
+                    <dt>@Html.DisplayNameFor(model => model.Id)</dt>
+                    <dd>@Html.DisplayFor(model => model.Id)</dd>
                 </dl>
             </div>
-            <div class="col-xs-5">
+            <div class="col-xs-12 col-lg-5">
                 <dl class="dl-horizontal detail-item detail-item-status">
                     <dt>@Html.DisplayNameFor(model => model.Status)</dt>
                     <dd>@Html.DisplayFor(model => model.Status)</dd>
@@ -45,7 +45,7 @@
 </div>
 <div class="row">
     <button type="button" class="center-block btn btn-default button-default button-action"
-            onclick="location.href='@(Url.Action("Edit", "Shippings", new { orderNumber = Model.OrderNumber }))'">
+            onclick="location.href='@(Url.Action("Edit", "Shippings", new { orderId = Model.Id }))'">
         <span class="glyphicon glyphicon-pencil"></span><span>Edit order</span>
     </button>
 </div>

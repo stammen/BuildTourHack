@@ -10,14 +10,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-6">
             <div class="row">
-                <div class="col-xs-7">
-                    <dl class="dl-horizontal detail-item detail-item-number">
-                        <dt>@Html.DisplayNameFor(model => model.OrderNumber)</dt>
-                        <dd>@Html.DisplayFor(model => model.OrderNumber)</dd>
-                        @Html.HiddenFor(model => model.OrderNumber)
-                    </dl>
-                </div>
-                <div class="col-xs-5">
+                <div class="col-xs-12">
                     <dl class="dl-horizontal detail-item detail-item-status">
                         <dt>@Html.DisplayNameFor(model => model.Status)</dt>
                         <dd>@Html.DropDownListFor(model=> model.Status, Html.GetEnumSelectList<OrderStatus>(), " --- ", new {@class = "form-control form-input" })</dd>
@@ -29,10 +22,10 @@
                     <thead>
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.OrderLines[0].ItemImage)
+                            @Html.DisplayNameFor(model => model.OrderLines[0].ProductImage)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.OrderLines[0].ItemNumber)
+                            @Html.DisplayNameFor(model => model.OrderLines[0].ProductId)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.OrderLines[0].Quantity)

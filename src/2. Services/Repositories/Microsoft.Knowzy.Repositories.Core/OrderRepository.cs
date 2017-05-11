@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -35,6 +36,7 @@ namespace Microsoft.Knowzy.Repositories.Core
 
         public Task AddShipping(Shipping shipping)
         {
+            shipping.Id = GenerateString(10);
             return _context.AddAsync(shipping);
         }
 
@@ -42,7 +44,7 @@ namespace Microsoft.Knowzy.Repositories.Core
         {
             var existingParent = await _context.Shippings
                 .Include(shippingItem => shippingItem.OrderLines)
-                .Where(shippingItem => shippingItem.OrderNumber == shipping.OrderNumber)
+                .Where(shippingItem => shippingItem.Id == shipping.Id)
                 .SingleOrDefaultAsync();
 
             if (existingParent != null)
@@ -62,7 +64,7 @@ namespace Microsoft.Knowzy.Repositories.Core
                     var existingChild = existingChilds
                         .SingleOrDefault(child => child.Id == childModel.Id);
 
-                    childModel.OrderNumber = existingParent.OrderNumber;
+                    childModel.OrderId = existingParent.Id;
 
                     if (existingChild != null)
                         _context.Entry(existingChild).CurrentValues.SetValues(childModel);
@@ -70,9 +72,9 @@ namespace Microsoft.Knowzy.Repositories.Core
                     {
                         var newChild = new OrderLine
                         {
-                            ItemNumber = childModel.ItemNumber,
+                            ProductId = childModel.ProductId,
                             Quantity = childModel.Quantity,
-                            OrderNumber = childModel.OrderNumber
+                            OrderId = childModel.OrderId
                         };
                         existingParent.OrderLines.Add(newChild);
                     }
@@ -82,6 +84,7 @@ namespace Microsoft.Knowzy.Repositories.Core
 
         public Task AddReceiving(Receiving receiving)
         {
+            receiving.Id = GenerateString(10);
             return _context.AddAsync(receiving);
         }
 
@@ -89,7 +92,7 @@ namespace Microsoft.Knowzy.Repositories.Core
         {
             var existingParent = await _context.Receivings
                 .Include(receivingItem => receivingItem.OrderLines)
-                .Where(receivingItem => receivingItem.OrderNumber == receiving.OrderNumber)
+                .Where(receivingItem => receivingItem.Id == receiving.Id)
                 .SingleOrDefaultAsync();
 
             if (existingParent != null)
@@ -109,7 +112,7 @@ namespace Microsoft.Knowzy.Repositories.Core
                     var existingChild = existingChilds
                         .SingleOrDefault(child => child.Id == childModel.Id);
 
-                    childModel.OrderNumber = existingParent.OrderNumber;
+                    childModel.OrderId = existingParent.Id;
 
                     if (existingChild != null)
                         _context.Entry(existingChild).CurrentValues.SetValues(childModel);
@@ -117,14 +120,27 @@ namespace Microsoft.Knowzy.Repositories.Core
                     {
                         var newChild = new OrderLine
                         {
-                            ItemNumber = childModel.ItemNumber,
+                            ProductId = childModel.ProductId,
                             Quantity = childModel.Quantity,
-                            OrderNumber = childModel.OrderNumber
+                            OrderId = childModel.OrderId
                         };
                         existingParent.OrderLines.Add(newChild);
                     }
                 }
             }
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private static string GenerateString(int size)
+        {
+            var random = new Random();
+            var alphabet = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var chars = Enumerable.Range(0, size)
+                .Select(x => alphabet[random.Next(0, alphabet.Length)]);
+            return new string(chars.ToArray());
         }
 
         #endregion

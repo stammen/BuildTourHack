@@ -9,7 +9,7 @@ namespace Microsoft.Knowzy.Models.ViewModels
     public class OrderViewModel : IValidatableObject
     {
         [Display(Name = "Order Number:")]
-        public string OrderNumber { get; set; }
+        public string Id { get; set; }
         [Display(Name = "Company name:")]
         public string CompanyName { get; set; }
         [Display(Name = "Address:")]
@@ -27,7 +27,10 @@ namespace Microsoft.Knowzy.Models.ViewModels
         public int PostalCarrierId { get; set; }
         [Display(Name = "Status:")]
         public OrderStatus Status { get; set; }
+        public string CustomerId { get; set; }
+
         public List<OrderLineViewModel> OrderLines { get; set; }
+
 
         public int MaxAvailableItems { get; set; }
 

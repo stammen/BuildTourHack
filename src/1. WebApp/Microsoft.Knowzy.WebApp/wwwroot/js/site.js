@@ -6,7 +6,7 @@
         });
 
         $.get("/Shippings/AddOrderItem",
-            $.param({ 'itemNumbers': actualItems }, true), function (partialView) {
+            $.param({ 'productIds': actualItems }, true), function (partialView) {
             var tableBody = $('table tbody');
             tableBody.fadeIn(400,
                 function () {

@@ -12,7 +12,8 @@ namespace Microsoft.Knowzy.Domain.Data
         public DbSet<Receiving> Receivings { get; set; }
         public DbSet<OrderLine> OrderLines { get; set; }
         public DbSet<PostalCarrier> PostalCarriers { get; set; }
-        public DbSet<Item> Items { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
