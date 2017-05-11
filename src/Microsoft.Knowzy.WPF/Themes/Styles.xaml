@@ -37,6 +37,7 @@
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="Padding" Value="20,0,0,0"/>
         <Setter Property="Template" Value="{DynamicResource {ComponentResourceKey ResourceId=SubmenuItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}"/>
+        <Setter Property="FontFamily" Value="{StaticResource SegoeRegular}"/>
         <Style.Triggers>
             <Trigger Property="Role" Value="TopLevelHeader">
                 <Setter Property="Background" Value="{StaticResource SecondaryRedColorBrush}"/>
@@ -52,17 +53,73 @@
             <Trigger Property="Role" Value="SubmenuHeader">
                 <Setter Property="Template" Value="{DynamicResource {ComponentResourceKey ResourceId=SubmenuHeaderTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}"/>
             </Trigger>
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="IsPressed" Value="False"/>
-                    <Condition Property="IsMouseOver" Value="True"/>
-                </MultiTrigger.Conditions>
-                <Setter Property="BorderBrush" Value="Transparent"/>
-            </MultiTrigger>
         </Style.Triggers>
     </Style>
- 
-    <Style x:Key="MenuStyle" TargetType="{x:Type Menu}">
+
+    <ControlTemplate x:Key="MenuItemControlTemplate" TargetType="{x:Type MenuItem}">
+        <Border x:Name="templateRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+            <Grid VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <ContentPresenter x:Name="Icon" Content="{TemplateBinding Icon}" ContentSource="Icon" HorizontalAlignment="Center" Height="16" Margin="3" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16"/>
+                <Path x:Name="GlyphPanel" Data="F1M10,1.2L4.7,9.1 4.5,9.1 0,5.2 1.3,3.5 4.3,6.1 8.3,0 10,1.2z" Fill="{DynamicResource PrimaryMediumDarkColorBrush}" FlowDirection="LeftToRight" Margin="3" Visibility="Collapsed" VerticalAlignment="Center"/>
+                <ContentPresenter ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" Grid.Column="1" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Visibility" TargetName="GlyphPanel" Value="Visible"/>
+                <Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
+            </Trigger>
+            <Trigger Property="IsHighlighted" Value="True">
+                <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource SecondaryRedDarkColorBrush}"/>
+                <Setter Property="BorderBrush" TargetName="templateRoot" Value="Transparent"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="TextElement.Foreground" TargetName="templateRoot" Value="{DynamicResource PrimaryMediumDarkColorBrush}"/>
+                <Setter Property="Fill" TargetName="GlyphPanel" Value="{DynamicResource PrimaryMediumDarkColorBrush}"/>
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsHighlighted" Value="True"/>
+                    <Condition Property="IsEnabled" Value="False"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource PrimaryMediumColorBrush}"/>
+                <Setter Property="BorderBrush" TargetName="templateRoot" Value="Transparent"/>
+            </MultiTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="MenuStyleLeft" TargetType="{x:Type Menu}">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Background" Value="{StaticResource SecondaryRedColorBrush}"/>
+        <Setter Property="FontFamily" Value="{DynamicResource SegoeLight}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryLightColorBrush}"/>
+        <Setter Property="Padding" Value="20,0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Menu}">
+                    <Grid x:Name="border" HorizontalAlignment="Stretch"
+                            Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="5" Direction="-90" RenderingBias="Quality" ShadowDepth="1" Opacity="0.5"/>
+                        </Grid.Effect>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MenuStyleRight" TargetType="{x:Type Menu}">
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="Background" Value="{StaticResource SecondaryRedColorBrush}"/>
@@ -74,10 +131,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Menu}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" HorizontalAlignment="Stretch"
-                            Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                    <Grid x:Name="border" HorizontalAlignment="Stretch"
+                          Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
                         <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                    </Border>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -153,6 +210,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabControl}">
                     <Grid x:Name="templateRoot" ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="5" Direction="-90" RenderingBias="Quality" ShadowDepth="1" Opacity="0.5"/>
+                        </Grid.Effect>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition x:Name="ColumnDefinition0"/>
                             <ColumnDefinition x:Name="ColumnDefinition1" Width="0"/>
@@ -162,7 +222,8 @@
                             <RowDefinition x:Name="RowDefinition1" Height="*"/>
                         </Grid.RowDefinitions>
                         <TabPanel x:Name="headerPanel" Background="Transparent" Grid.Column="0" IsItemsHost="true" Margin="2,2,2,0" Grid.Row="0" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1"/>
-                        <Border x:Name="contentPanel" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Column="0" KeyboardNavigation.DirectionalNavigation="Contained" Grid.Row="1" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
+                        <Border x:Name="contentPanel" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" 
+                                Grid.Column="0" KeyboardNavigation.DirectionalNavigation="Contained" Grid.Row="1" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
                             <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </Border>
                     </Grid>
@@ -205,36 +266,50 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
-                    <ContentControl Content="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" >
-                        <ContentControl.ContentTemplate>
-                            <DataTemplate>
-                                <Grid Height="40">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition x:Name="Column0" />
-                                        <ColumnDefinition x:Name="Column1" />
-                                        <ColumnDefinition x:Name="Column2" />
-                                        <ColumnDefinition x:Name="Column3" />
-                                        <ColumnDefinition x:Name="Column4" />
-                                    </Grid.ColumnDefinitions>
-                                    <Border Background="White" BorderThickness="1,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}">
-                                        <TextBlock Text="{Binding ItemNumber}" Style="{DynamicResource TitleTextBlockStyle}" />
-                                    </Border>
-                                    <Border Grid.Column="1" Background="White" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}">
-                                        <TextBlock Text="{Binding Engineer}" Style="{DynamicResource TitleTextBlockStyle}" />
-                                    </Border>
-                                    <Border Grid.Column="2" Background="White" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}">
-                                        <TextBlock Text="{Binding NewProductName}"  Style="{DynamicResource TitleTextBlockStyle}"/>
-                                    </Border>
-                                    <Border Grid.Column="3" Background="White" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}">
-                                        <TextBlock Text="{Binding RawMaterial}" Style="{DynamicResource TitleTextBlockStyle}"/>
-                                    </Border>
-                                    <Border Grid.Column="4" Background="White" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}">
-                                        <TextBlock Text="{Binding Status}" Style="{DynamicResource TitleTextBlockStyle}"/>
-                                    </Border>
-                                </Grid>
-                            </DataTemplate>
-                        </ContentControl.ContentTemplate>
-                    </ContentControl>
+                    <Grid Height="45" HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="Column0" Width="*" MinWidth="160"/>
+                            <ColumnDefinition x:Name="Column1" Width="*" MinWidth="160"/>
+                            <ColumnDefinition x:Name="Column2" Width="*" MinWidth="160"/>
+                            <ColumnDefinition x:Name="Column3" Width="*" MinWidth="160"/>
+                            <ColumnDefinition x:Name="Column4" Width="*" MinWidth="160"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.ColumnSpan="5" Background="{DynamicResource PrimaryLightColorBrush}"/>
+                        <Border x:Name="Border" Grid.ColumnSpan="5" Grid.Column="0"
+                                Visibility="Collapsed"  Background="{DynamicResource SecondaryBlueColorBrush}"/>
+                        <TextBlock Grid.Column="0" x:Name="TextColum0" Text="{Binding ItemNumber}" Style="{DynamicResource TitleTextBlockStyle}"/>
+                        <Border Grid.Column="0" BorderThickness="1,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}"/>
+
+                        <TextBlock Grid.Column="1" x:Name="TextColum1" Text="{Binding Engineer}" Style="{DynamicResource TitleTextBlockStyle}"/>
+                        <Border Grid.Column="1" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}" />
+                        
+                        <TextBlock Grid.Column="2" x:Name="TextColum2" Text="{Binding NewProductName}" Style="{DynamicResource TitleTextBlockStyle}"/>
+                        <Border Grid.Column="2" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}" />
+
+                        <TextBlock Grid.Column="3" x:Name="TextColum3" Text="{Binding RawMaterial}" Style="{DynamicResource TitleTextBlockStyle}"/>
+                        <Border Grid.Column="3" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}" />
+                        
+                        <TextBlock Grid.Column="4" x:Name="TextColum4" Text="{Binding Status}" Style="{DynamicResource TitleTextBlockStyle}"/>
+                        <Border Grid.Column="4" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Visibility" TargetName="Border" Value="Visible"/>
+                            <Setter Property="Foreground" TargetName="TextColum0" Value="White"/>
+                            <Setter Property="Foreground" TargetName="TextColum1" Value="White"/>
+                            <Setter Property="Foreground" TargetName="TextColum2" Value="White"/>
+                            <Setter Property="Foreground" TargetName="TextColum3" Value="White"/>
+                            <Setter Property="Foreground" TargetName="TextColum4" Value="White"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter Property="Visibility" TargetName="Border" Value="Visible"/>
+                            <Setter Property="Foreground" TargetName="TextColum0" Value="White"/>
+                            <Setter Property="Foreground" TargetName="TextColum1" Value="White"/>
+                            <Setter Property="Foreground" TargetName="TextColum2" Value="White"/>
+                            <Setter Property="Foreground" TargetName="TextColum3" Value="White"/>
+                            <Setter Property="Foreground" TargetName="TextColum4" Value="White"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -260,7 +335,6 @@
                         <Path Data="{StaticResource ArrowGeometry}" Stretch="Uniform" Height="5" HorizontalAlignment="Center" VerticalAlignment="Center"
                               Fill="{StaticResource PrimaryDarkColorBrush}"/>
                     </Grid>
-
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsDefaulted" Value="true">
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
@@ -273,6 +347,17 @@
                             <Setter Property="Background" TargetName="border" Value="{StaticResource PrimaryLightColorBrush}"/>
                             <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource PrimaryDarkColorBrush}"/>
                         </Trigger>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="ContextMenu.IsOpen">
+                                            <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="True"/>
+                                        </BooleanAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -282,7 +367,7 @@
     <Style x:Key="HeaderFirstListItemsStyle" TargetType="{x:Type Border}">
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="{StaticResource PrimaryDarkColorBrush}"/>
-        <Setter Property="Margin" Value="2,0,0,0"/>
+        <Setter Property="Margin" Value="1,0,0,0"/>
         <Setter Property="Background" Value="{StaticResource SecondaryYellowColorBrush}"/>
     </Style>
 
@@ -340,6 +425,8 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FontSize" Value="13"/>
         <Setter Property="Margin" Value="11,0,0,0"/>
+        <Setter Property="Padding" Value="15,0"/>
+        <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
     </Style>
 
     <Style x:Key="DialogTextBlockStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TitleTextBlockStyle}">
@@ -349,3 +436,4 @@
     </Style>
     
 </ResourceDictionary>
+

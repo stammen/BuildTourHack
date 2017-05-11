@@ -19,7 +19,7 @@
         mc:Ignorable="d" MinHeight="650" MinWidth="920" Height="650" Width="920"
         d:DataContext="{d:DesignInstance viewModels:EditItemViewModel}">
    
-    <Grid Background="{StaticResource PrimaryMediumColorBrush}" ShowGridLines="True">
+    <Grid Background="{StaticResource PrimaryMediumColorBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="32"/>
             <RowDefinition Height="50"/>

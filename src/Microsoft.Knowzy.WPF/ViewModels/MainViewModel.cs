@@ -25,7 +25,8 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         private readonly EditItemViewModel _editItemViewModel;
         private DevelopmentItem _selectedDevelopmentItem;
 
-        public MainViewModel(EditItemViewModel editItemViewModel, IDataProvider dataProvider, IEventAggregator eventAggregator)
+        public MainViewModel(EditItemViewModel editItemViewModel, IDataProvider dataProvider,
+            IEventAggregator eventAggregator)
         {
             _editItemViewModel = editItemViewModel;
             _dataProvider = dataProvider;
@@ -42,10 +43,11 @@ namespace Microsoft.Knowzy.WPF.ViewModels
                 if (Equals(value, _selectedDevelopmentItem)) return;
                 _selectedDevelopmentItem = value;
                 NotifyOfPropertyChange(() => SelectedDevelopmentItem);
+                EditItem();
             }
         }
 
-        public void  EditItem()
+        public void EditItem()
         {
             _eventAggregator.PublishOnUIThread(new EditItemMessage(SelectedDevelopmentItem));
         }

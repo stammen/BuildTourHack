@@ -17,7 +17,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:localization="clr-namespace:Microsoft.Knowzy.WPF.Localization"
-             mc:Ignorable="d" HorizontalContentAlignment="Stretch"
+        mc:Ignorable="d" HorizontalContentAlignment="Stretch"
         d:DesignHeight="200" d:DesignWidth="800">
 
     <Grid>
@@ -27,23 +27,27 @@
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0" IsMainMenu="True" DockPanel.Dock="Top" HorizontalAlignment="Stretch"
-              Style="{DynamicResource MenuStyle}" ItemContainerStyle="{DynamicResource MenuItemStyle}" >
-            <MenuItem Header="{x:Static localization:Resources.File_Menu}"/>
-            <MenuItem Header="{x:Static localization:Resources.Menu_Menu}"/>
-            <MenuItem Header="{x:Static localization:Resources.View_Menu}"/>
-            <MenuItem Header="{x:Static localization:Resources.Help_Menu}"/>
-            <MenuItem Header="{x:Static localization:Resources.Login_Menu}"/>
+              Style="{DynamicResource MenuStyleLeft}" ItemContainerStyle="{DynamicResource MenuItemStyle}">
+            <MenuItem Header="{x:Static localization:Resources.File_Menu}" Template="{DynamicResource MenuItemControlTemplate}" Margin="25,0,0,0"/>
+            <MenuItem Header="{x:Static localization:Resources.Menu_Menu}" Template="{DynamicResource MenuItemControlTemplate}"/>
+            <MenuItem Header="{x:Static localization:Resources.View_Menu}" Template="{DynamicResource MenuItemControlTemplate}"/>
+            <MenuItem Header="{x:Static localization:Resources.Help_Menu}" Template="{DynamicResource MenuItemControlTemplate}"/>
         </Menu>
 
-        <TabControl Grid.Row="1"  ItemContainerStyle="{DynamicResource TabItemStyle}" Style="{DynamicResource TabControlStyle}">
+        <Menu Grid.Row="0" IsMainMenu="True" DockPanel.Dock="Top" HorizontalAlignment="Right"
+              Style="{DynamicResource MenuStyleRight}" ItemContainerStyle="{DynamicResource MenuItemStyle}" >
+            <MenuItem Header="{x:Static localization:Resources.Login_Menu}" Template="{DynamicResource MenuItemControlTemplate}" Margin="15,0"/>
+        </Menu>
+
+        <TabControl Grid.Row="1" ItemContainerStyle="{DynamicResource TabItemStyle}" Style="{DynamicResource TabControlStyle}">
             <TabItem HeaderTemplate="{StaticResource HamburgerDataTemplate}">
-                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="20">
+                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition x:Name="Column0"/>
-                        <ColumnDefinition x:Name="Column1"/>
-                        <ColumnDefinition x:Name="Column2"/>
-                        <ColumnDefinition x:Name="Column3"/>
-                        <ColumnDefinition x:Name="Column4"/>
+                        <ColumnDefinition x:Name="Column0" Width="*" MinWidth="160"/>
+                        <ColumnDefinition x:Name="Column1" Width="*" MinWidth="160"/>
+                        <ColumnDefinition x:Name="Column2" Width="*" MinWidth="160"/>
+                        <ColumnDefinition x:Name="Column3" Width="*" MinWidth="160"/>
+                        <ColumnDefinition x:Name="Column4" Width="*" MinWidth="160"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"/>
@@ -51,36 +55,69 @@
                     </Grid.RowDefinitions>
 
                     <Border Grid.Column="0" Style="{StaticResource HeaderFirstListItemsStyle}">
-                        <Button Style="{DynamicResource SortItemButtonStyle}"/>
+                        <Button Style="{DynamicResource SortItemButtonStyle}">
+                            <Button.ContextMenu>
+                                <ContextMenu >
+                                    <MenuItem Header="{x:Static localization:Resources.SortAscending_Menu}"/>
+                                    <MenuItem Header="{x:Static localization:Resources.SortDescending_Menu}"/>
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
                     </Border>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static localization:Resources.ItemNo_Header}" Style="{StaticResource TitleTextBlockStyle}"/>
+                    <TextBlock x:Name="TextRow0" Grid.Row="0" Grid.Column="0" Text="{x:Static localization:Resources.ItemNo_Header}" Style="{StaticResource TitleTextBlockStyle}"/>
                     <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource HeaderListItemsStyle}">
-                        <Button Style="{DynamicResource SortItemButtonStyle}"/>
+                        <Button Style="{DynamicResource SortItemButtonStyle}">
+                            <Button.ContextMenu>
+                                <ContextMenu >
+                                    <MenuItem Header="{x:Static localization:Resources.SortAscending_Menu}"/>
+                                    <MenuItem Header="{x:Static localization:Resources.SortDescending_Menu}"/>
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
                     </Border>
                     <TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Static localization:Resources.Engineer_Header}"  Style="{StaticResource TitleTextBlockStyle}"/>
                     <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource HeaderListItemsStyle}">
-                        <Button Style="{DynamicResource SortItemButtonStyle}"/>
+                        <Button Style="{DynamicResource SortItemButtonStyle}">
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="{x:Static localization:Resources.SortAscending_Menu}"/>
+                                    <MenuItem Header="{x:Static localization:Resources.SortDescending_Menu}"/>
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
                     </Border>
-                    <TextBlock Grid.Row="0" Grid.Column="2" Text="{x:Static localization:Resources.NewProduct_Header}" Style="{StaticResource TitleTextBlockStyle}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="{x:Static localization:Resources.NewProduct_Header}" Padding="20,0,50,0"  Style="{StaticResource TitleTextBlockStyle}"/>
                     <Border Grid.Row="0" Grid.Column="3" Style="{StaticResource HeaderListItemsStyle}">
-                        <Button Style="{DynamicResource SortItemButtonStyle}"/>
+                        <Button Style="{DynamicResource SortItemButtonStyle}">
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="{x:Static localization:Resources.SortAscending_Menu}"/>
+                                    <MenuItem Header="{x:Static localization:Resources.SortDescending_Menu}"/>
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
                     </Border>
                     <TextBlock Grid.Row="0" Grid.Column="3" Text="{x:Static localization:Resources.RowMaterial_Header}" Style="{StaticResource TitleTextBlockStyle}"/>
                     <Border Grid.Row="0" Grid.Column="4" Style="{StaticResource HeaderListItemsStyle}" Margin="0,0,1,0">
-                        <Button Style="{DynamicResource SortItemButtonStyle}"/>
+                        <Button Style="{DynamicResource SortItemButtonStyle}">
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="{x:Static localization:Resources.SortAscending_Menu}"/>
+                                    <MenuItem Header="{x:Static localization:Resources.SortDescending_Menu}"/>
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
                     </Border>
                     <TextBlock Grid.Row="0" Grid.Column="4" Text="{x:Static localization:Resources.Status_Header}" Style="{StaticResource TitleTextBlockStyle}"/>
 
-                    <ListBox Grid.ColumnSpan="5" Grid.Row="1" HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="0" Margin="0"
+                    <ListBox Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="0" Margin="0,-1,0,0"
                              ItemContainerStyle="{StaticResource ListViewStyle}" 
                              ItemsSource="{Binding DevelopmentItems}" 
-                             SelectedItem="{Binding SelectedDevelopmentItem}"/>
+                             SelectedItem="{Binding SelectedDevelopmentItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
                 </Grid>
             </TabItem>
             <TabItem HeaderTemplate="{StaticResource GridDataTemplate}"/>
         </TabControl>
-
-        <Button Grid.Row="1" Height="30" x:Name="EditItem" Content="Edit"></Button>
     </Grid>
 
 </UserControl>
