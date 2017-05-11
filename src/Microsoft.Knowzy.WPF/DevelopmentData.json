@@ -4,13 +4,23 @@
     "Engineer": "Clowns Inc.",
     "NewProductName": "2 South St. SouthTown, 04093",
     "RawMaterial": "Johan Harris",
-    "Status": "QA"
+    "Status": "QA",
+    "DevelopmentStartDate": "",
+    "ExpectedCompletionDate": "",
+    "SupplyManagementContact": "Seattle 1511, Third Ave Seattle WA 98101 Washington T. (+1) 206 708 1285",
+    "Notes": "Bla bla bla bla bla Bla bla bla bla bla Bla bla bla bla bla Bla bla bla bla bla ",
+    "ImageSource": "Frabicnose400x300.jpg"
   },
   {
     "ItemNumber": "12358132",
     "Engineer": "Clowns Inc.",
     "NewProductName": "2 South St. SouthTown, 04093",
     "RawMaterial": "Johan Harris",
-    "Status": "Production"
+    "Status": "Production",
+    "DevelopmentStartDate": "",
+    "ExpectedCompletionDate": "",
+    "SupplyManagementContact": "Seattle 1511, Third Ave Seattle WA 98101 Washington T. (+1) 206 708 1285",
+    "Notes": "Bla bla bla bla bla Bla bla bla bla bla Bla bla bla bla bla Bla bla bla bla bla ",
+    "ImageSource": "blacknose400x300.jpg"
   }
 ]

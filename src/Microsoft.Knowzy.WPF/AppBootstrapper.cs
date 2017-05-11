@@ -39,7 +39,6 @@ namespace Microsoft.Knowzy.WPF
             builder.RegisterType<MainViewModel>().SingleInstance();
             builder.RegisterType<EditItemViewModel>().SingleInstance();
             
-
             builder.RegisterType<JsonDataProvider>().As<IDataProvider>().SingleInstance();
             builder.RegisterType<ConfigurationService>().As<IConfigurationService>().SingleInstance();
 

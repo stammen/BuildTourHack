@@ -10,14 +10,16 @@
 //
 //*********************************************************
 -->
-<UserControl x:Class="Microsoft.Knowzy.WPF.Views.EditItemView"
+<Window x:Class="Microsoft.Knowzy.WPF.Views.EditItemView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" MinHeight="620" MinWidth="920">
+        xmlns:viewModels="clr-namespace:Microsoft.Knowzy.WPF.ViewModels"
+        mc:Ignorable="d" MinHeight="650" MinWidth="920" Height="650" Width="920"
+        d:DataContext="{d:DesignInstance viewModels:EditItemViewModel}">
    
-    <Grid Background="{StaticResource PrimaryMediumColorBrush}">
+    <Grid Background="{StaticResource PrimaryMediumColorBrush}" ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="32"/>
             <RowDefinition Height="50"/>
@@ -26,10 +28,11 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="95"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="32" />
@@ -58,32 +61,42 @@
         <TextBlock Grid.Row="9" Grid.Column="1" Style="{StaticResource DialogTextBlockStyle}" VerticalAlignment="Top" Margin="0,18,0,0" 
                    Text="Notes:"/>
 
-        <TextBox Grid.Row="1" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
-        <TextBox Grid.Row="2" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
-        <TextBox Grid.Row="3" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
-        <TextBox Grid.Row="4" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
-        <TextBox Grid.Row="5" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
-        <TextBox Grid.Row="6" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
-        <TextBox Grid.Row="7" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
-        <TextBox Grid.Row="8" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"/>
-        <TextBox Grid.Row="9" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}" Margin="4"/>
-        
-        <StackPanel Grid.Row="1" Grid.Column="4" Grid.RowSpan="9">
+        <TextBox Grid.Row="1" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
+                 Text="{Binding ItemNumber}" />
+        <TextBox Grid.Row="2" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
+                 Text="{Binding Engineer}" />
+        <TextBox Grid.Row="3" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
+                 Text="{Binding NewProductName}" />
+        <TextBox Grid.Row="4" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
+                 Text="{Binding RawMaterial}" />
+        <TextBox Grid.Row="5" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
+                 Text="{Binding DevelopmentStartDate}" />
+        <TextBox Grid.Row="6" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
+                 Text="{Binding ExpectedCompletionDate}" />
+        <TextBox Grid.Row="7" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}" TextWrapping="Wrap"
+                 Text="{Binding SupplyManagementContact}" />
+        <TextBox Grid.Row="8" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
+                 Text="{Binding Status}" />
+        <TextBox Grid.Row="9" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}" Margin="4" TextWrapping="Wrap"
+                 Text="{Binding Notes}" />
+
+        <StackPanel Grid.Row="1" Grid.Column="4" Grid.RowSpan="10">
             <TextBlock Style="{StaticResource DialogTextBlockStyle}" VerticalAlignment="Top" Margin="0,18,0,8" 
                        Text="Product photo:"/>
-            <Border BorderBrush="Gray" BorderThickness="1" MinHeight="290" Background="White">
-                <Image />
+            <Border BorderBrush="Gray" BorderThickness="1" MinHeight="290" MaxHeight="350" Background="White">
+                <Image Stretch="Uniform" 
+                    Source="{Binding ImageSource}" />
             </Border>
-            <Button Width="138" Height="37" HorizontalAlignment="Right" Margin="0,10" 
+            <Button x:Name="UploadPhoto" Width="138" Height="37" HorizontalAlignment="Right" Margin="0,10" 
                     Content="Upload new photo"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="10" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right"
+        <StackPanel Grid.Row="11" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right"
                     Margin="0,0,11,19" VerticalAlignment="Bottom">
-            <Button Width="109" Height="37" Margin="0,0,15,0"
+            <Button x:Name="SaveAndCloseEditWindow"  Width="109" Height="37" Margin="0,0,15,0"
                     Content="Save"/>
-            <Button Width="109" Height="37" 
+            <Button x:Name="CloseEditWindow" Width="109" Height="37" 
                     Content="Cancel"/>
         </StackPanel>
     </Grid>
-</UserControl>
+</Window>
