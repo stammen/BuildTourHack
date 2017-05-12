@@ -1,7 +1,6 @@
 ﻿using Caliburn.Micro;
-using Microsoft.Knowzy.Common.Messages;
-using Microsoft.Knowzy.Domain;
 using Microsoft.Knowzy.Domain.Enums;
+using Microsoft.Knowzy.WPF.Messages;
 using System.Collections.Generic;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
@@ -9,7 +8,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
     public class StatusLaneViewModel : Screen
     {
         private readonly IEventAggregator _eventAggregator;
-        private Product _selectedDevelopmentItem;
+        private ItemViewModel _selectedDevelopmentItem;
 
         public StatusLaneViewModel(IEventAggregator eventAggregator)
         {
@@ -18,11 +17,11 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         public DevelopmentStatus Status { get; set; }
 
-        public IEnumerable<Product> Items { get; set; }
+        public IEnumerable<ItemViewModel> Items { get; set; }
 
         public int CascadeLevel { get; set; }
 
-        public Product SelectedDevelopmentItem
+        public ItemViewModel SelectedDevelopmentItem
         {
             get { return _selectedDevelopmentItem; }
             set

@@ -22,7 +22,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
     public class EditItemViewModel : Screen
     {
         private readonly string _imagesDirectory = AppDomain.CurrentDomain.BaseDirectory + "Assets\\";
-        private Product _item;
+        private ItemViewModel _item;
         private DevelopmentStatus _status;
         private string _rawMaterial;
         private string _name;
@@ -34,7 +34,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         private string _notes;
         private Uri _imageSource;
 
-        public Product Item
+        public ItemViewModel Item
         {
             get => _item;
             set
