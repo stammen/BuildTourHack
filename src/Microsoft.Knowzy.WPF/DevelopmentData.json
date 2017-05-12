@@ -1,26 +1,74 @@
 ﻿[
-  {
-    "ItemNumber": "12358132",
-    "Engineer": "Clowns Inc.",
-    "NewProductName": "2 South St. SouthTown, 04093",
-    "RawMaterial": "Johan Harris",
-    "Status": "QA",
-    "DevelopmentStartDate": "",
-    "ExpectedCompletionDate": "",
-    "SupplyManagementContact": "Seattle 1511, Third Ave Seattle WA 98101 Washington T. (+1) 206 708 1285",
-    "Notes": "Bla bla bla bla bla Bla bla bla bla bla Bla bla bla bla bla Bla bla bla bla bla ",
-    "ImageSource": "Frabicnose400x300.jpg"
-  },
-  {
-    "ItemNumber": "12358132",
-    "Engineer": "Clowns Inc.",
-    "NewProductName": "2 South St. SouthTown, 04093",
-    "RawMaterial": "Johan Harris",
-    "Status": "Production",
-    "DevelopmentStartDate": "",
-    "ExpectedCompletionDate": "",
-    "SupplyManagementContact": "Seattle 1511, Third Ave Seattle WA 98101 Washington T. (+1) 206 708 1285",
-    "Notes": "Bla bla bla bla bla Bla bla bla bla bla Bla bla bla bla bla Bla bla bla bla bla ",
-    "ImageSource": "blacknose400x300.jpg"
-  }
+    {
+        "ItemNumber": "12358132",
+        "Engineer": "Clowns Inc.",
+        "NewProductName": "2 South St. SouthTown, 04093",
+        "RawMaterial": "Johan Harris",
+        "Status": "QA",
+        "DevelopmentStartDate": "",
+        "ExpectedCompletionDate": "",
+        "SupplyManagementContact": "Seattle 1511, Third Ave Seattle WA 98101 Washington T. (+1) 206 708 1285",
+        "Notes": "Bla bla bla bla bla Bla bla bla bla bla Bla bla bla bla bla Bla bla bla bla bla ",
+        "ImageSource": "Frabicnose400x300.jpg"
+    },
+    {
+        "ItemNumber": "12358132",
+        "Engineer": "Clowns Inc.",
+        "NewProductName": "2 South St. SouthTown, 04093",
+        "RawMaterial": "Johan Harris",
+        "Status": "Production",
+        "DevelopmentStartDate": "",
+        "ExpectedCompletionDate": "",
+        "SupplyManagementContact": "Seattle 1511, Third Ave Seattle WA 98101 Washington T. (+1) 206 708 1285",
+        "Notes": "Bla bla bla bla bla Bla bla bla bla bla Bla bla bla bla bla Bla bla bla bla bla ",
+        "ImageSource": "blacknose400x300.jpg"
+    },
+    {
+        "ItemNumber": "RN3454",
+        "Engineer": "Clowns Inc.",
+        "NewProductName": "Deluxe Nose",
+        "RawMaterial": "Johan Harris",
+        "Status": "Production",
+        "DevelopmentStartDate": "",
+        "ExpectedCompletionDate": "",
+        "SupplyManagementContact": "Seattle 1511, Third Ave Seattle WA 98101 Washington T. (+1) 206 708 1285",
+        "Notes": "Everything you'd expect, and a little something more.",
+        "ImageSource": "Frabicnose400x300.jpg"
+    },
+    {
+        "ItemNumber": "PN3476",
+        "Engineer": "Clowns Inc.",
+        "NewProductName": "Collectors Edition",
+        "RawMaterial": "Johan Harris",
+        "Status": "Production",
+        "DevelopmentStartDate": "",
+        "ExpectedCompletionDate": "",
+        "SupplyManagementContact": "Seattle 1511, Third Ave Seattle WA 98101 Washington T. (+1) 206 708 1285",
+        "Notes": "Limited edition, very rare!",
+        "ImageSource": "Frabicnose400x300.jpg"
+    },
+    {
+        "ItemNumber": "YN3171",
+        "Engineer": "Clowns Inc.",
+        "NewProductName": "Basic Nose",
+        "RawMaterial": "Johan Harris",
+        "Status": "Production",
+        "DevelopmentStartDate": "",
+        "ExpectedCompletionDate": "",
+        "SupplyManagementContact": "Seattle 1511, Third Ave Seattle WA 98101 Washington T. (+1) 206 708 1285",
+        "Notes": "Our best-selling classic.",
+        "ImageSource": "Frabicnose400x300.jpg"
+    },
+    {
+        "ItemNumber": "ZX2584",
+        "Engineer": "Clowns Inc.",
+        "NewProductName": "The Co'Nose seur",
+        "RawMaterial": "Johan Harris",
+        "Status": "Production",
+        "DevelopmentStartDate": "",
+        "ExpectedCompletionDate": "",
+        "SupplyManagementContact": "Seattle 1511, Third Ave Seattle WA 98101 Washington T. (+1) 206 708 1285",
+        "Notes": "For the discerning performance comedian.",
+        "ImageSource": "Frabicnose400x300.jpg"
+    }
 ]

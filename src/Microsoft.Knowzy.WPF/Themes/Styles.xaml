@@ -371,6 +371,17 @@
         <Setter Property="Background" Value="{StaticResource SecondaryYellowColorBrush}"/>
     </Style>
 
+    <Style x:Key="GridHeaderBorderStyle" TargetType="{x:Type Border}">        
+        <Setter Property="BorderBrush" Value="{StaticResource PrimaryDarkColorBrush}"/>        
+        <Setter Property="Background" Value="{StaticResource SecondaryYellowColorBrush}"/>
+    </Style>
+
+    <Style x:Key="GridColumnBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{StaticResource PrimaryDarkColorBrush}"/>    
+        <Setter Property="Background" Value="{StaticResource PrimaryLightColorBrush}"/>
+    </Style>
+
     <Style x:Key="HeaderListItemsStyle" TargetType="{x:Type Border}" BasedOn="{StaticResource HeaderFirstListItemsStyle}">
         <Setter Property="BorderThickness" Value="0,1,1,1"/>
         <Setter Property="Margin" Value="0"/>
@@ -433,6 +444,26 @@
         <Setter Property="FontFamily" Value="{StaticResource SegoeBold}"/>
         <Setter Property="Margin" Value="0"/>
         <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="CenteredTitleTextBlockStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TitleTextBlockStyle}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
+    </Style>
+
+    <Style x:Key="LaneListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+
+    <Style x:Key="LanesListBoxStyle" TargetType="{x:Type ListBox}">
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BorderThickness" Value="0"/>        
     </Style>
     
 </ResourceDictionary>

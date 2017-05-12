@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DevelopmentStatus_BreatheTest" xml:space="preserve">
+    <value>Breathe Test</value>
+  </data>
+  <data name="DevelopmentStatus_ConceptDesign" xml:space="preserve">
+    <value>Concept Design</value>
+  </data>
+  <data name="DevelopmentStatus_Production" xml:space="preserve">
+    <value>Production</value>
+  </data>
+  <data name="DevelopmentStatus_Prototype" xml:space="preserve">
+    <value>Prototype</value>
+  </data>
+  <data name="DevelopmentStatus_QA" xml:space="preserve">
+    <value>QA</value>
+  </data>
+  <data name="DevelopmentStatus_Research" xml:space="preserve">
+    <value>Research</value>
+  </data>
   <data name="Engineer_Header" xml:space="preserve">
     <value>Engineer</value>
   </data>

@@ -17,7 +17,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:localization="clr-namespace:Microsoft.Knowzy.WPF.Localization"
-        mc:Ignorable="d" HorizontalContentAlignment="Stretch"
+             xmlns:enums="clr-namespace:Microsoft.Knowzy.Domain.Enums"
+             mc:Ignorable="d" HorizontalContentAlignment="Stretch"
         d:DesignHeight="200" d:DesignWidth="800">
 
     <Grid>
@@ -109,14 +110,56 @@
                         </Button>
                     </Border>
                     <TextBlock Grid.Row="0" Grid.Column="4" Text="{x:Static localization:Resources.Status_Header}" Style="{StaticResource TitleTextBlockStyle}"/>
-
+                    
                     <ListBox Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="0" Margin="0,-1,0,0"
                              ItemContainerStyle="{StaticResource ListViewStyle}" 
                              ItemsSource="{Binding DevelopmentItems}" 
                              SelectedItem="{Binding SelectedDevelopmentItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
                 </Grid>
             </TabItem>
-            <TabItem HeaderTemplate="{StaticResource GridDataTemplate}"/>
+            <TabItem HeaderTemplate="{StaticResource GridDataTemplate}">
+                <ListBox Style="{StaticResource LanesListBoxStyle}"
+                         ItemsSource="{Binding Lanes}" 
+                         ItemContainerStyle="{StaticResource LaneListBoxItemStyle}">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>                    
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="200" VerticalAlignment="Stretch">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="45"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Border Style="{StaticResource GridHeaderBorderStyle}">
+                                    <TextBlock Text="{Binding Status, Converter={StaticResource DevelopmentStatusToStringConverter}}"
+                                               Style="{StaticResource CenteredTitleTextBlockStyle}"/>
+                                </Border>
+                                <ListBox Grid.Row="1" 
+                                         ItemsSource="{Binding Items}" 
+                                         SelectedItem="{Binding SelectedDevelopmentItem}"
+                                         Margin="{Binding CascadeLevel, Converter={StaticResource CascadeLevelToMarginConverter}}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Margin="15,5,15,5" Background="{StaticResource PrimaryLightColorBrush}">
+                                                <Border.Effect>
+                                                    <DropShadowEffect Color="{StaticResource PrimaryMediumColor}"/>
+                                                </Border.Effect>
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding ItemNumber}" FontWeight="Bold" TextWrapping="Wrap"/>
+                                                    <TextBlock Text="{Binding NewProductName}" TextWrapping="Wrap"/>
+                                                </StackPanel>    
+                                            </Border>                                            
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>                            
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>               
+            </TabItem>
         </TabControl>
     </Grid>
 

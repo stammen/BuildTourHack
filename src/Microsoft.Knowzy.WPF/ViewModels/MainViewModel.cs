@@ -9,12 +9,14 @@
 //
 //*********************************************************
 
-using System.Collections.Generic;
 using Caliburn.Micro;
 using Microsoft.Knowzy.Common.Contracts;
-using Microsoft.Knowzy.Domain;
-using System.Linq;
 using Microsoft.Knowzy.Common.Messages;
+using Microsoft.Knowzy.Domain;
+using Microsoft.Knowzy.Domain.Enums;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
@@ -34,6 +36,8 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         }
 
         public List<DevelopmentItem> DevelopmentItems { get; private set; }
+
+        public List<StatusLaneViewModel> Lanes { get; private set;}
 
         public DevelopmentItem SelectedDevelopmentItem
         {
@@ -56,6 +60,23 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         {
             base.OnActivate();
             DevelopmentItems = _dataProvider.GetData().ToList();
+            InitializeLanes();
+        }
+
+        private void InitializeLanes()
+        {            
+            Lanes = new List<StatusLaneViewModel>();
+            var level = 0;
+            foreach (var status in Enum.GetValues(typeof(DevelopmentStatus)))
+            {
+                Lanes.Add(new StatusLaneViewModel(_eventAggregator)
+                {
+                    Status = (DevelopmentStatus)status,
+                    CascadeLevel = level,
+                    Items = DevelopmentItems?.Where(item => item.Status == (DevelopmentStatus)status).ToList()
+                });
+                level++;
+            }
         }
     }
 }

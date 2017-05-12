@@ -63,6 +63,60 @@ namespace Microsoft.Knowzy.WPF.Localization {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string DevelopmentStatus_BreatheTest {
+            get {
+                return ResourceManager.GetString("DevelopmentStatus_BreatheTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string DevelopmentStatus_ConceptDesign {
+            get {
+                return ResourceManager.GetString("DevelopmentStatus_ConceptDesign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string DevelopmentStatus_Production {
+            get {
+                return ResourceManager.GetString("DevelopmentStatus_Production", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string DevelopmentStatus_Prototype {
+            get {
+                return ResourceManager.GetString("DevelopmentStatus_Prototype", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string DevelopmentStatus_QA {
+            get {
+                return ResourceManager.GetString("DevelopmentStatus_QA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string DevelopmentStatus_Research {
+            get {
+                return ResourceManager.GetString("DevelopmentStatus_Research", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Engineer_Header {
             get {
                 return ResourceManager.GetString("Engineer_Header", resourceCulture);
