@@ -59,17 +59,17 @@
             <dl class="dl-horizontal detail-item">
                 <dt><label asp-for="CompanyName"></label></dt>
                 <dd>
-                    <input asp-for="CompanyName" class="form-control form-input" />
+                    <input asp-for="CompanyName" class="form-control form-input" maxlength="40"/>
                     <span asp-validation-for="CompanyName" class="text-danger"></span>
                 </dd>
                 <dt><label asp-for="ContactPerson"></label></dt>
                 <dd>
-                    <input asp-for="ContactPerson" class="form-control form-input" />
+                    <input asp-for="ContactPerson" class="form-control form-input" maxlength="40"/>
                     <span asp-validation-for="ContactPerson" class="text-danger"></span>
                 </dd>
                 <dt><label asp-for="Email"></label></dt>
                 <dd>
-                    <input type="email" asp-for="Email" class="form-control form-input" />
+                    <input type="email" asp-for="Email" class="form-control form-input" maxlength="40"/>
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </dd>
                 <dt><label asp-for="PhoneNumber"></label></dt>
@@ -79,12 +79,12 @@
                 </dd>
                 <dt><label asp-for="Address"></label></dt>
                 <dd>
-                    <input asp-for="Address" class="form-control form-input" />
+                    <input asp-for="Address" class="form-control form-input" maxlength="80" />
                     <span asp-validation-for="Address" class="text-danger"></span>
                 </dd>
                 <dt><label asp-for="Tracking"></label></dt>
                 <dd>
-                    <input asp-for="Tracking" class="form-control form-input" />
+                    <input asp-for="Tracking" class="form-control form-input" maxlength="15"/>
                     <span asp-validation-for="Tracking" class="text-danger"></span>
                 </dd>           
                 <dt><label asp-for="PostalCarrierName"></label></dt>
