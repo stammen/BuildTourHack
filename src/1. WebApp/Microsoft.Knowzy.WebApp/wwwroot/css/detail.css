@@ -15,16 +15,15 @@
 }
 
 .detail-item-number dd{
-    margin-left: 125px;
+    margin-left: 145px;
 }
 
 .detail-item-status dt {
     width: 60px;
-    padding-left: 5px;
 }
 
 .detail-item-status dd {
-    margin-left: 60px;
+    margin-left: 80px;
 }
 
 dt, dd {
@@ -51,8 +50,10 @@ dt, dd {
 }
 
 .details-close {
-    float: right;
-    font-size: 25px;
+    position: absolute;
+    top: -25px;
+    right: 0;
+    font-size: 20px;
 }
 
     .details-close:hover {
@@ -60,25 +61,49 @@ dt, dd {
         cursor: pointer;
     }
 
+@media screen and (max-width: 650px) {
+    .detail-main-info .col-xs-7,
+    .detail-main-info .col-xs-5 {
+        width: 100%;
+    }
+
+    .detail-item-status dd {
+        margin-top: 0;
+    }
+
+    .create-item-status dd {
+        margin-top: 52px !important;
+    }
+} 
+
+@media screen and (min-width: 768px) and (max-width:1200px) {
+    .detail-main-info .col-xs-7,
+    .detail-main-info .col-xs-5 {
+        width: 100%;
+    }
+
+    .detail-item-status dd {
+        margin-top: 0;
+    }
+}
+
+
+
 @media screen and (max-width: 767px) {
     dl {
         padding: 0 20px;
     }
 
     dt {
-        float: left;  
+        float: left;
     }
 
     dd {
         margin-left: 175px;
     }
 
-    .button-action {        
+    .button-action {
         margin-bottom: 49px;
-    }
-
-    .detail-item-status {
-        padding-left: 65px;
     }
 
     .details-right {
