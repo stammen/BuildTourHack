@@ -40,18 +40,18 @@ namespace Microsoft.Knowzy.WebApp.Controllers
             return View(await _orderQueries.GetShippings());
         }
 
-        public async Task<IActionResult> Details(string orderNumber)
+        public async Task<IActionResult> Details(string orderId)
         {
-            return View(await _orderQueries.GetShipping(orderNumber));
+            return View(await _orderQueries.GetShipping(orderId));
         }
 
-        public async Task<IActionResult> Edit(string orderNumber)
+        public async Task<IActionResult> Edit(string orderId)
         {
-            var getShippingTask = _orderQueries.GetShipping(orderNumber);
-            var getNumberOfAvailableItems = _orderQueries.GetItemsCount();
-            await Task.WhenAll(GenerateDropdowns(), getShippingTask, getNumberOfAvailableItems);
+            var getShippingTask = _orderQueries.GetShipping(orderId);
+            var getNumberOfAvailableProducts = _orderQueries.GetProductCount();
+            await Task.WhenAll(GenerateDropdowns(), getShippingTask, getNumberOfAvailableProducts);
             var order = getShippingTask.Result;
-            order.MaxAvailableItems = getNumberOfAvailableItems.Result;
+            order.MaxAvailableItems = getNumberOfAvailableProducts.Result;
             return View(order);
         }
 
@@ -87,16 +87,16 @@ namespace Microsoft.Knowzy.WebApp.Controllers
                 var command = new EditShippingCommand(shippingModel);
                 var handler = new EditShippingCommandHandler(_orderRepository);
                 await handler.Execute(command);
-                return RedirectToAction("Details", "Shippings", new { shipping.OrderNumber });
+                return RedirectToAction("Details", "Shippings", new { orderId = shipping.Id });
             }
             await GenerateDropdowns();
             return View(shipping);
         }
 
-        public async Task<IActionResult> AddOrderItem(IEnumerable<string> itemNumbers)
+        public async Task<IActionResult> AddOrderItem(IEnumerable<string> productIds)
         {
-            var itemToAdd =  (await _orderQueries.GetItems()).FirstOrDefault(item => itemNumbers.All(number => number != item.Number));            
-            var orderLineViewmodel = new OrderLineViewModel{ ItemImage = itemToAdd.Image, ItemNumber = itemToAdd.Number, ItemPrice = itemToAdd.Price, Quantity = 1 };
+            var itemToAdd =  (await _orderQueries.GetProducts()).FirstOrDefault(product => productIds.All(id => id != product.Id));            
+            var orderLineViewmodel = new OrderLineViewModel{ ProductImage = itemToAdd.Image, ProductId = itemToAdd.Id, ProductPrice = itemToAdd.Price, Quantity = 1 };
             return PartialView("EditorTemplates/OrderLineViewModel", orderLineViewmodel);
         }
 

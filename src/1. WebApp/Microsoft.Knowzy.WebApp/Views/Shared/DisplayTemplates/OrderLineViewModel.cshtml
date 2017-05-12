@@ -1,10 +1,10 @@
 @model Microsoft.Knowzy.Models.ViewModels.OrderLineViewModel
 <tr>
     <td>
-        <img src='@Html.DisplayFor(modelItem => modelItem.ItemImage)'/>
+        <img src='@Html.DisplayFor(modelItem => modelItem.ProductImage)'/>
     </td>
     <td>
-        @Html.DisplayFor(modelItem => modelItem.ItemNumber)
+        @Html.DisplayFor(modelItem => modelItem.ProductId)
     </td>
     <td>
         @Html.DisplayFor(modelItem => modelItem.Quantity)

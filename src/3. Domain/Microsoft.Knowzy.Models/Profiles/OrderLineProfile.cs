@@ -9,20 +9,15 @@ namespace Microsoft.Knowzy.Models.Profiles
         public OrderLineProfile()
         {
             CreateMap<OrderLine, OrderLineViewModel>()
-                .ForMember(orderLineViewModel => orderLineViewModel.ItemNumber,
-                    options => options.ResolveUsing(orderLine => orderLine.Item.Number))
-                .ForMember(orderLineViewModel => orderLineViewModel.ItemImage,
-                    options => options.ResolveUsing(orderLine => orderLine.Item.Image))
-                .ForMember(orderLineViewModel => orderLineViewModel.ItemPrice,
-                    options => options.ResolveUsing(orderLine => orderLine.Item.Price)); ;
+                .ForMember(orderLineViewModel => orderLineViewModel.ProductImage,
+                    options => options.ResolveUsing(orderLine => orderLine.Product.Image))
+                .ForMember(orderLineViewModel => orderLineViewModel.ProductPrice,
+                    options => options.ResolveUsing(orderLine => orderLine.Product.Price)); ;
 
             CreateMap<OrderLineViewModel, OrderLine>()
                 .ForMember(orderLine => orderLine.Price,
                     options => options.ResolveUsing(
-                        orderLineViewModel => orderLineViewModel.Quantity * orderLineViewModel.ItemPrice))
-                .ForMember(orderLine => orderLine.ItemNumber,
-                    options => options.ResolveUsing(
-                        orderLineViewModel => orderLineViewModel.ItemNumber));
+                        orderLineViewModel => orderLineViewModel.Quantity * orderLineViewModel.ProductPrice));
         }
     }
 }

@@ -16,7 +16,7 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.OrderNumber)
+                        @Html.DisplayNameFor(model => model.Id)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.CompanyName)
@@ -31,9 +31,9 @@
             </thead>
             <tbody>
                 @foreach (var item in Model) {
-                    <tr onclick="location.href = '@(Url.Action("Details", "Receivings", new { orderNumber = item.OrderNumber }))'">
+                    <tr onclick="location.href = '@(Url.Action("Details", "Receivings", new { orderId = item.Id }))'">
                         <td>
-                            @Html.DisplayFor(modelItem => item.OrderNumber)
+                            @Html.DisplayFor(modelItem => item.Id)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.CompanyName)

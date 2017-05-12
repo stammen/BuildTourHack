@@ -6,13 +6,13 @@
 {      
         <td>
             @Html.HiddenFor(model => model.Id)
-            @Html.HiddenFor(model => model.ItemPrice)
-            @Html.HiddenFor(model => model.ItemImage)
-            <img src='@Html.DisplayFor(model => model.ItemImage)'/>            
+            @Html.HiddenFor(model => model.ProductPrice)
+            @Html.HiddenFor(model => model.ProductImage)
+            <img src='@Html.DisplayFor(model => model.ProductImage)'/>            
         </td>
         <td class="itemNumber">
-            @Html.DisplayFor(model => model.ItemNumber)
-            @Html.HiddenFor(model => model.ItemNumber, new { @class = "form-control"})
+            @Html.DisplayFor(model => model.ProductId)
+            @Html.HiddenFor(model => model.ProductId, new { @class = "form-control"})
         </td>
     <td>
         <span asp-validation-for="Quantity" class="text-danger"></span>

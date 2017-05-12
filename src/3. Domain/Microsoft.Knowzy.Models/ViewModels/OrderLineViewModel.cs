@@ -9,10 +9,10 @@ namespace Microsoft.Knowzy.Models.ViewModels
     {
         public int Id { get; set; }
         [Display(Name = "Item number")]
-        public string ItemNumber { get; set; }
+        public string ProductId { get; set; }
         [Display(Name = "Item image")]
-        public string ItemImage { get; set; }
-        public decimal ItemPrice { get; set; }
+        public string ProductImage { get; set; }
+        public decimal ProductPrice { get; set; }
         public int? Quantity { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

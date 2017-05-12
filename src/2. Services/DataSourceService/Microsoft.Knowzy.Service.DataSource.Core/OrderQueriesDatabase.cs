@@ -31,7 +31,9 @@ namespace Microsoft.Knowzy.Service.DataSource.Core
 
         public async Task<IEnumerable<ShippingsViewModel>> GetShippings()
         {
-            return await _context.Shippings.ProjectTo<ShippingsViewModel>().ToListAsync();
+            return await _context.Shippings
+                .Include(order => order.Customer)
+                .ProjectTo<ShippingsViewModel>().ToListAsync();
         }
 
         public async Task<IEnumerable<ShippingsViewModel>> GetShippings(int pageNumber, int pageCount)
@@ -55,26 +57,35 @@ namespace Microsoft.Knowzy.Service.DataSource.Core
                         .ToListAsync();
         }
 
-        public async Task<ShippingViewModel> GetShipping(string orderNumber)
+        public async Task<ShippingViewModel> GetShipping(string orderId)
         {
-            return await _context.Shippings.ProjectTo<ShippingViewModel>()
-                        .FirstOrDefaultAsync(shipping => shipping.OrderNumber == orderNumber);
+            return await _context.Shippings
+                        .Include(shipping => shipping.Customer)
+                        .Include(shipping => shipping.OrderLines)
+                        .Include(shipping => shipping.PostalCarrier)
+                        .ProjectTo<ShippingViewModel>()
+                        .FirstOrDefaultAsync(shipping => shipping.Id == orderId);
         }
 
-        public async Task<ReceivingViewModel> GetReceiving(string orderNumber)
+        public async Task<ReceivingViewModel> GetReceiving(string orderId)
         {
             return await _context.Receivings.ProjectTo<ReceivingViewModel>()
-                        .FirstOrDefaultAsync(receiving => receiving.OrderNumber == orderNumber);
+                        .FirstOrDefaultAsync(receiving => receiving.Id == orderId);
         }
 
-        public async Task<IEnumerable<Item>> GetItems()
+        public async Task<IEnumerable<Product>> GetProducts()
         {
-            return await _context.Items.ToListAsync();
+            return await _context.Products.ToListAsync();
         }
 
         public async Task<IEnumerable<PostalCarrier>> GetPostalCarriers()
         {
             return await _context.PostalCarriers.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Customer>> GetCustomers()
+        {
+            return await _context.Customers.ToListAsync();
         }
 
         public async Task<int> GetShippingCount()
@@ -87,9 +98,9 @@ namespace Microsoft.Knowzy.Service.DataSource.Core
             return await _context.Receivings.CountAsync();
         }
 
-        public async Task<int> GetItemsCount()
+        public async Task<int> GetProductCount()
         {
-            return await _context.Items.CountAsync();
+            return await _context.Products.CountAsync();
         }
 
         #endregion
