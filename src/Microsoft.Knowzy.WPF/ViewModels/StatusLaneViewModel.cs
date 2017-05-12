@@ -9,7 +9,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
     public class StatusLaneViewModel : Screen
     {
         private readonly IEventAggregator _eventAggregator;
-        private DevelopmentItem _selectedDevelopmentItem;
+        private Product _selectedDevelopmentItem;
 
         public StatusLaneViewModel(IEventAggregator eventAggregator)
         {
@@ -18,11 +18,11 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         public DevelopmentStatus Status { get; set; }
 
-        public IEnumerable<DevelopmentItem> Items { get; set; }
+        public IEnumerable<Product> Items { get; set; }
 
         public int CascadeLevel { get; set; }
 
-        public DevelopmentItem SelectedDevelopmentItem
+        public Product SelectedDevelopmentItem
         {
             get { return _selectedDevelopmentItem; }
             set

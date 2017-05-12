@@ -25,7 +25,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         private readonly IDataProvider _dataProvider;
         private readonly IEventAggregator _eventAggregator;
         private readonly EditItemViewModel _editItemViewModel;
-        private DevelopmentItem _selectedDevelopmentItem;
+        private Product _selectedDevelopmentItem;
 
         public MainViewModel(EditItemViewModel editItemViewModel, IDataProvider dataProvider,
             IEventAggregator eventAggregator)
@@ -35,11 +35,11 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             _eventAggregator = eventAggregator;
         }
 
-        public List<DevelopmentItem> DevelopmentItems { get; private set; }
+        public List<Product> DevelopmentItems { get; private set; }
 
         public List<StatusLaneViewModel> Lanes { get; private set;}
 
-        public DevelopmentItem SelectedDevelopmentItem
+        public Product SelectedDevelopmentItem
         {
             get { return _selectedDevelopmentItem; }
             set

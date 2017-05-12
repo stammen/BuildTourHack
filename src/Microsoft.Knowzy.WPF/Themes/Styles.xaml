@@ -277,13 +277,13 @@
                         <Border Grid.ColumnSpan="5" Background="{DynamicResource PrimaryLightColorBrush}"/>
                         <Border x:Name="Border" Grid.ColumnSpan="5" Grid.Column="0"
                                 Visibility="Collapsed"  Background="{DynamicResource SecondaryBlueColorBrush}"/>
-                        <TextBlock Grid.Column="0" x:Name="TextColum0" Text="{Binding ItemNumber}" Style="{DynamicResource TitleTextBlockStyle}"/>
+                        <TextBlock Grid.Column="0" x:Name="TextColum0" Text="{Binding Id}" Style="{DynamicResource TitleTextBlockStyle}"/>
                         <Border Grid.Column="0" BorderThickness="1,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}"/>
 
                         <TextBlock Grid.Column="1" x:Name="TextColum1" Text="{Binding Engineer}" Style="{DynamicResource TitleTextBlockStyle}"/>
                         <Border Grid.Column="1" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}" />
                         
-                        <TextBlock Grid.Column="2" x:Name="TextColum2" Text="{Binding NewProductName}" Style="{DynamicResource TitleTextBlockStyle}"/>
+                        <TextBlock Grid.Column="2" x:Name="TextColum2" Text="{Binding Name}" Style="{DynamicResource TitleTextBlockStyle}"/>
                         <Border Grid.Column="2" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}" />
 
                         <TextBlock Grid.Column="3" x:Name="TextColum3" Text="{Binding RawMaterial}" Style="{DynamicResource TitleTextBlockStyle}"/>

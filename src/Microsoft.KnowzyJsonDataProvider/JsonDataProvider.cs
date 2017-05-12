@@ -24,11 +24,11 @@ namespace Microsoft.Knowzy.DataProvider
             _configuration = configuration;
         }
 
-        public DevelopmentItem[] GetData()
+        public Product[] GetData()
         {
             var jsonFilePath = _configuration.Configuration.JsonFilePath;
 
-            return JsonHelper.Deserialize<DevelopmentItem[]>(FileHelper.ReadTextFile(jsonFilePath));
+            return JsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
         }
     }
 }

@@ -62,11 +62,11 @@
                    Text="Notes:"/>
 
         <TextBox Grid.Row="1" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
-                 Text="{Binding ItemNumber}" />
+                 Text="{Binding Id}" />
         <TextBox Grid.Row="2" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
                  Text="{Binding Engineer}" />
         <TextBox Grid.Row="3" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
-                 Text="{Binding NewProductName}" />
+                 Text="{Binding Name}" />
         <TextBox Grid.Row="4" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
                  Text="{Binding RawMaterial}" />
         <TextBox Grid.Row="5" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"

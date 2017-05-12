@@ -15,6 +15,6 @@ namespace Microsoft.Knowzy.Common.Contracts
 {
     public interface IDataProvider
     {
-        DevelopmentItem[] GetData();
+        Product[] GetData();
     }
 }

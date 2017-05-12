@@ -4,11 +4,11 @@ namespace Microsoft.Knowzy.Common.Messages
 {
     public class EditItemMessage
     {
-        public EditItemMessage(DevelopmentItem item)
+        public EditItemMessage(Product item)
         {
             Item = item;
         }
 
-        public DevelopmentItem Item { get; }
+        public Product Item { get; }
     }
 }

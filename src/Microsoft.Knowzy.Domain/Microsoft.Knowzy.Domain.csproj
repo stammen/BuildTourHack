@@ -35,7 +35,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DevelopmentItem.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Enums\DevelopmentStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

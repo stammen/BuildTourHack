@@ -9,25 +9,24 @@
 //
 //*********************************************************
 
-using System;
-using System.IO;
 using Caliburn.Micro;
-using System.Windows;
-using System.Windows.Media.Imaging;
 using Microsoft.Knowzy.Domain;
 using Microsoft.Knowzy.Domain.Enums;
 using Microsoft.Win32;
+using System;
+using System.IO;
+using System.Windows;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
     public class EditItemViewModel : Screen
     {
         private readonly string _imagesDirectory = AppDomain.CurrentDomain.BaseDirectory + "Assets\\";
-        private DevelopmentItem _item;
+        private Product _item;
         private DevelopmentStatus _status;
         private string _rawMaterial;
-        private string _newProductName;
-        private string _itemNumber;
+        private string _name;
+        private string _id;
         private string _engineer;
         private DateTime _developmentStartDate;
         private DateTime _expectedCompletionDate;
@@ -35,15 +34,15 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         private string _notes;
         private Uri _imageSource;
 
-        public DevelopmentItem Item
+        public Product Item
         {
             get => _item;
             set
             {
                 _item = value;
                 Engineer = _item.Engineer;
-                ItemNumber = _item.ItemNumber;
-                NewProductName = _item.NewProductName;
+                Id = _item.Id;
+                Name = _item.Name;
                 RawMaterial = _item.RawMaterial;
                 DevelopmentStartDate = _item.DevelopmentStartDate;
                 ExpectedCompletionDate = _item.ExpectedCompletionDate;
@@ -120,25 +119,25 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             }
         }
 
-        public string NewProductName
+        public string Name
         {
-            get => _newProductName;
+            get => _name;
             set
             {
-                if (value == _newProductName) return;
-                _newProductName = value;
-                NotifyOfPropertyChange(() => NewProductName);
+                if (value == _name) return;
+                _name = value;
+                NotifyOfPropertyChange(() => Name);
             }
         }
 
-        public string ItemNumber
+        public string Id
         {
-            get => _itemNumber;
+            get => _id;
             set
             {
-                if (value == _itemNumber) return;
-                _itemNumber = value;
-                NotifyOfPropertyChange(() => ItemNumber);
+                if (value == _id) return;
+                _id = value;
+                NotifyOfPropertyChange(() => Id);
             }
         }
 
@@ -187,8 +186,8 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         public void SaveAndCloseEditWindow()
         {
             _item.Engineer = Engineer;
-            _item.ItemNumber = ItemNumber;
-            _item.NewProductName = NewProductName;
+            _item.Id = Id;
+            _item.Name = Name;
             _item.RawMaterial = RawMaterial;
             _item.DevelopmentStartDate = DevelopmentStartDate;
             _item.ExpectedCompletionDate = ExpectedCompletionDate;

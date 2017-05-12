@@ -1,8 +1,8 @@
 ﻿[
     {
-        "ItemNumber": "12358132",
+        "Id": "12358132",
         "Engineer": "Clowns Inc.",
-        "NewProductName": "2 South St. SouthTown, 04093",
+        "Name": "2 South St. SouthTown, 04093",
         "RawMaterial": "Johan Harris",
         "Status": "QA",
         "DevelopmentStartDate": "",
@@ -12,9 +12,9 @@
         "ImageSource": "Frabicnose400x300.jpg"
     },
     {
-        "ItemNumber": "12358132",
+        "Id": "12358132",
         "Engineer": "Clowns Inc.",
-        "NewProductName": "2 South St. SouthTown, 04093",
+        "Name": "2 South St. SouthTown, 04093",
         "RawMaterial": "Johan Harris",
         "Status": "Production",
         "DevelopmentStartDate": "",
@@ -24,9 +24,9 @@
         "ImageSource": "blacknose400x300.jpg"
     },
     {
-        "ItemNumber": "RN3454",
+        "Id": "RN3454",
         "Engineer": "Clowns Inc.",
-        "NewProductName": "Deluxe Nose",
+        "Name": "Deluxe Nose",
         "RawMaterial": "Johan Harris",
         "Status": "Production",
         "DevelopmentStartDate": "",
@@ -36,9 +36,9 @@
         "ImageSource": "Frabicnose400x300.jpg"
     },
     {
-        "ItemNumber": "PN3476",
+        "Id": "PN3476",
         "Engineer": "Clowns Inc.",
-        "NewProductName": "Collectors Edition",
+        "Name": "Collectors Edition",
         "RawMaterial": "Johan Harris",
         "Status": "Production",
         "DevelopmentStartDate": "",
@@ -48,9 +48,9 @@
         "ImageSource": "Frabicnose400x300.jpg"
     },
     {
-        "ItemNumber": "YN3171",
+        "Id": "YN3171",
         "Engineer": "Clowns Inc.",
-        "NewProductName": "Basic Nose",
+        "Name": "Basic Nose",
         "RawMaterial": "Johan Harris",
         "Status": "Production",
         "DevelopmentStartDate": "",
@@ -60,9 +60,9 @@
         "ImageSource": "Frabicnose400x300.jpg"
     },
     {
-        "ItemNumber": "ZX2584",
+        "Id": "ZX2584",
         "Engineer": "Clowns Inc.",
-        "NewProductName": "The Co'Nose seur",
+        "Name": "The Co'Nose seur",
         "RawMaterial": "Johan Harris",
         "Status": "Production",
         "DevelopmentStartDate": "",

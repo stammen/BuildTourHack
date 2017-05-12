@@ -148,8 +148,8 @@
                                                     <DropShadowEffect Color="{StaticResource PrimaryMediumColor}"/>
                                                 </Border.Effect>
                                                 <StackPanel>
-                                                    <TextBlock Text="{Binding ItemNumber}" FontWeight="Bold" TextWrapping="Wrap"/>
-                                                    <TextBlock Text="{Binding NewProductName}" TextWrapping="Wrap"/>
+                                                    <TextBlock Text="{Binding Id}" FontWeight="Bold" TextWrapping="Wrap"/>
+                                                    <TextBlock Text="{Binding Name}" TextWrapping="Wrap"/>
                                                 </StackPanel>    
                                             </Border>                                            
                                         </DataTemplate>
