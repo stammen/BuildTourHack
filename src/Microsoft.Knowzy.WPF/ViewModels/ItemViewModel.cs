@@ -7,109 +7,109 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 {
     public class ItemViewModel : PropertyChangedBase
     {
-        private readonly Product _developmentItem;
+        private readonly Product _product;
 
-        public ItemViewModel(Product developmentItem)
+        public ItemViewModel(Product product)
         {
-            _developmentItem = developmentItem;
+            _product = product;
         }
 
         public string Id
         {
-            get => _developmentItem.Id;
+            get => _product.Id;
             set
             {
-                _developmentItem.Id = value;
+                _product.Id = value;
                 NotifyOfPropertyChange(() => Id);   
             }
         }
 
         public string Engineer
         {
-            get => _developmentItem.Engineer;
+            get => _product.Engineer;
             set
             {
-                _developmentItem.Engineer = value;
+                _product.Engineer = value;
                 NotifyOfPropertyChange(() => Engineer);
             }
         }
 
         public string Name
         {
-            get => _developmentItem.Name;
+            get => _product.Name;
             set
             {
-                _developmentItem.Name = value;
+                _product.Name = value;
                 NotifyOfPropertyChange(() => Name);
             }
         }
 
         public string RawMaterial
         {
-            get => _developmentItem.RawMaterial;
+            get => _product.RawMaterial;
             set
             {
-                _developmentItem.RawMaterial = value;
+                _product.RawMaterial = value;
                 NotifyOfPropertyChange(() => RawMaterial);
             }
         }
 
         public DevelopmentStatus Status
         {
-            get => _developmentItem.Status;
+            get => _product.Status;
             set
             {
-                _developmentItem.Status = value;
+                _product.Status = value;
                 NotifyOfPropertyChange(() => Status);
             }
         }
 
         public DateTime DevelopmentStartDate
         {
-            get => _developmentItem.DevelopmentStartDate;
+            get => _product.DevelopmentStartDate;
             set
             {
-                _developmentItem.DevelopmentStartDate = value;
+                _product.DevelopmentStartDate = value;
                 NotifyOfPropertyChange(() => DevelopmentStartDate);
             }
         }
 
         public DateTime ExpectedCompletionDate
         {
-            get => _developmentItem.ExpectedCompletionDate;
+            get => _product.ExpectedCompletionDate;
             set
             {
-                _developmentItem.ExpectedCompletionDate = value;
+                _product.ExpectedCompletionDate = value;
                 NotifyOfPropertyChange(() => ExpectedCompletionDate);
             }
         }
 
         public string SupplyManagementContact
         {
-            get => _developmentItem.SupplyManagementContact;
+            get => _product.SupplyManagementContact;
             set
             {
-                _developmentItem.SupplyManagementContact = value;
+                _product.SupplyManagementContact = value;
                 NotifyOfPropertyChange(() => SupplyManagementContact);
             }
         }
 
         public string Notes
         {
-            get => _developmentItem.Notes;
+            get => _product.Notes;
             set
             {
-                _developmentItem.Notes = value;
+                _product.Notes = value;
                 NotifyOfPropertyChange(() => Notes);
             }
         }
 
         public string ImageSource
         {
-            get => _developmentItem.ImageSource;
+            get => _product.ImageSource;
             set
             {
-                _developmentItem.ImageSource = value;
+                _product.ImageSource = value;
                 NotifyOfPropertyChange(() => ImageSource);
             }
         }
