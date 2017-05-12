@@ -9,8 +9,9 @@
 //
 //*********************************************************
 
+using System;
 using Caliburn.Micro;
-using Microsoft.Knowzy.Common.Messages;
+using Microsoft.Knowzy.WPF.Messages;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {

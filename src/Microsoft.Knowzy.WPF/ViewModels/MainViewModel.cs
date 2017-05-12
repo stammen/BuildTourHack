@@ -11,12 +11,11 @@
 
 using Caliburn.Micro;
 using Microsoft.Knowzy.Common.Contracts;
-using Microsoft.Knowzy.Common.Messages;
-using Microsoft.Knowzy.Domain;
 using Microsoft.Knowzy.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Knowzy.WPF.Messages;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
@@ -24,24 +23,21 @@ namespace Microsoft.Knowzy.WPF.ViewModels
     {
         private readonly IDataProvider _dataProvider;
         private readonly IEventAggregator _eventAggregator;
-        private readonly EditItemViewModel _editItemViewModel;
-        private Product _selectedDevelopmentItem;
+        private ItemViewModel _selectedDevelopmentItem;
 
-        public MainViewModel(EditItemViewModel editItemViewModel, IDataProvider dataProvider,
-            IEventAggregator eventAggregator)
+        public MainViewModel(IDataProvider dataProvider, IEventAggregator eventAggregator)
         {
-            _editItemViewModel = editItemViewModel;
             _dataProvider = dataProvider;
             _eventAggregator = eventAggregator;
         }
 
-        public List<Product> DevelopmentItems { get; private set; }
+        public List<ItemViewModel> DevelopmentItems { get; } = new List<ItemViewModel>();
 
         public List<StatusLaneViewModel> Lanes { get; private set;}
 
-        public Product SelectedDevelopmentItem
+        public ItemViewModel SelectedDevelopmentItem
         {
-            get { return _selectedDevelopmentItem; }
+            get => _selectedDevelopmentItem;
             set
             {
                 if (Equals(value, _selectedDevelopmentItem)) return;
@@ -59,12 +55,15 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         protected override void OnActivate()
         {
             base.OnActivate();
-            DevelopmentItems = _dataProvider.GetData().ToList();
+            foreach (var item in _dataProvider.GetData())
+            {
+                DevelopmentItems.Add(new ItemViewModel(item));
+            }
             InitializeLanes();
         }
 
         private void InitializeLanes()
-        {            
+        {
             Lanes = new List<StatusLaneViewModel>();
             var level = 0;
             foreach (var status in Enum.GetValues(typeof(DevelopmentStatus)))
