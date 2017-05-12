@@ -1,8 +1,6 @@
 ﻿@font-face {
     font-family: Segoe UI;
-    src: url('../fonts/segoeui/segoeui.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/segoeui/segoeui.woff') format('woff'),
-         url('../fonts/segoeui/segoeui.ttf') format('truetype');
+    src: url('../fonts/segoeui/segoeui.eot?#iefix') format('embedded-opentype'), url('../fonts/segoeui/segoeui.woff') format('woff'), url('../fonts/segoeui/segoeui.ttf') format('truetype');
 }
 
 html {
@@ -27,11 +25,15 @@ body {
     margin-bottom: -238px;
 }
 
-.body-content:after {
-    content: "";
-    display: block;
-    height: 257px;
-}
+    .body-content:after {
+        content: "";
+        display: block;
+        height: 257px;
+    }
+
+    .body-content .container {
+        position: relative;
+    }
 
 input,
 select,
@@ -76,7 +78,7 @@ input[type=number]::-webkit-outer-spin-button {
         padding: 0;
     }
 
-    .body-content:after {
-        display: none;
-    } 
+        .body-content:after {
+            display: none;
+        }
 }
