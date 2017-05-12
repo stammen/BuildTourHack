@@ -14,6 +14,7 @@ using Microsoft.Knowzy.Common.Contracts;
 using Microsoft.Knowzy.Domain.Enums;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Microsoft.Knowzy.WPF.Messages;
 
@@ -31,9 +32,9 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             _eventAggregator = eventAggregator;
         }
 
-        public List<ItemViewModel> DevelopmentItems { get; } = new List<ItemViewModel>();
+        public List<ItemViewModel> DevelopmentItems { get; set; } = new List<ItemViewModel>();
 
-        public List<StatusLaneViewModel> Lanes { get; private set;}
+        public List<StatusLaneViewModel> Lanes { get; private set; }
 
         public ItemViewModel SelectedDevelopmentItem
         {
@@ -76,6 +77,45 @@ namespace Microsoft.Knowzy.WPF.ViewModels
                 });
                 level++;
             }
+        }
+
+        public void SortProducts(object sortField, bool sort)
+        {
+            var field = sortField as string;
+            if (string.IsNullOrEmpty(field)) return;
+
+            DevelopmentItems = SortProductsByField(field);
+            if (!sort)
+            {
+                DevelopmentItems.Reverse();
+            }
+
+            NotifyOfPropertyChange(() => DevelopmentItems);
+        }
+
+        private List<ItemViewModel> SortProductsByField(Object field)
+        {
+            var sortItem = new List<ItemViewModel>();
+            switch (field)
+            {
+                case "Id":
+                    sortItem = DevelopmentItems.OrderBy(item => item.Id).ToList();
+                    break;
+                case "Engineer":
+                    sortItem = DevelopmentItems.OrderBy(item => item.Engineer).ToList();
+                    break;
+                case "Name":
+                    sortItem = DevelopmentItems.OrderBy(item => item.Name).ToList();
+                    break;
+                case "Material":
+                    sortItem = DevelopmentItems.OrderBy(item => item.RawMaterial).ToList();
+                    break;
+                case "Status":
+                    sortItem = DevelopmentItems.OrderBy(item => item.Status).ToList();
+                    break;
+            }
+
+            return sortItem;
         }
     }
 }
