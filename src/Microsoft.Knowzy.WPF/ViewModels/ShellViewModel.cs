@@ -9,7 +9,6 @@
 //
 //*********************************************************
 
-using System;
 using Caliburn.Micro;
 using Microsoft.Knowzy.WPF.Messages;
 

@@ -33,4 +33,8 @@
     <SolidColorBrush x:Key="SecondaryBlueColorBrush" Color="{StaticResource SecondaryBlueColor}"/>
     <SolidColorBrush x:Key="SecondaryRedDarkColorBrush" Color="{StaticResource SecondaryRedDarkColor}"/>
 
+    <SolidColorBrush x:Key="TextBoxBackgoundBrush" Color="White"/>
+    <SolidColorBrush x:Key="TextBoxForegoundBrush" Color="Black"/>
+    <SolidColorBrush x:Key="TextBoxBorderBrush" Color="#737474"/>
+    <SolidColorBrush x:Key="TextBoxSelectedBrush" Color="Blue"/>
 </ResourceDictionary>

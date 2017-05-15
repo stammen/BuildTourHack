@@ -16,9 +16,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:Microsoft.Knowzy.WPF.ViewModels"
+        xmlns:enums="clr-namespace:Microsoft.Knowzy.Domain.Enums;assembly=Microsoft.Knowzy.Domain"
         mc:Ignorable="d" MinHeight="650" MinWidth="920" Height="650" Width="920"
-        d:DataContext="{d:DesignInstance viewModels:EditItemViewModel}">
-   
+        d:DataContext="{d:DesignInstance {x:Type viewModels:EditItemViewModel}}">
+
     <Grid Background="{StaticResource PrimaryMediumColorBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="32"/>
@@ -70,14 +71,21 @@
         <TextBox Grid.Row="4" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
                  Text="{Binding RawMaterial}" />
         <TextBox Grid.Row="5" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
-                 Text="{Binding DevelopmentStartDate}" />
+                 Text="{Binding DevelopmentStartDate, StringFormat=MM/dd/yyyy}" />
         <TextBox Grid.Row="6" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
-                 Text="{Binding ExpectedCompletionDate}" />
-        <TextBox Grid.Row="7" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}" TextWrapping="Wrap"
+                 Text="{Binding ExpectedCompletionDate, StringFormat=MM/dd/yyyy}"/>
+        <TextBox Grid.Row="7" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}" TextWrapping="Wrap"  VerticalContentAlignment="Top"
                  Text="{Binding SupplyManagementContact}" />
-        <TextBox Grid.Row="8" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}"
-                 Text="{Binding Status}" />
-        <TextBox Grid.Row="9" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}" Margin="4" TextWrapping="Wrap"
+        <ComboBox Grid.Row="8" Grid.Column="2" 
+                  SelectedItem="{Binding Status}" Style="{DynamicResource EditComboBoxStyle}" >
+            <enums:DevelopmentStatus>BreatheTest</enums:DevelopmentStatus>
+            <enums:DevelopmentStatus>ConceptDesign</enums:DevelopmentStatus>
+            <enums:DevelopmentStatus>Production</enums:DevelopmentStatus>
+            <enums:DevelopmentStatus>Prototype</enums:DevelopmentStatus>
+            <enums:DevelopmentStatus>QA</enums:DevelopmentStatus>
+            <enums:DevelopmentStatus>Research</enums:DevelopmentStatus>
+        </ComboBox>
+        <TextBox Grid.Row="9" Grid.Column="2" Style="{StaticResource DialogTextBoxStyle}" Margin="4" TextWrapping="Wrap" VerticalContentAlignment="Top"
                  Text="{Binding Notes}" />
 
         <StackPanel Grid.Row="1" Grid.Column="4" Grid.RowSpan="10">
