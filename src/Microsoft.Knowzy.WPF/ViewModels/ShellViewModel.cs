@@ -9,6 +9,7 @@
 //
 //*********************************************************
 
+using System.Collections.Generic;
 using Caliburn.Micro;
 using Microsoft.Knowzy.WPF.Messages;
 
@@ -17,13 +18,18 @@ namespace Microsoft.Knowzy.WPF.ViewModels
     public class ShellViewModel : Conductor<Screen>, IHandle<EditItemMessage>
     {
         private readonly MainViewModel _mainViewModel;
+        private readonly ListProductsViewModel _listProductsViewModel;
+        private readonly KanbanViewModel _kanbanViewModel;
         private readonly EditItemViewModel _editItemViewModel;
         private readonly IEventAggregator _eventAggregator;
         private readonly IWindowManager _windowManager;
 
-        public ShellViewModel(MainViewModel mainViewModel, EditItemViewModel editItemViewModel, IEventAggregator eventAggregator, IWindowManager windowManager)
+        public ShellViewModel(MainViewModel mainViewModel, ListProductsViewModel listProductsViewModel, KanbanViewModel kanbanViewModel, 
+            EditItemViewModel editItemViewModel, IEventAggregator eventAggregator, IWindowManager windowManager)
         {
             _mainViewModel = mainViewModel;
+            _listProductsViewModel = listProductsViewModel;
+            _kanbanViewModel = kanbanViewModel;
             _editItemViewModel = editItemViewModel;
             _eventAggregator = eventAggregator;
             _windowManager = windowManager;
@@ -32,6 +38,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         protected override void OnViewAttached(object view, object context)
         {
             _eventAggregator.Subscribe(this);
+            _mainViewModel.ScreenList = new List<Screen> { _kanbanViewModel, _listProductsViewModel }; 
             ActivateItem(_mainViewModel);
             base.OnViewAttached(view, context);
         }

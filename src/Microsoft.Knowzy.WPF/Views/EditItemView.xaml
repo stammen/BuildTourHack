@@ -17,6 +17,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:Microsoft.Knowzy.WPF.ViewModels"
         xmlns:enums="clr-namespace:Microsoft.Knowzy.Domain.Enums;assembly=Microsoft.Knowzy.Domain"
+        xmlns:models="clr-namespace:Microsoft.Knowzy.WPF.ViewModels.Models"
         mc:Ignorable="d" MinHeight="650" MinWidth="920" Height="650" Width="920"
         d:DataContext="{d:DesignInstance {x:Type viewModels:EditItemViewModel}}">
 

@@ -3,7 +3,7 @@ using Caliburn.Micro;
 using Microsoft.Knowzy.Domain;
 using Microsoft.Knowzy.Domain.Enums;
 
-namespace Microsoft.Knowzy.WPF.ViewModels
+namespace Microsoft.Knowzy.WPF.ViewModels.Models
 {
     public class ItemViewModel : PropertyChangedBase
     {

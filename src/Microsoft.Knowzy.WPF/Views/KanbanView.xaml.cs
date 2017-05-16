@@ -9,17 +9,15 @@
 //
 //*********************************************************
 
-using Microsoft.Knowzy.WPF.ViewModels.Models;
+using System.Windows.Controls;
 
-namespace Microsoft.Knowzy.WPF.Messages
+namespace Microsoft.Knowzy.WPF.Views
 {
-    public class EditItemMessage
+    public partial class KanbanView : UserControl
     {
-        public EditItemMessage(ItemViewModel item)
+        public KanbanView()
         {
-            Item = item;
+            InitializeComponent();
         }
-
-        public ItemViewModel Item { get; }
     }
 }

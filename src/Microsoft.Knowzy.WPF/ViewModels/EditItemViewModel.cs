@@ -9,20 +9,20 @@
 //
 //*********************************************************
 
+using System;
+using System.IO;
+using System.Windows;
 using Caliburn.Micro;
 using Microsoft.Knowzy.Domain.Enums;
 using Microsoft.Knowzy.WPF.Messages;
 using Microsoft.Win32;
-using System;
-using System.IO;
-using System.Windows;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
     public class EditItemViewModel : Screen
     {
         private readonly string _imagesDirectory = AppDomain.CurrentDomain.BaseDirectory + "Assets\\";
-        private ItemViewModel _item;
+        private Models.ItemViewModel _item;
         private DevelopmentStatus _status;
         private string _rawMaterial;
         private string _name;
@@ -40,7 +40,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             _eventAggregator = eventAggregator;
         }
 
-        public ItemViewModel Item
+        public Models.ItemViewModel Item
         {
             get => _item;
             set

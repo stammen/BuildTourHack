@@ -1,9 +1,20 @@
-﻿using Caliburn.Micro;
+﻿//*********************************************************
+//
+// Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+//
+//*********************************************************
+
+using System.Collections.Generic;
+using Caliburn.Micro;
 using Microsoft.Knowzy.Domain.Enums;
 using Microsoft.Knowzy.WPF.Messages;
-using System.Collections.Generic;
 
-namespace Microsoft.Knowzy.WPF.ViewModels
+namespace Microsoft.Knowzy.WPF.ViewModels.Models
 {
     public class StatusLaneViewModel : Screen
     {
@@ -23,7 +34,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         public ItemViewModel SelectedItem
         {
-            get { return _selectedItem; }
+            get => _selectedItem;
             set
             {
                 _selectedItem = value;

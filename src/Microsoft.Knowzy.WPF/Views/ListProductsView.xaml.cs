@@ -9,17 +9,15 @@
 //
 //*********************************************************
 
-using Microsoft.Knowzy.WPF.ViewModels.Models;
+using System.Windows.Controls;
 
-namespace Microsoft.Knowzy.WPF.Messages
+namespace Microsoft.Knowzy.WPF.Views
 {
-    public class EditItemMessage
+    public partial class ListProductsView : UserControl
     {
-        public EditItemMessage(ItemViewModel item)
+        public ListProductsView()
         {
-            Item = item;
+            InitializeComponent();
         }
-
-        public ItemViewModel Item { get; }
     }
 }

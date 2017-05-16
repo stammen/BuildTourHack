@@ -1,5 +1,5 @@
 ﻿using Microsoft.Knowzy.Domain.Enums;
-using Microsoft.Knowzy.WPF.ViewModels;
+using Microsoft.Knowzy.WPF.ViewModels.Models;
 
 namespace Microsoft.Knowzy.WPF.Messages
 {
