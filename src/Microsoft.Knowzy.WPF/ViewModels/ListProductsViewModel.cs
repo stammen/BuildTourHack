@@ -10,7 +10,9 @@
 //*********************************************************
 
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Windows.Data;
 using Caliburn.Micro;
 using Microsoft.Knowzy.WPF.Messages;
 using Microsoft.Knowzy.WPF.ViewModels.Models;
@@ -49,45 +51,16 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             _eventAggregator.PublishOnUIThread(new EditItemMessage(SelectedDevelopmentItem));
         }
 
-        public void SortProducts(object sortField, bool sort)
+        public void SortProducts(object sortField, bool isSortAscending)
         {
             var field = sortField as string;
             if (string.IsNullOrEmpty(field)) return;
 
-            _mainViewModel.DevelopmentItems = SortProductsByField(field);
-            if (!sort)
-            {
-                _mainViewModel.DevelopmentItems.Reverse();
-            }
+            var view = CollectionViewSource.GetDefaultView(DevelopmentItems);
 
-            NotifyOfPropertyChange(() => _mainViewModel.DevelopmentItems);
-        }
-
-        private ObservableCollection<ItemViewModel> SortProductsByField(object field)
-        {
-            // TODO: Better order in Visual
-            var sortItem = new ObservableCollection<ItemViewModel>();
-            switch (field)
-            {
-                // TODO: don't use magical strings
-                case "Id":
-                    sortItem = new ObservableCollection<ItemViewModel>(_mainViewModel.DevelopmentItems.OrderBy(item => item.Id));
-                    break;
-                case "Engineer":
-                    sortItem = new ObservableCollection<ItemViewModel>(_mainViewModel.DevelopmentItems.OrderBy(item => item.Engineer).ToList());
-                    break;
-                case "Name":
-                    sortItem = new ObservableCollection<ItemViewModel>(_mainViewModel.DevelopmentItems.OrderBy(item => item.Name).ToList());
-                    break;
-                case "Material":
-                    sortItem = new ObservableCollection<ItemViewModel>(_mainViewModel.DevelopmentItems.OrderBy(item => item.RawMaterial).ToList());
-                    break;
-                case "Status":
-                    sortItem = new ObservableCollection<ItemViewModel>(_mainViewModel.DevelopmentItems.OrderBy(item => item.Status).ToList());
-                    break;
-            }
-
-            return sortItem;
+            var sortDirection = isSortAscending ? ListSortDirection.Ascending : ListSortDirection.Descending;
+            view.SortDescriptions.Clear();
+            view.SortDescriptions.Add(new SortDescription(field, sortDirection));
         }
     }
 }

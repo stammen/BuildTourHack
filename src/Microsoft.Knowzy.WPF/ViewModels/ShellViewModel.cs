@@ -38,7 +38,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         protected override void OnViewAttached(object view, object context)
         {
             _eventAggregator.Subscribe(this);
-            _mainViewModel.ScreenList = new List<Screen> { _kanbanViewModel, _listProductsViewModel }; 
+            _mainViewModel.ScreenList = new List<Screen> { _listProductsViewModel, _kanbanViewModel}; 
             ActivateItem(_mainViewModel);
             base.OnViewAttached(view, context);
         }

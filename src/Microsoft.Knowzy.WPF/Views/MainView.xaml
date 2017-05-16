@@ -18,6 +18,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:Microsoft.Knowzy.WPF.ViewModels"
              xmlns:localization="clr-namespace:Microsoft.Knowzy.WPF.Localization"
+             xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" HorizontalContentAlignment="Stretch"
              d:DesignHeight="200" d:DesignWidth="1000" d:DataContext="{d:DesignInstance viewModels:MainViewModel}">
    
@@ -29,14 +30,18 @@
 
         <Menu Grid.Row="0" IsMainMenu="True" DockPanel.Dock="Top" HorizontalAlignment="Stretch"
               Style="{DynamicResource MenuStyleLeft}" ItemContainerStyle="{DynamicResource MenuItemStyle}">
-            <MenuItem Template="{DynamicResource MenuItemControlTemplate}" Margin="25,0,0,0" 
-                      Header="{x:Static localization:Resources.File_Menu}"/>
-            <MenuItem Template="{DynamicResource MenuItemControlTemplate}" 
-                      Header="{x:Static localization:Resources.Menu_Menu}"/>
-            <MenuItem Template="{DynamicResource MenuItemControlTemplate}" 
-                      Header="{x:Static localization:Resources.View_Menu}"/>
-            <MenuItem Template="{DynamicResource MenuItemControlTemplate}" 
-                      Header="{x:Static localization:Resources.Help_Menu}"/>
+            <MenuItem Header="{x:Static localization:Resources.File_Menu}" Template="{DynamicResource MenuItemControlTemplate}" Margin="25,0,0,0">
+                <MenuItem Header="New" Template="{StaticResource MenuItemBarControlTemplate}" 
+                          cal:Message.Attach="NewItem()"/>
+                <MenuItem Header="Exit" Template="{StaticResource MenuItemBarControlTemplate}"
+                          cal:Message.Attach="Exit()"/>
+            </MenuItem>
+            <MenuItem Header="{x:Static localization:Resources.Menu_Menu}" Template="{DynamicResource MenuItemControlTemplate}">
+                <MenuItem Header="New" Template="{StaticResource MenuItemBarControlTemplate}"/>
+                <MenuItem Header="Exit" Template="{StaticResource MenuItemBarControlTemplate}"/>
+            </MenuItem>
+            <MenuItem Header="{x:Static localization:Resources.View_Menu}" Template="{DynamicResource MenuItemControlTemplate}"/>
+            <MenuItem Header="{x:Static localization:Resources.Help_Menu}" Template="{DynamicResource MenuItemControlTemplate}"/>
         </Menu>
 
         <Menu Grid.Row="0" IsMainMenu="True" DockPanel.Dock="Top" HorizontalAlignment="Right"

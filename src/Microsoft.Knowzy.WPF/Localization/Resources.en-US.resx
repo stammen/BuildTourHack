@@ -138,6 +138,9 @@
   <data name="Engineer_Header" xml:space="preserve">
     <value>Engineer</value>
   </data>
+  <data name="Exit_Menu" xml:space="preserve">
+    <value>Exit</value>
+  </data>
   <data name="File_Menu" xml:space="preserve">
     <value>File</value>
   </data>
@@ -161,6 +164,9 @@
   </data>
   <data name="NewProduct_Header" xml:space="preserve">
     <value>New product name</value>
+  </data>
+  <data name="New_Menu" xml:space="preserve">
+    <value>New</value>
   </data>
   <data name="RowMaterial_Header" xml:space="preserve">
     <value>Row material</value>

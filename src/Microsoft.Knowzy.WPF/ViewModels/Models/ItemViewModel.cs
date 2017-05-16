@@ -9,6 +9,11 @@ namespace Microsoft.Knowzy.WPF.ViewModels.Models
     {
         private readonly Product _product;
 
+        public ItemViewModel()
+        {
+            _product = new Product();
+        }
+
         public ItemViewModel(Product product)
         {
             _product = product;
