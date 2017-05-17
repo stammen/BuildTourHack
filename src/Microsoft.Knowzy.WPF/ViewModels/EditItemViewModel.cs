@@ -10,8 +10,8 @@
 //*********************************************************
 
 using Caliburn.Micro;
-using Microsoft.Knowzy.Domain;
 using Microsoft.Knowzy.Domain.Enums;
+using Microsoft.Knowzy.WPF.Messages;
 using Microsoft.Win32;
 using System;
 using System.IO;
@@ -33,6 +33,12 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         private string _supplyManagementContact;
         private string _notes;
         private Uri _imageSource;
+        private readonly IEventAggregator _eventAggregator;
+
+        public EditItemViewModel(IEventAggregator eventAggregator)
+        {
+            _eventAggregator = eventAggregator;
+        }
 
         public ItemViewModel Item
         {
@@ -185,6 +191,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         public void SaveAndCloseEditWindow()
         {
+            var previousStatus = _item.Status;
             _item.Engineer = Engineer;
             _item.Id = Id;
             _item.Name = Name;
@@ -195,6 +202,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             _item.Notes = Notes;
             _item.Status = Status;
             _item.ImageSource = ImageSource.LocalPath.Replace(_imagesDirectory, string.Empty);
+            _eventAggregator.PublishOnUIThread(new UpdateLanesMessage(_item, previousStatus));
             CloseEditWindow();
         }
     }

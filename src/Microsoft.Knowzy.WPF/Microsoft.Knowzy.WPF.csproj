@@ -122,6 +122,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Messages\EditItemMessage.cs" />
+    <Compile Include="Messages\UpdateLanesMessage.cs" />
     <Compile Include="ViewModels\EditItemViewModel.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />

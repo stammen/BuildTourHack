@@ -762,7 +762,13 @@
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                          ScrollViewer.VerticalScrollBarVisibility="Disabled"
                          BorderThickness="0"
-                         Background="Transparent"/>
+                         Background="Transparent">
+                    <ListBox.Template>
+                        <ControlTemplate>
+                            <ItemsPresenter></ItemsPresenter>    
+                        </ControlTemplate>                        
+                    </ListBox.Template>
+                </ListBox>
             </Border>
         </Grid>
     </DataTemplate>
@@ -778,7 +784,13 @@
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                          ScrollViewer.VerticalScrollBarVisibility="Disabled"
                          BorderThickness="0"
-                         Background="Transparent"/>
+                         Background="Transparent">
+                    <ListBox.Template>
+                        <ControlTemplate>
+                            <ItemsPresenter></ItemsPresenter>
+                        </ControlTemplate>
+                    </ListBox.Template>
+                </ListBox>
             </Border>
         </Grid>
     </DataTemplate>
@@ -987,8 +999,6 @@
         <Setter Property="Fill" Value="{StaticResource PrimaryDarkColorBrush}"/>
         <Setter Property="Data" Value="{StaticResource SortGeometry}"/>
     </Style>
-
-
-
+    
 </ResourceDictionary>
 

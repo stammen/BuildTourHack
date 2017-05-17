@@ -26,7 +26,6 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             get { return _selectedItem; }
             set
             {
-                if (Equals(value, _selectedItem)) return;
                 _selectedItem = value;
                 NotifyOfPropertyChange(() => SelectedItem);
                 EditItem();

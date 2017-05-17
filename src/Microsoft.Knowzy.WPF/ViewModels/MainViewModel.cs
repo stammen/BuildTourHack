@@ -12,20 +12,21 @@
 using Caliburn.Micro;
 using Microsoft.Knowzy.Common.Contracts;
 using Microsoft.Knowzy.Domain.Enums;
+using Microsoft.Knowzy.WPF.Messages;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Collections.ObjectModel;
 using System.Linq;
-using Microsoft.Knowzy.WPF.Messages;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
-    public class MainViewModel : Screen
+    public class MainViewModel : Screen, IHandle<UpdateLanesMessage>
     {
         private readonly IDataProvider _dataProvider;
         private readonly IEventAggregator _eventAggregator;
         private ItemViewModel _selectedDevelopmentItem;
         private readonly EditItemViewModel _editItemViewModel;
+        private ObservableCollection<StatusLaneViewModel> _lanes;
 
         public MainViewModel(IDataProvider dataProvider, IEventAggregator eventAggregator)
         {
@@ -35,7 +36,15 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         public List<ItemViewModel> DevelopmentItems { get; set; } = new List<ItemViewModel>();
 
-        public List<StatusLaneViewModel> Lanes { get; private set; }
+        public ObservableCollection<StatusLaneViewModel> Lanes
+        {
+            get => _lanes;
+            set
+            {
+                _lanes = value;
+                NotifyOfPropertyChange(() => Lanes);
+            }
+        }
 
         public ItemViewModel SelectedDevelopmentItem
         {
@@ -54,6 +63,23 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             _eventAggregator.PublishOnUIThread(new EditItemMessage(SelectedDevelopmentItem));
         }
 
+        public void Handle(UpdateLanesMessage message)
+        {
+            InitializeLanes();
+        }
+
+        protected override void OnViewAttached(object view, object context)
+        {
+            _eventAggregator.Subscribe(this);
+            base.OnViewAttached(view, context);
+        }
+
+        protected override void OnDeactivate(bool close)
+        {
+            _eventAggregator.Unsubscribe(this);
+            base.OnDeactivate(close);
+        }
+
         protected override void OnActivate()
         {
             base.OnActivate();
@@ -66,7 +92,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         private void InitializeLanes()
         {
-            Lanes = new List<StatusLaneViewModel>();
+            Lanes = new ObservableCollection<StatusLaneViewModel>();
             var level = 0;
             foreach (var status in Enum.GetValues(typeof(DevelopmentStatus)))
             {
@@ -74,7 +100,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
                 {
                     Status = (DevelopmentStatus)status,
                     CascadeLevel = level,
-                    Items = DevelopmentItems?.Where(item => item.Status == (DevelopmentStatus)status).ToList()
+                    Items = DevelopmentItems?.Where(item => item.Status == (DevelopmentStatus)status)
                 });
                 level++;
             }
