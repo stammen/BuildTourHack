@@ -25,6 +25,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         private readonly MainViewModel _mainViewModel;
         private readonly IDataProvider _dataProvider;
         private readonly IEventAggregator _eventAggregator;
+        private ObservableCollection<StatusLaneViewModel> _lanes;
 
         public KanbanViewModel(MainViewModel mainViewModel, IDataProvider dataProvider, IEventAggregator eventAggregator)
         {
@@ -36,7 +37,16 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         public ObservableCollection<ItemViewModel> DevelopmentItems => _mainViewModel.DevelopmentItems;
 
-        public List<StatusLaneViewModel> Lanes { get; private set; }
+        public ObservableCollection<StatusLaneViewModel> Lanes
+        {
+            get { return _lanes; }
+            private set
+            {
+                if (Equals(value, _lanes)) return;
+                _lanes = value;
+                NotifyOfPropertyChange(() => Lanes);
+            }
+        }
 
         protected override void OnViewAttached(object view, object context)
         {
@@ -44,9 +54,9 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             InitializeLanes();
         }
 
-        private void InitializeLanes()
+        public void InitializeLanes()
         {
-            Lanes = new List<StatusLaneViewModel>();
+            Lanes = new ObservableCollection<StatusLaneViewModel>();
             var level = 0;
             foreach (var status in Enum.GetValues(typeof(DevelopmentStatus)))
             {

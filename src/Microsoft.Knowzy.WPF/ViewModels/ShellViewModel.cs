@@ -15,7 +15,7 @@ using Microsoft.Knowzy.WPF.Messages;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
-    public class ShellViewModel : Conductor<Screen>, IHandle<EditItemMessage>
+    public class ShellViewModel : Conductor<Screen>, IHandle<EditItemMessage>, IHandle<UpdateLanesMessage>
     {
         private readonly MainViewModel _mainViewModel;
         private readonly ListProductsViewModel _listProductsViewModel;
@@ -53,6 +53,12 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         {
             _editItemViewModel.Item = message.Item;
             _windowManager.ShowDialog(_editItemViewModel);
+        }
+
+        public void Handle(UpdateLanesMessage message)
+        {
+            _kanbanViewModel.InitializeLanes();
+            _mainViewModel.Save();
         }
     }
 }

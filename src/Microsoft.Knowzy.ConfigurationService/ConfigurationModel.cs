@@ -11,7 +11,7 @@
 
 using Microsoft.Knowzy.Common.Contracts;
 
-namespace Microsoft.Knowzy.Common.Models
+namespace Microsoft.Knowzy.Configuration
 {
     public class ConfigurationModel : IConfigurationModel
     {

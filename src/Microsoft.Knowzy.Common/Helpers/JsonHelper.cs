@@ -22,5 +22,10 @@ namespace Microsoft.Knowzy.Common.Helpers
             ? default(T)
             : JsonConvert.DeserializeObject<T>(serializedObject, new StringEnumConverter());
         }
+
+        public static string Serialize<T>(T objectToSerialize)
+        {
+            return JsonConvert.SerializeObject(objectToSerialize);
+        }
     }
 }

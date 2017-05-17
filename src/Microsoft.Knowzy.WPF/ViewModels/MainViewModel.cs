@@ -15,11 +15,12 @@ using Microsoft.Knowzy.WPF.Messages;
 using Microsoft.Knowzy.WPF.ViewModels.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
-    public class MainViewModel : Screen, IHandle<UpdateLanesMessage>
+    public class MainViewModel : Screen
     {
         private readonly IDataProvider _dataProvider;
         private readonly IEventAggregator _eventAggregator;
@@ -44,11 +45,6 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             base.OnViewAttached(view, context);
         }
 
-        public void Handle(UpdateLanesMessage message)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void NewItem()
         {
             var item = new ItemViewModel();
@@ -61,6 +57,12 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         public void Exit()
         {
             Application.Current.Shutdown();
+        }
+
+        public void Save()
+        {
+            var products = DevelopmentItems?.Select(item => item.Product).ToArray();
+            _dataProvider.SetData(products);
         }
     }
 }

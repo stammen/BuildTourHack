@@ -19,6 +19,11 @@ namespace Microsoft.Knowzy.WPF.ViewModels.Models
             _product = product;
         }
 
+        public Product Product
+        {
+            get => _product;
+        }
+
         public string Id
         {
             get => _product.Id;

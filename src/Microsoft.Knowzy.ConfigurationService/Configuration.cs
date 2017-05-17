@@ -1,6 +1,5 @@
 ﻿using Microsoft.Knowzy.Common.Contracts;
 using Microsoft.Knowzy.Common.Helpers;
-using Microsoft.Knowzy.Common.Models;
 using System;
 
 namespace Microsoft.Knowzy.Configuration

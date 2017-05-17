@@ -9,6 +9,7 @@
 //
 //*********************************************************
 
+using System;
 using Microsoft.Knowzy.Common.Contracts;
 using Microsoft.Knowzy.Common.Helpers;
 using Microsoft.Knowzy.Domain;
@@ -29,6 +30,13 @@ namespace Microsoft.Knowzy.DataProvider
             var jsonFilePath = _configuration.Configuration.JsonFilePath;
 
             return JsonHelper.Deserialize<Product[]>(FileHelper.ReadTextFile(jsonFilePath));
+        }
+
+        public void SetData(Product[] products)
+        {
+            var jsonFilePath = _configuration.Configuration.JsonFilePath;
+
+            FileHelper.WriteTextFile(jsonFilePath, JsonHelper.Serialize(products));
         }
     }
 }

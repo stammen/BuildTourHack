@@ -11,5 +11,13 @@ namespace Microsoft.Knowzy.Common.Helpers
                 return reader.ReadToEnd();
             }
         }
+
+        public static void WriteTextFile(string filePath, string content)
+        {
+            using (var writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine(content);
+            }
+        }
     }
 }

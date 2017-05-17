@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.JsonDataPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.ConfigurationService", "src\Microsoft.Knowzy.ConfigurationService\Microsoft.Knowzy.ConfigurationService.csproj", "{98369EF9-AFFA-4164-92E1-9E449515AF1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.AuthenticationService", "src\Microsoft.Knowzy.AuthenticationService\Microsoft.Knowzy.AuthenticationService.csproj", "{95837A34-3978-40B0-BC36-AE6CA31B0284}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{98369EF9-AFFA-4164-92E1-9E449515AF1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98369EF9-AFFA-4164-92E1-9E449515AF1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98369EF9-AFFA-4164-92E1-9E449515AF1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95837A34-3978-40B0-BC36-AE6CA31B0284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95837A34-3978-40B0-BC36-AE6CA31B0284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95837A34-3978-40B0-BC36-AE6CA31B0284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95837A34-3978-40B0-BC36-AE6CA31B0284}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,5 +64,6 @@ Global
 		{B05257E2-FBEC-4CB5-8C87-1CC89E193CFD} = {494D40EA-694C-49FA-8347-840B8BF1BAD6}
 		{E7DFAAC0-BD7D-4391-9E74-C7310DF96559} = {494D40EA-694C-49FA-8347-840B8BF1BAD6}
 		{98369EF9-AFFA-4164-92E1-9E449515AF1F} = {494D40EA-694C-49FA-8347-840B8BF1BAD6}
+		{95837A34-3978-40B0-BC36-AE6CA31B0284} = {494D40EA-694C-49FA-8347-840B8BF1BAD6}
 	EndGlobalSection
 EndGlobal
