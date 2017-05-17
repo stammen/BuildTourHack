@@ -38,9 +38,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IAuthenticationService.cs" />
     <Compile Include="Contracts\IConfigurationModel.cs" />
     <Compile Include="Helpers\FileHelper.cs" />
-    <Compile Include="Contracts\IConfiguration.cs" />
+    <Compile Include="Contracts\IConfigurationService.cs" />
     <Compile Include="Contracts\IDataProvider.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

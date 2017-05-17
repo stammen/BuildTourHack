@@ -14,7 +14,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Caliburn.Micro;
-using Microsoft.Knowzy.Common.Contracts;
 using Microsoft.Knowzy.Domain.Enums;
 using Microsoft.Knowzy.WPF.ViewModels.Models;
 
@@ -23,14 +22,12 @@ namespace Microsoft.Knowzy.WPF.ViewModels
     public sealed class KanbanViewModel : Screen
     {
         private readonly MainViewModel _mainViewModel;
-        private readonly IDataProvider _dataProvider;
         private readonly IEventAggregator _eventAggregator;
         private ObservableCollection<StatusLaneViewModel> _lanes;
 
-        public KanbanViewModel(MainViewModel mainViewModel, IDataProvider dataProvider, IEventAggregator eventAggregator)
+        public KanbanViewModel(MainViewModel mainViewModel, IEventAggregator eventAggregator)
         {
             _mainViewModel = mainViewModel;
-            _dataProvider = dataProvider;
             _eventAggregator = eventAggregator;
             DisplayName = Localization.Resources.GridView_Tab;
         }
@@ -39,7 +36,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         public ObservableCollection<StatusLaneViewModel> Lanes
         {
-            get { return _lanes; }
+            get => _lanes;
             private set
             {
                 if (Equals(value, _lanes)) return;
