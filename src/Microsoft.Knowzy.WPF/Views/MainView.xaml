@@ -41,13 +41,15 @@
                 <MenuItem Header="Exit" Template="{StaticResource MenuItemBarControlTemplate}"/>
             </MenuItem>
             <MenuItem Header="{x:Static localization:Resources.View_Menu}" Template="{DynamicResource MenuItemControlTemplate}"/>
-            <MenuItem Header="{x:Static localization:Resources.Help_Menu}" Template="{DynamicResource MenuItemControlTemplate}"/>
+            <MenuItem Header="{x:Static localization:Resources.Help_Menu}" Template="{DynamicResource MenuItemControlTemplate}"
+                      cal:Message.Attach="About()" />
         </Menu>
 
         <Menu Grid.Row="0" IsMainMenu="True" DockPanel.Dock="Top" HorizontalAlignment="Right"
               Style="{DynamicResource MenuStyleRight}" ItemContainerStyle="{DynamicResource MenuItemStyle}">
             <MenuItem Header="{x:Static localization:Resources.Login_Menu}"
-                      Template="{DynamicResource MenuItemControlTemplate}" Margin="15,0" />
+                      Template="{DynamicResource MenuItemControlTemplate}" Margin="15,0" 
+                      cal:Message.Attach="Login()" />
         </Menu>
 
         <TabControl x:Name="ScreenList" Grid.Row="1" ItemContainerStyle="{DynamicResource TabItemStyle}"

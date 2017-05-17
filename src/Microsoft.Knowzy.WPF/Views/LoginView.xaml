@@ -20,6 +20,6 @@
         d:DataContext="{d:DesignInstance {x:Type viewModels:LoginViewModel}}">
 
     <Grid Background="{StaticResource PrimaryMediumColorBrush}">
-   
+        
     </Grid>
 </Window>

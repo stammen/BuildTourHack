@@ -68,6 +68,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Messages\OpenAboutMessage.cs" />
+    <Compile Include="Messages\OpenLoginMessage.cs" />
     <Compile Include="Messages\UpdateLanesMessage.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\KanbanViewModel.cs" />

@@ -54,6 +54,16 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             DevelopmentItems.Add(item);
         }
 
+        public void Login()
+        {
+            _eventAggregator.PublishOnUIThread(new OpenLoginMessage());
+        }
+
+        public void About()
+        {
+            _eventAggregator.PublishOnUIThread(new OpenAboutMessage());
+        }
+
         public void Exit()
         {
             Application.Current.Shutdown();
