@@ -134,48 +134,71 @@
                              SelectedItem="{Binding SelectedDevelopmentItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Style="{DynamicResource ListBoxStyle}"/>
                 </Grid>
             </TabItem>
+            
             <TabItem HeaderTemplate="{StaticResource GridDataTemplate}">
-                <ListBox Style="{StaticResource LanesListBoxStyle}"
-                         ItemsSource="{Binding Lanes}" 
-                         ItemContainerStyle="{StaticResource LaneListBoxItemStyle}">
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"></StackPanel>
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Width="200" VerticalAlignment="Stretch">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="45"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-                                <Border Style="{StaticResource GridHeaderBorderStyle}">
-                                    <TextBlock Text="{Binding Status, Converter={StaticResource DevelopmentStatusToStringConverter}}"
-                                               Style="{StaticResource CenteredTitleTextBlockStyle}"/>
-                                </Border>
-                                <ListBox Grid.Row="1" 
-                                         ItemsSource="{Binding Items}" 
-                                         SelectedItem="{Binding SelectedDevelopmentItem}"
-                                         Margin="{Binding CascadeLevel, Converter={StaticResource CascadeLevelToMarginConverter}}">
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border Margin="15,5,15,5" Background="{StaticResource PrimaryLightColorBrush}">
-                                                <Border.Effect>
-                                                    <DropShadowEffect Color="{StaticResource PrimaryMediumColor}"/>
-                                                </Border.Effect>
-                                                <StackPanel>
-                                                    <TextBlock Text="{Binding Id}" FontWeight="Bold" TextWrapping="Wrap"/>
-                                                    <TextBlock Text="{Binding Name}" TextWrapping="Wrap"/>
-                                                </StackPanel>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </Grid>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,25,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" MinWidth="160"/>
+                            <ColumnDefinition Width="*" MinWidth="160"/>
+                            <ColumnDefinition Width="*" MinWidth="160"/>
+                            <ColumnDefinition Width="*" MinWidth="160"/>
+                            <ColumnDefinition Width="*" MinWidth="160"/>
+                            <ColumnDefinition Width="*" MinWidth="160"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0" Style="{StaticResource FirstLaneHeaderBorderStyle}">
+                            <TextBlock Text="{Binding Lanes[0].Status, Converter={StaticResource DevelopmentStatusToStringConverter}}"
+                                       Style="{StaticResource CenteredTitleTextBlockStyle}"/>
+                        </Border>
+                        <Border Grid.Column="1" Style="{StaticResource LaneHeaderBorderStyle}">
+                            <TextBlock Text="{Binding Lanes[1].Status, Converter={StaticResource DevelopmentStatusToStringConverter}}"
+                                       Style="{StaticResource CenteredTitleTextBlockStyle}"/>
+                        </Border>
+                        <Border Grid.Column="2" Style="{StaticResource LaneHeaderBorderStyle}">
+                            <TextBlock Text="{Binding Lanes[2].Status, Converter={StaticResource DevelopmentStatusToStringConverter}}"
+                                       Style="{StaticResource CenteredTitleTextBlockStyle}"/>
+                        </Border>
+                        <Border Grid.Column="3" Style="{StaticResource LaneHeaderBorderStyle}">
+                            <TextBlock Text="{Binding Lanes[3].Status, Converter={StaticResource DevelopmentStatusToStringConverter}}"
+                                       Style="{StaticResource CenteredTitleTextBlockStyle}"/>
+                        </Border>
+                        <Border Grid.Column="4" Style="{StaticResource LaneHeaderBorderStyle}">
+                            <TextBlock Text="{Binding Lanes[4].Status, Converter={StaticResource DevelopmentStatusToStringConverter}}"
+                                       Style="{StaticResource CenteredTitleTextBlockStyle}"/>
+                        </Border>
+                        <Border Grid.Column="5" Style="{StaticResource LaneHeaderBorderStyle}">
+                            <TextBlock Text="{Binding Lanes[5].Status, Converter={StaticResource DevelopmentStatusToStringConverter}}"
+                                       Style="{StaticResource CenteredTitleTextBlockStyle}"/>
+                        </Border>
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="1" Template="{DynamicResource ScrollViewerControlTemplate}">
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" MinWidth="160"/>
+                                <ColumnDefinition Width="*" MinWidth="160"/>
+                                <ColumnDefinition Width="*" MinWidth="160"/>
+                                <ColumnDefinition Width="*" MinWidth="160"/>
+                                <ColumnDefinition Width="*" MinWidth="160"/>
+                                <ColumnDefinition Width="*" MinWidth="160"/>
+                            </Grid.ColumnDefinitions>
+
+                            <ContentControl Grid.Column="0" Grid.Row="1" Content="{Binding Lanes[0]}" ContentTemplate="{StaticResource FirstLaneTemplate}"/>
+                            <ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding Lanes[1]}" ContentTemplate="{StaticResource LaneTemplate}"/>
+                            <ContentControl Grid.Column="2" Grid.Row="1" Content="{Binding Lanes[2]}" ContentTemplate="{StaticResource LaneTemplate}"/>
+                            <ContentControl Grid.Column="3" Grid.Row="1" Content="{Binding Lanes[3]}" ContentTemplate="{StaticResource LaneTemplate}"/>
+                            <ContentControl Grid.Column="4" Grid.Row="1" Content="{Binding Lanes[4]}" ContentTemplate="{StaticResource LaneTemplate}"/>
+                            <ContentControl Grid.Column="5" Grid.Row="1" Content="{Binding Lanes[5]}" ContentTemplate="{StaticResource LaneTemplate}"/>
+
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>               
             </TabItem>
         </TabControl>
     </Grid>

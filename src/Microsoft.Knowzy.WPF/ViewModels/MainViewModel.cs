@@ -25,6 +25,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         private readonly IDataProvider _dataProvider;
         private readonly IEventAggregator _eventAggregator;
         private ItemViewModel _selectedDevelopmentItem;
+        private readonly EditItemViewModel _editItemViewModel;
 
         public MainViewModel(IDataProvider dataProvider, IEventAggregator eventAggregator)
         {

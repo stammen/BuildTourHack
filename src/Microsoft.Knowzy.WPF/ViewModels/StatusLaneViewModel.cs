@@ -8,7 +8,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
     public class StatusLaneViewModel : Screen
     {
         private readonly IEventAggregator _eventAggregator;
-        private ItemViewModel _selectedDevelopmentItem;
+        private ItemViewModel _selectedItem;
 
         public StatusLaneViewModel(IEventAggregator eventAggregator)
         {
@@ -21,21 +21,21 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         public int CascadeLevel { get; set; }
 
-        public ItemViewModel SelectedDevelopmentItem
+        public ItemViewModel SelectedItem
         {
-            get { return _selectedDevelopmentItem; }
+            get { return _selectedItem; }
             set
             {
-                if (Equals(value, _selectedDevelopmentItem)) return;
-                _selectedDevelopmentItem = value;
-                NotifyOfPropertyChange(() => SelectedDevelopmentItem);
+                if (Equals(value, _selectedItem)) return;
+                _selectedItem = value;
+                NotifyOfPropertyChange(() => SelectedItem);
                 EditItem();
             }
         }
 
         public void EditItem()
         {
-            _eventAggregator.PublishOnUIThread(new EditItemMessage(SelectedDevelopmentItem));
+            _eventAggregator.PublishOnUIThread(new EditItemMessage(SelectedItem));
         }
     }
 }
