@@ -13,7 +13,8 @@ namespace Microsoft.Knowzy.Authentication
 {
     public interface IAuthenticationService
     {
-        void Login();
+        void Login(string name, string password);
         void Logout();
+        string UserLogged { get; }
     }
 }

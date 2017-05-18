@@ -15,7 +15,8 @@ using Microsoft.Knowzy.WPF.Messages;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
-    public class ShellViewModel : Conductor<Screen>, IHandle<EditItemMessage>, IHandle<UpdateLanesMessage>, IHandle<OpenAboutMessage>, IHandle<OpenLoginMessage>
+    public class ShellViewModel : Conductor<Screen>, IHandle<EditItemMessage>, IHandle<UpdateLanesMessage>, IHandle<OpenAboutMessage>, IHandle<OpenLoginMessage>,
+        IHandle<CloseLoginMessage>
     {
         private readonly MainViewModel _mainViewModel;
         private readonly ListProductsViewModel _listProductsViewModel;
@@ -74,6 +75,11 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         public void Handle(OpenLoginMessage message)
         {
             _windowManager.ShowDialog(_loginViewModel);
+        }
+
+        public void Handle(CloseLoginMessage message)
+        {
+
         }
     }
 }

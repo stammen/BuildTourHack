@@ -185,8 +185,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         public void CloseEditWindow()
         {
-            var window = GetView() as Window;
-            window?.Close();
+            TryClose();
         }
 
         public void SaveAndCloseEditWindow()
