@@ -13,14 +13,18 @@ namespace Microsoft.Knowzy.Authentication
 {
     public class AuthenticationService : IAuthenticationService
     {
-        public void Login()
+        public void Login(string name, string password)
         {
-
+            // TODO: Develop this service
+            UserLogged = name;
         }
 
         public void Logout()
         {
-
+            // TODO: Develop this service
+            UserLogged = string.Empty;
         }
+
+        public string UserLogged { get; private set; }
     }
 }
