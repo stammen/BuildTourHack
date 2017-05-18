@@ -17,6 +17,7 @@ using Microsoft.Knowzy.Configuration;
 using Microsoft.Knowzy.Common.Contracts;
 using Microsoft.Knowzy.DataProvider;
 using System.Threading;
+using Microsoft.Knowzy.Authentication;
 
 namespace Microsoft.Knowzy.WPF
 {
@@ -37,12 +38,15 @@ namespace Microsoft.Knowzy.WPF
 
             builder.RegisterType<ShellViewModel>().SingleInstance();
             builder.RegisterType<MainViewModel>().SingleInstance();
-            builder.RegisterType<EditItemViewModel>().SingleInstance(); 
+            builder.RegisterType<EditItemViewModel>().SingleInstance();
+            builder.RegisterType<AboutViewModel>().SingleInstance();
+            builder.RegisterType<LoginViewModel>().SingleInstance();
             builder.RegisterType<KanbanViewModel>().SingleInstance();
             builder.RegisterType<ListProductsViewModel>().SingleInstance();
 
             builder.RegisterType<JsonDataProvider>().As<IDataProvider>().SingleInstance();
             builder.RegisterType<ConfigurationService>().As<IConfigurationService>().SingleInstance();
+            builder.RegisterType<AuthenticationService>().As<IAuthenticationService>().SingleInstance();
 
             _container = builder.Build();
         }
