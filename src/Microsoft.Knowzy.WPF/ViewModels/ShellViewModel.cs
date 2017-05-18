@@ -15,22 +15,27 @@ using Microsoft.Knowzy.WPF.Messages;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
-    public class ShellViewModel : Conductor<Screen>, IHandle<EditItemMessage>, IHandle<UpdateLanesMessage>
+    public class ShellViewModel : Conductor<Screen>, IHandle<EditItemMessage>, IHandle<UpdateLanesMessage>, IHandle<OpenAboutMessage>, IHandle<OpenLoginMessage>
     {
         private readonly MainViewModel _mainViewModel;
         private readonly ListProductsViewModel _listProductsViewModel;
         private readonly KanbanViewModel _kanbanViewModel;
         private readonly EditItemViewModel _editItemViewModel;
+        private readonly LoginViewModel _loginViewModel;
+        private readonly AboutViewModel _aboutViewModel;
         private readonly IEventAggregator _eventAggregator;
         private readonly IWindowManager _windowManager;
 
         public ShellViewModel(MainViewModel mainViewModel, ListProductsViewModel listProductsViewModel, KanbanViewModel kanbanViewModel, 
-            EditItemViewModel editItemViewModel, IEventAggregator eventAggregator, IWindowManager windowManager)
+            EditItemViewModel editItemViewModel, LoginViewModel loginViewModel, AboutViewModel aboutViewModel,
+            IEventAggregator eventAggregator, IWindowManager windowManager)
         {
             _mainViewModel = mainViewModel;
             _listProductsViewModel = listProductsViewModel;
             _kanbanViewModel = kanbanViewModel;
             _editItemViewModel = editItemViewModel;
+            _loginViewModel = loginViewModel;
+            _aboutViewModel = aboutViewModel;
             _eventAggregator = eventAggregator;
             _windowManager = windowManager;
         }
@@ -59,6 +64,16 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         {
             _kanbanViewModel.InitializeLanes();
             _mainViewModel.Save();
+        }
+
+        public void Handle(OpenAboutMessage message)
+        {
+            _windowManager.ShowDialog(_aboutViewModel);
+        }
+
+        public void Handle(OpenLoginMessage message)
+        {
+            _windowManager.ShowDialog(_loginViewModel);
         }
     }
 }

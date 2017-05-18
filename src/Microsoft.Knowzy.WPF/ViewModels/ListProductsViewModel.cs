@@ -11,7 +11,6 @@
 
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows.Data;
 using Caliburn.Micro;
 using Microsoft.Knowzy.WPF.Messages;
