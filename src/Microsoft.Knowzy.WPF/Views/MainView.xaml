@@ -20,8 +20,8 @@
              xmlns:localization="clr-namespace:Microsoft.Knowzy.WPF.Localization"
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" HorizontalContentAlignment="Stretch"
-             d:DesignHeight="200" d:DesignWidth="1000" d:DataContext="{d:DesignInstance viewModels:MainViewModel}">
-   
+             d:DesignHeight="500" d:DesignWidth="1000" d:DataContext="{d:DesignInstance viewModels:MainViewModel}">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
@@ -31,16 +31,18 @@
         <Menu Grid.Row="0" IsMainMenu="True" DockPanel.Dock="Top" HorizontalAlignment="Stretch"
               Style="{DynamicResource MenuStyleLeft}" ItemContainerStyle="{DynamicResource MenuItemStyle}">
             <MenuItem Header="{x:Static localization:Resources.File_Menu}" Template="{DynamicResource MenuItemControlTemplate}" Margin="25,0,0,0">
-                <MenuItem Header="New" Template="{StaticResource MenuItemBarControlTemplate}" 
+                <MenuItem Header="{x:Static localization:Resources.New_Menu}" Template="{StaticResource MenuItemBarControlTemplate}" 
                           cal:Message.Attach="NewItem()"/>
-                <MenuItem Header="Exit" Template="{StaticResource MenuItemBarControlTemplate}"
+                <MenuItem Header="{x:Static localization:Resources.Exit_Menu}" Template="{StaticResource MenuItemBarControlTemplate}"
                           cal:Message.Attach="Exit()"/>
             </MenuItem>
-            <MenuItem Header="{x:Static localization:Resources.Menu_Menu}" Template="{DynamicResource MenuItemControlTemplate}">
-                <MenuItem Header="New" Template="{StaticResource MenuItemBarControlTemplate}"/>
-                <MenuItem Header="Exit" Template="{StaticResource MenuItemBarControlTemplate}"/>
+            <MenuItem Header="{x:Static localization:Resources.Menu_Menu}" Template="{DynamicResource MenuItemControlTemplate}"/>
+            <MenuItem Header="{x:Static localization:Resources.View_Menu}" Template="{DynamicResource MenuItemControlTemplate}">
+                <MenuItem Header="{x:Static localization:Resources.ListView_Tab}" Template="{StaticResource MenuItemBarControlTemplate}" 
+                          cal:Message.Attach="ShowListView()"/>
+                <MenuItem Header="Grid view" Template="{StaticResource MenuItemBarControlTemplate}"
+                          cal:Message.Attach="ShowGridView()"/>
             </MenuItem>
-            <MenuItem Header="{x:Static localization:Resources.View_Menu}" Template="{DynamicResource MenuItemControlTemplate}"/>
             <MenuItem Header="{x:Static localization:Resources.Help_Menu}" Template="{DynamicResource MenuItemControlTemplate}"
                       cal:Message.Attach="About()" />
         </Menu>
@@ -52,8 +54,7 @@
                       cal:Message.Attach="Login()" />
         </Menu>
 
-        <TabControl x:Name="ScreenList" Grid.Row="1" ItemContainerStyle="{DynamicResource TabItemStyle}"
-                    Style="{DynamicResource TabControlStyle}" />
+        <TabControl x:Name="ScreenList" Grid.Row="1" ItemContainerStyle="{DynamicResource TabItemStyle}" Style="{DynamicResource TabControlStyle}"
+                    SelectedIndex="{Binding SelectedIndexTab, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </UserControl>
-

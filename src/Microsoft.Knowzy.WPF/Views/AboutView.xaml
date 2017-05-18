@@ -16,10 +16,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:Microsoft.Knowzy.WPF.ViewModels"
-        mc:Ignorable="d" MinHeight="650" MinWidth="920" Height="650" Width="920"
+        mc:Ignorable="d" MinHeight="500" MinWidth="700" Height="500" Width="700"
+        xmlns:localization="clr-namespace:Microsoft.Knowzy.WPF.Localization"
         d:DataContext="{d:DesignInstance {x:Type viewModels:AboutViewModel}}">
 
     <Grid Background="{StaticResource PrimaryMediumColorBrush}">
- 
+        <TextBlock Text="{x:Static localization:Resources.About_Text}" Style="{StaticResource AboutTextBlockStyle}"/>
     </Grid>
 </Window>

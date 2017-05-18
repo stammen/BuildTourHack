@@ -9,11 +9,11 @@
 //
 //*********************************************************
 
+using System.Collections.Generic;
 using Caliburn.Micro;
 using Microsoft.Knowzy.Common.Contracts;
 using Microsoft.Knowzy.WPF.Messages;
 using Microsoft.Knowzy.WPF.ViewModels.Models;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -24,11 +24,25 @@ namespace Microsoft.Knowzy.WPF.ViewModels
     {
         private readonly IDataProvider _dataProvider;
         private readonly IEventAggregator _eventAggregator;
+        private const int TabListView = 0;
+        private const int TabGridView = 1;
 
         public MainViewModel(IDataProvider dataProvider, IEventAggregator eventAggregator)
         {
             _dataProvider = dataProvider;
             _eventAggregator = eventAggregator;
+        }
+        
+        private int _selectedIndexTab;
+
+        public int SelectedIndexTab
+        {
+            get => _selectedIndexTab;
+            set
+            {
+                _selectedIndexTab = value;
+                NotifyOfPropertyChange(() => SelectedIndexTab);
+            }
         }
 
         public List<Screen> ScreenList { get; set; }
@@ -43,6 +57,18 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             }
             
             base.OnViewAttached(view, context);
+        }
+
+        public void ShowListView()
+        {
+            if (SelectedIndexTab == TabListView) return;
+            SelectedIndexTab --;
+        }
+
+        public void ShowGridView()
+        {
+            if (SelectedIndexTab == TabGridView) return;
+            SelectedIndexTab ++;
         }
 
         public void NewItem()

@@ -63,6 +63,15 @@ namespace Microsoft.Knowzy.WPF.Localization {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string About_Text {
+            get {
+                return ResourceManager.GetString("About_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string DevelopmentStatus_BreatheTest {
             get {
                 return ResourceManager.GetString("DevelopmentStatus_BreatheTest", resourceCulture);
@@ -126,6 +135,15 @@ namespace Microsoft.Knowzy.WPF.Localization {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Exit_Menu {
+            get {
+                return ResourceManager.GetString("Exit_Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string File_Menu {
             get {
                 return ResourceManager.GetString("File_Menu", resourceCulture);
@@ -183,6 +201,15 @@ namespace Microsoft.Knowzy.WPF.Localization {
         public static string Menu_Menu {
             get {
                 return ResourceManager.GetString("Menu_Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string New_Menu {
+            get {
+                return ResourceManager.GetString("New_Menu", resourceCulture);
             }
         }
         
