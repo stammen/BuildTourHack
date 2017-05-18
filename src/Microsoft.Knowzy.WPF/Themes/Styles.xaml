@@ -635,6 +635,10 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="LoginTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DialogTextBoxStyle}">
+        <Setter Property="Margin" Value="2,2,2,2"/>
+    </Style>
+
     <Style x:Key="TitleTextBlockStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="FontFamily" Value="{StaticResource SegoeRegular}"/>
         <Setter Property="Foreground" Value="{StaticResource PrimaryDarkColorBrush}"/>

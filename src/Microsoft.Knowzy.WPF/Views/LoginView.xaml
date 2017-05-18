@@ -15,13 +15,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewModels="clr-namespace:Microsoft.Knowzy.WPF.ViewModels" WindowStyle="None"
-        mc:Ignorable="d" MinHeight="200" MinWidth="300" Height="200" Width="300"
-        d:DataContext="{d:DesignInstance {x:Type viewModels:LoginViewModel}}">
+        xmlns:localization="clr-namespace:Microsoft.Knowzy.WPF.Localization"
+        xmlns:viewModels="clr-namespace:Microsoft.Knowzy.WPF.ViewModels"
+        WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterOwner"
+        mc:Ignorable="d" MinHeight="200" MinWidth="400" Height="200" Width="400"
+        d:DataContext="{d:DesignInstance viewModels:LoginViewModel}">
 
     <Grid Background="{StaticResource PrimaryMediumColorBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="Auto"/>
@@ -36,13 +38,13 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="1" Grid.Column="1">User Name</TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="1">Password</TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="3" 
+        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource DialogTextBlockStyle}" Text="{x:Static localization:Resources.Login_UserName}" />
+        <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource DialogTextBlockStyle}" Text="{x:Static localization:Resources.Login_Password}" />
+        <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource LoginTextBoxStyle}"
                  Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
-        <TextBox Grid.Row="3" Grid.Column="3" 
+        <TextBox Grid.Row="3" Grid.Column="3" Style="{StaticResource LoginTextBoxStyle}" 
                  Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" />
-        <Button x:Name="DoLogin" Grid.Row="5" Grid.Column="1" Content="Login" />
-        <Button x:Name="Close" Grid.Row="5" Grid.Column="3" Content="Close" />
+        <Button x:Name="DoLogin" Grid.Row="5" Grid.Column="1" Content="{x:Static localization:Resources.Login_Login}" />
+        <Button x:Name="Close" Grid.Row="5" Grid.Column="3" Content="{x:Static localization:Resources.Login_Cancel}" />
     </Grid>
 </Window>

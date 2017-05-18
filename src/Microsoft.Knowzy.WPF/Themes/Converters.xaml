@@ -18,5 +18,6 @@
 
     <converters:DevelopmentStatusToStringConverter x:Key="DevelopmentStatusToStringConverter"/>
     <converters:CascadeLevelToMarginConverter x:Key="CascadeLevelToMarginConverter"/>
-  
+    <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverterInverted" Inverse="True"/>
 </ResourceDictionary>

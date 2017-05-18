@@ -18,12 +18,14 @@ namespace Microsoft.Knowzy.WPF.ViewModels
     public class LoginViewModel : Screen
     {
         private readonly IAuthenticationService _authenticationService;
+        private readonly MainViewModel _mainViewModel;
         private string _userName;
         private string _password;
 
-        public LoginViewModel(IAuthenticationService authenticationService)
+        public LoginViewModel(IAuthenticationService authenticationService, MainViewModel mainViewModel)
         {
             _authenticationService = authenticationService;
+            _mainViewModel = mainViewModel;
         }
 
         public string UserName
@@ -54,6 +56,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             try
             {
                 _authenticationService.Login(UserName, Password);
+                _mainViewModel.NotifyOfPropertyChange(() => _mainViewModel.LoggedUser);
                 Close();
             }
             catch (Exception e)
@@ -67,6 +70,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         {
             UserName = string.Empty;
             Password = string.Empty;
+            _mainViewModel.NotifyOfPropertyChange(() => _mainViewModel.LoggedUser);
             TryClose();
         }
     }
