@@ -198,6 +198,9 @@
   <data name="Status_Header" xml:space="preserve">
     <value />
   </data>
+  <data name="Title_Shell" xml:space="preserve">
+    <value />
+  </data>
   <data name="View_Menu" xml:space="preserve">
     <value />
   </data>

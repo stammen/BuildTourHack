@@ -306,6 +306,15 @@ namespace Microsoft.Knowzy.WPF.Localization {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Title_Shell {
+            get {
+                return ResourceManager.GetString("Title_Shell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string View_Menu {
             get {
                 return ResourceManager.GetString("View_Menu", resourceCulture);

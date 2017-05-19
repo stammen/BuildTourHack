@@ -19,7 +19,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:localization="clr-namespace:Microsoft.Knowzy.WPF.Localization"
     xmlns:themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
-    xmlns:viewModels="clr-namespace:Microsoft.Knowzy.WPF.ViewModels">
+    xmlns:viewModels="clr-namespace:Microsoft.Knowzy.WPF.ViewModels"
+    xmlns:micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/Themes/Geometries.xaml"/>
@@ -307,15 +308,23 @@
         </Grid>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type viewModels:KanbanViewModel}">
+    <DataTemplate x:Key="TabItemDataTemplate" DataType="{x:Type micro:Screen}">
         <Grid Margin="-40,2,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Path Grid.Column="0" Data="{StaticResource GridGeometry}" Style="{StaticResource GeometryStyle}"/>
-            <TextBlock Grid.Column="1" Text="{x:Static localization:Resources.GridView_Tab}" VerticalAlignment="Center"/>
+            <Path x:Name="TabPath" Grid.Column="0" Data="{StaticResource GridGeometry}" Style="{StaticResource GeometryStyle}"/>
+            <TextBlock Grid.Column="1" Text="{Binding DisplayName}" VerticalAlignment="Center"/>
         </Grid>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding DisplayName}" Value="{x:Static localization:Resources.ListView_Tab}">
+                <Setter TargetName="TabPath" Property="Data" Value="{StaticResource HamburgerGeometry}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding DisplayName}" Value="{x:Static localization:Resources.GridView_Tab}">
+                <Setter TargetName="TabPath" Property="Data" Value="{StaticResource GridGeometry}"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
     </DataTemplate>
 
     <Style x:Key="ListViewStyle" TargetType="ListBoxItem">

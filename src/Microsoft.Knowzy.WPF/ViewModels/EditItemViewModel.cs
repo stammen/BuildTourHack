@@ -14,7 +14,6 @@
 
 using System;
 using System.IO;
-using System.Windows;
 using Caliburn.Micro;
 using Microsoft.Knowzy.Domain.Enums;
 using Microsoft.Knowzy.WPF.Messages;
@@ -22,7 +21,7 @@ using Microsoft.Win32;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
-    public class EditItemViewModel : Screen
+    public sealed class EditItemViewModel : Screen
     {
         private readonly string _imagesDirectory = AppDomain.CurrentDomain.BaseDirectory + "Assets\\";
         private Models.ItemViewModel _item;
@@ -41,6 +40,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         public EditItemViewModel(IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
+            DisplayName = Localization.Resources.Title_Shell;
         }
 
         public Models.ItemViewModel Item

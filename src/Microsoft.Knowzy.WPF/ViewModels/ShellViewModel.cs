@@ -45,6 +45,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         protected override void OnViewAttached(object view, object context)
         {
+            DisplayName = Localization.Resources.Title_Shell;
             _eventAggregator.Subscribe(this);
             _mainViewModel.ScreenList = new List<Screen>{ _listProductsViewModel, _kanbanViewModel}; 
             ActivateItem(_mainViewModel);
