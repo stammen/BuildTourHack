@@ -72,7 +72,6 @@
     <Compile Include="Messages\OpenLoginMessage.cs" />
     <Compile Include="Messages\UpdateLanesMessage.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
-    <Compile Include="Messages\CloseLoginMessage.cs" />
     <Compile Include="ViewModels\KanbanViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\Models\ItemViewModel.cs" />
