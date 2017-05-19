@@ -68,6 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Messages\OpenAboutMessage.cs" />
     <Compile Include="Messages\OpenLoginMessage.cs" />
     <Compile Include="Messages\UpdateLanesMessage.cs" />
@@ -186,6 +187,7 @@
     <EmbeddedResource Include="Localization\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <Resource Include="Assets\Fonts\segoeui.ttf" />
     <Resource Include="Assets\Fonts\segoeuil.ttf" />

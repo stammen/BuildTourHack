@@ -17,20 +17,24 @@ using Microsoft.Knowzy.WPF.ViewModels.Models;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using Microsoft.Knowzy.Authentication;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
     public class MainViewModel : Screen
     {
-        private readonly IDataProvider _dataProvider;
-        private readonly IEventAggregator _eventAggregator;
         private const int TabListView = 0;
         private const int TabGridView = 1;
+        private readonly IDataProvider _dataProvider;
+        private readonly IEventAggregator _eventAggregator;
+        private readonly IAuthenticationService _authenticationService;
 
-        public MainViewModel(IDataProvider dataProvider, IEventAggregator eventAggregator)
+
+        public MainViewModel(IDataProvider dataProvider, IEventAggregator eventAggregator, IAuthenticationService authenticationService)
         {
             _dataProvider = dataProvider;
             _eventAggregator = eventAggregator;
+            _authenticationService = authenticationService;
         }
         
         private int _selectedIndexTab;
@@ -48,6 +52,17 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         public List<Screen> ScreenList { get; set; }
 
         public ObservableCollection<ItemViewModel> DevelopmentItems { get; set; } = new ObservableCollection<ItemViewModel>();
+
+        public string LoggedUser
+        {
+            get
+            {
+                NotifyOfPropertyChange(() => HasLoggedUser);
+                return _authenticationService.UserLogged;
+            }
+        }
+
+        public bool HasLoggedUser => !string.IsNullOrWhiteSpace(_authenticationService.UserLogged);
 
         protected override void OnViewAttached(object view, object context)
         {
@@ -83,6 +98,12 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         public void Login()
         {
             _eventAggregator.PublishOnUIThread(new OpenLoginMessage());
+        }
+
+        public void Logout()
+        {
+            _authenticationService.Logout();
+            NotifyOfPropertyChange(() => LoggedUser);
         }
 
         public void About()

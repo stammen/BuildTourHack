@@ -189,9 +189,54 @@ namespace Microsoft.Knowzy.WPF.Localization {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Login_Cancel {
+            get {
+                return ResourceManager.GetString("Login_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Login_Login {
+            get {
+                return ResourceManager.GetString("Login_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Login_Menu {
             get {
                 return ResourceManager.GetString("Login_Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Login_Password {
+            get {
+                return ResourceManager.GetString("Login_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Login_UserName {
+            get {
+                return ResourceManager.GetString("Login_UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Logout_Menu {
+            get {
+                return ResourceManager.GetString("Logout_Menu", resourceCulture);
             }
         }
         

@@ -159,8 +159,23 @@
   <data name="ListView_Tab" xml:space="preserve">
     <value>List view </value>
   </data>
+  <data name="Login_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Login_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
   <data name="Login_Menu" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="Login_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Login_UserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="Logout_Menu" xml:space="preserve">
+    <value>Logout</value>
   </data>
   <data name="Menu_Menu" xml:space="preserve">
     <value>Menu</value>

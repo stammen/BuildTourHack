@@ -28,7 +28,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row="0" IsMainMenu="True" DockPanel.Dock="Top" HorizontalAlignment="Stretch"
+        <Menu Grid.Row="0" IsMainMenu="True" HorizontalAlignment="Stretch"
               Style="{DynamicResource MenuStyleLeft}" ItemContainerStyle="{DynamicResource MenuItemStyle}">
             <MenuItem Header="{x:Static localization:Resources.File_Menu}" Template="{DynamicResource MenuItemControlTemplate}" Margin="25,0,0,0">
                 <MenuItem Header="{x:Static localization:Resources.New_Menu}" Template="{StaticResource MenuItemBarControlTemplate}" 
@@ -47,14 +47,26 @@
                       cal:Message.Attach="About()" />
         </Menu>
 
-        <Menu Grid.Row="0" IsMainMenu="True" DockPanel.Dock="Top" HorizontalAlignment="Right"
-              Style="{DynamicResource MenuStyleRight}" ItemContainerStyle="{DynamicResource MenuItemStyle}">
-            <MenuItem Header="{x:Static localization:Resources.Login_Menu}"
-                      Template="{DynamicResource MenuItemControlTemplate}" Margin="15,0" 
-                      cal:Message.Attach="Login()" />
-        </Menu>
+        <Grid Grid.Row="0" HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Style="{StaticResource DialogTextBlockStyle}" Margin="0,0,0,0" Text="{Binding LoggedUser}"/>
+            <Menu Grid.Column="1" IsMainMenu="True" HorizontalAlignment="Right"
+                  Style="{DynamicResource MenuStyleRight}" ItemContainerStyle="{DynamicResource MenuItemStyle}">
+                <MenuItem Header="{x:Static localization:Resources.Login_Menu}"
+                          Template="{DynamicResource MenuItemControlTemplate}" Margin="15,0" 
+                          Visibility="{Binding HasLoggedUser, Converter={StaticResource BoolToVisibilityConverterInverted}}"
+                          cal:Message.Attach="Login()" />
+                <MenuItem Header="{x:Static localization:Resources.Logout_Menu}"
+                          Template="{DynamicResource MenuItemControlTemplate}" Margin="15,0" 
+                          Visibility="{Binding HasLoggedUser, Converter={StaticResource BoolToVisibilityConverter}}"
+                          cal:Message.Attach="Logout()" />
+            </Menu>
+        </Grid>
 
-        <TabControl x:Name="ScreenList" Grid.Row="1" ItemContainerStyle="{DynamicResource TabItemStyle}" Style="{DynamicResource TabControlStyle}"
+        <TabControl x:Name="ScreenList" Grid.Row="1" ItemContainerStyle="{DynamicResource TabItemStyle}" 
                     SelectedIndex="{Binding SelectedIndexTab, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </UserControl>
