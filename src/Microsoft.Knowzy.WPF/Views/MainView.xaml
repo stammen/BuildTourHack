@@ -69,7 +69,8 @@
             </Menu>
         </Grid>
 
-        <TabControl x:Name="ScreenList" Grid.Row="1" ItemContainerStyle="{DynamicResource TabItemStyle}" 
+        <TabControl x:Name="ScreenList" Grid.Row="1" ItemContainerStyle="{DynamicResource TabItemStyle}" Style="{DynamicResource TabControlStyle}"
+                    ItemTemplate="{StaticResource TabItemDataTemplate}"
                     SelectedIndex="{Binding SelectedIndexTab, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </UserControl>
