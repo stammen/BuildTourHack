@@ -83,6 +83,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         protected override void OnActivate()
         {
             base.OnActivate();
+
             foreach (var item in _dataProvider.GetData())
             {
                 DevelopmentItems.Add(new ItemViewModel(item));
