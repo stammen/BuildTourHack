@@ -12,46 +12,25 @@
 
 // ******************************************************************
 
+using Caliburn.Micro;
+using Microsoft.Knowzy.WPF.ViewModels.Models;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
-using Caliburn.Micro;
-using Microsoft.Knowzy.WPF.Messages;
-using Microsoft.Knowzy.WPF.ViewModels.Models;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
     public sealed class ListProductsViewModel : Screen
     {
-        private ItemViewModel _selectedDevelopmentItem;
         private readonly MainViewModel _mainViewModel;
-        private readonly IEventAggregator _eventAggregator;
 
         public ListProductsViewModel(MainViewModel mainViewModel, IEventAggregator eventAggregator)
         {
             _mainViewModel = mainViewModel;
-            _eventAggregator = eventAggregator;
             DisplayName = Localization.Resources.ListView_Tab;
         }
 
-        public ObservableCollection<ItemViewModel> DevelopmentItems => _mainViewModel.DevelopmentItems;
-
-        public ItemViewModel SelectedDevelopmentItem
-        {
-            get => _selectedDevelopmentItem;
-            set
-            {
-                if (Equals(value, _selectedDevelopmentItem)) return;
-                _selectedDevelopmentItem = value;
-                NotifyOfPropertyChange(() => SelectedDevelopmentItem);
-                EditItem();
-            }
-        }
-
-        public void EditItem()
-        {
-            _eventAggregator.PublishOnUIThread(new EditItemMessage(SelectedDevelopmentItem));
-        }
+        public ObservableCollection<ItemViewModel> DevelopmentItems => _mainViewModel.DevelopmentItems;           
 
         public void SortProducts(object sortField, bool isSortAscending)
         {

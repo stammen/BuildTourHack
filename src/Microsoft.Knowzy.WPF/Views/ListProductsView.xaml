@@ -111,9 +111,10 @@
         </Grid>
 
         <ListBox Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="0" Margin="1,-1,0,0"
-                 ItemContainerStyle="{StaticResource ListViewStyle}" 
-                 ItemsSource="{Binding DevelopmentItems}" 
-                 SelectedItem="{Binding SelectedDevelopmentItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Style="{DynamicResource ListBoxStyle}"/>
+                 ItemContainerStyle="{StaticResource ListBoxItemContainerStyle}"
+                 ItemsSource="{Binding DevelopmentItems}"  
+                 ItemTemplate="{StaticResource RowTemplate}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" Style="{DynamicResource ListBoxStyle}"/>
     </Grid>
 
 </UserControl>

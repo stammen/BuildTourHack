@@ -21,34 +21,10 @@ namespace Microsoft.Knowzy.WPF.ViewModels.Models
 {
     public class StatusLaneViewModel : Screen
     {
-        private readonly IEventAggregator _eventAggregator;
-        private ItemViewModel _selectedItem;
-
-        public StatusLaneViewModel(IEventAggregator eventAggregator)
-        {
-            _eventAggregator = eventAggregator;
-        }
-
         public DevelopmentStatus Status { get; set; }
 
         public IEnumerable<ItemViewModel> Items { get; set; }
 
-        public int CascadeLevel { get; set; }
-
-        public ItemViewModel SelectedItem
-        {
-            get => _selectedItem;
-            set
-            {
-                _selectedItem = value;
-                NotifyOfPropertyChange(() => SelectedItem);
-                EditItem();
-            }
-        }
-
-        public void EditItem()
-        {
-            _eventAggregator.PublishOnUIThread(new EditItemMessage(SelectedItem));
-        }
+        public int CascadeLevel { get; set; }        
     }
 }

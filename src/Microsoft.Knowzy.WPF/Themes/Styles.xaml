@@ -20,6 +20,7 @@
     xmlns:localization="clr-namespace:Microsoft.Knowzy.WPF.Localization"
     xmlns:themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
     xmlns:viewModels="clr-namespace:Microsoft.Knowzy.WPF.ViewModels"
+    xmlns:cal="http://www.caliburnproject.org"
     xmlns:micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
 
     <ResourceDictionary.MergedDictionaries>
@@ -327,58 +328,49 @@
         </DataTemplate.Triggers>
     </DataTemplate>
 
-    <Style x:Key="ListViewStyle" TargetType="ListBoxItem">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ListBoxItem">
-                    <Grid Height="45" HorizontalAlignment="Stretch">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition x:Name="Column0" Width="*" MinWidth="160"/>
-                            <ColumnDefinition x:Name="Column1" Width="*" MinWidth="160"/>
-                            <ColumnDefinition x:Name="Column2" Width="*" MinWidth="160"/>
-                            <ColumnDefinition x:Name="Column3" Width="*" MinWidth="160"/>
-                            <ColumnDefinition x:Name="Column4" Width="*" MinWidth="160"/>
-                        </Grid.ColumnDefinitions>
-                        <Border Grid.ColumnSpan="5" Background="{DynamicResource PrimaryLightColorBrush}"/>
-                        <Border x:Name="Border" Grid.ColumnSpan="5" Grid.Column="0"
-                                Visibility="Collapsed"  Background="{DynamicResource SecondaryBlueColorBrush}"/>
-                        <TextBlock Grid.Column="0" x:Name="TextColum0" Text="{Binding Id}" Style="{DynamicResource TitleTextBlockStyle}"/>
-                        <Border Grid.Column="0" BorderThickness="1,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}"/>
-
-                        <TextBlock Grid.Column="1" x:Name="TextColum1" Text="{Binding Engineer}" Style="{DynamicResource TitleTextBlockStyle}"/>
-                        <Border Grid.Column="1" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}" />
-
-                        <TextBlock Grid.Column="2" x:Name="TextColum2" Text="{Binding Name}" Style="{DynamicResource TitleTextBlockStyle}"/>
-                        <Border Grid.Column="2" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}" />
-
-                        <TextBlock Grid.Column="3" x:Name="TextColum3" Text="{Binding RawMaterial}" Style="{DynamicResource TitleTextBlockStyle}"/>
-                        <Border Grid.Column="3" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}" />
-
-                        <TextBlock Grid.Column="4" x:Name="TextColum4" Text="{Binding Status}" Style="{DynamicResource TitleTextBlockStyle}"/>
-                        <Border Grid.Column="4" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}"/>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Visibility" TargetName="Border" Value="Visible"/>
-                            <Setter Property="Foreground" TargetName="TextColum0" Value="White"/>
-                            <Setter Property="Foreground" TargetName="TextColum1" Value="White"/>
-                            <Setter Property="Foreground" TargetName="TextColum2" Value="White"/>
-                            <Setter Property="Foreground" TargetName="TextColum3" Value="White"/>
-                            <Setter Property="Foreground" TargetName="TextColum4" Value="White"/>
-                        </Trigger>
-                        <Trigger Property="IsSelected" Value="true">
-                            <Setter Property="Visibility" TargetName="Border" Value="Visible"/>
-                            <Setter Property="Foreground" TargetName="TextColum0" Value="White"/>
-                            <Setter Property="Foreground" TargetName="TextColum1" Value="White"/>
-                            <Setter Property="Foreground" TargetName="TextColum2" Value="White"/>
-                            <Setter Property="Foreground" TargetName="TextColum3" Value="White"/>
-                            <Setter Property="Foreground" TargetName="TextColum4" Value="White"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+    <Style x:Key="ListBoxItemContainerStyle" TargetType="ListBoxItem">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BorderThickness" Value="0"/>
     </Style>
+
+    <DataTemplate x:Key="RowTemplate">
+        <Grid Height="45" HorizontalAlignment="Stretch" cal:Message.Attach="[Event MouseLeftButtonDown] = [Action EditItem]">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="Column0" Width="*" MinWidth="160"/>
+                <ColumnDefinition x:Name="Column1" Width="*" MinWidth="160"/>
+                <ColumnDefinition x:Name="Column2" Width="*" MinWidth="160"/>
+                <ColumnDefinition x:Name="Column3" Width="*" MinWidth="160"/>
+                <ColumnDefinition x:Name="Column4" Width="*" MinWidth="160"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.ColumnSpan="5" Background="{DynamicResource PrimaryLightColorBrush}"/>
+            <Border x:Name="Border" Grid.ColumnSpan="5" Grid.Column="0"
+                    Visibility="Collapsed"  Background="{DynamicResource SecondaryBlueColorBrush}"/>
+            <TextBlock Grid.Column="0" x:Name="TextColum0" Text="{Binding Id}" Style="{DynamicResource TitleTextBlockStyle}"/>
+            <Border Grid.Column="0" BorderThickness="1,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}"/>
+
+            <TextBlock Grid.Column="1" x:Name="TextColum1" Text="{Binding Engineer}" Style="{DynamicResource TitleTextBlockStyle}"/>
+            <Border Grid.Column="1" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}" />
+
+            <TextBlock Grid.Column="2" x:Name="TextColum2" Text="{Binding Name}" Style="{DynamicResource TitleTextBlockStyle}"/>
+            <Border Grid.Column="2" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}" />
+
+            <TextBlock Grid.Column="3" x:Name="TextColum3" Text="{Binding RawMaterial}" Style="{DynamicResource TitleTextBlockStyle}"/>
+            <Border Grid.Column="3" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}" />
+
+            <TextBlock Grid.Column="4" x:Name="TextColum4" Text="{Binding Status}" Style="{DynamicResource TitleTextBlockStyle}"/>
+            <Border Grid.Column="4" BorderThickness="0,0,1,1" BorderBrush="{StaticResource PrimaryDarkColorBrush}"/>
+        </Grid>
+        <DataTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Visibility" TargetName="Border" Value="Visible"/>
+                <Setter Property="Foreground" TargetName="TextColum0" Value="White"/>
+                <Setter Property="Foreground" TargetName="TextColum1" Value="White"/>
+                <Setter Property="Foreground" TargetName="TextColum2" Value="White"/>
+                <Setter Property="Foreground" TargetName="TextColum3" Value="White"/>
+                <Setter Property="Foreground" TargetName="TextColum4" Value="White"/>
+            </Trigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
 
     <Style x:Key="SortItemButtonStyle" TargetType="{x:Type ButtonBase}">
         <Setter Property="Background" Value="{StaticResource PrimaryLightColorBrush}"/>
@@ -801,7 +793,8 @@
                 Margin="15,5,15,5"
                 Background="{StaticResource PrimaryLightColorBrush}"
                 HorizontalAlignment="Stretch"
-                CornerRadius="8,8,8,8">
+                CornerRadius="8,8,8,8"
+                cal:Message.Attach="[Event MouseLeftButtonDown] = [Action EditItem]">
             <Border.Effect>
                 <DropShadowEffect Color="{StaticResource PrimaryMediumDarkColor}" Opacity="0.5"/>
             </Border.Effect>
@@ -815,7 +808,7 @@
                 <Setter Property="Background" TargetName="CardBorder" Value="{StaticResource SecondaryBlueColorBrush}"/>
                 <Setter Property="Foreground" TargetName="CardId" Value="{StaticResource PrimaryLightColorBrush}"/>
                 <Setter Property="Foreground" TargetName="CardName" Value="{StaticResource PrimaryLightColorBrush}"/>
-            </Trigger>            
+            </Trigger>
         </DataTemplate.Triggers>
     </DataTemplate>
 
@@ -829,15 +822,14 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
+   
     <DataTemplate x:Key="LaneTemplate">
         <Grid VerticalAlignment="Stretch" >                        
             <Border Style="{StaticResource LaneBodyBorderStyle}">
-                <ListBox ItemsSource="{Binding Items}"
-                         SelectedItem="{Binding SelectedItem}"
-                         Margin="{Binding CascadeLevel, Converter={StaticResource CascadeLevelToMarginConverter}}"
-                         ItemTemplate="{StaticResource CardTemplate}"
+                <ListBox ItemsSource="{Binding Items}"                         
+                         Margin="{Binding CascadeLevel, Converter={StaticResource CascadeLevelToMarginConverter}}"                         
                          ItemContainerStyle="{StaticResource CardListBoxItemStyle}"
+                         ItemTemplate="{StaticResource CardTemplate}"
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                          ScrollViewer.VerticalScrollBarVisibility="Disabled"
                          BorderThickness="0"
@@ -846,7 +838,7 @@
                         <ControlTemplate>
                             <ItemsPresenter></ItemsPresenter>    
                         </ControlTemplate>                        
-                    </ListBox.Template>
+                    </ListBox.Template>                   
                 </ListBox>
             </Border>
         </Grid>
@@ -855,11 +847,10 @@
     <DataTemplate x:Key="FirstLaneTemplate">
         <Grid VerticalAlignment="Stretch" >
             <Border Style="{StaticResource FirstLaneBodyBorderStyle}">
-                <ListBox ItemsSource="{Binding Items}"
-                         SelectedItem="{Binding SelectedItem}"
-                         Margin="{Binding CascadeLevel, Converter={StaticResource CascadeLevelToMarginConverter}}"
-                         ItemTemplate="{StaticResource CardTemplate}"
+                <ListBox ItemsSource="{Binding Items}"                         
+                         Margin="{Binding CascadeLevel, Converter={StaticResource CascadeLevelToMarginConverter}}"                        
                          ItemContainerStyle="{StaticResource CardListBoxItemStyle}"
+                         ItemTemplate="{StaticResource CardTemplate}"
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                          ScrollViewer.VerticalScrollBarVisibility="Disabled"
                          BorderThickness="0"
@@ -868,7 +859,7 @@
                         <ControlTemplate>
                             <ItemsPresenter></ItemsPresenter>
                         </ControlTemplate>
-                    </ListBox.Template>
+                    </ListBox.Template>                    
                 </ListBox>
             </Border>
         </Grid>

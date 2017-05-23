@@ -71,7 +71,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         {
             foreach (var item in _dataProvider.GetData())
             {
-                DevelopmentItems.Add(new ItemViewModel(item));
+                DevelopmentItems.Add(new ItemViewModel(item, _eventAggregator));
             }
             
             base.OnViewAttached(view, context);
@@ -91,7 +91,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         public void NewItem()
         {
-            var item = new ItemViewModel();
+            var item = new ItemViewModel(_eventAggregator);
             _eventAggregator.PublishOnUIThread(new EditItemMessage(item));
 
             if (item.Id == null) return;

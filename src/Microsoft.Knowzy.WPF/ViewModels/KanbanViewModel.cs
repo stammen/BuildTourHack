@@ -59,7 +59,7 @@ namespace Microsoft.Knowzy.WPF.ViewModels
             var level = 0;
             foreach (var status in Enum.GetValues(typeof(DevelopmentStatus)))
             {
-                Lanes.Add(new StatusLaneViewModel(_eventAggregator)
+                Lanes.Add(new StatusLaneViewModel()
                 {
                     Status = (DevelopmentStatus)status,
                     CascadeLevel = level,

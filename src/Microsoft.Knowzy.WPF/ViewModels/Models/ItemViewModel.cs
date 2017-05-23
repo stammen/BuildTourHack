@@ -16,21 +16,25 @@ using System;
 using Caliburn.Micro;
 using Microsoft.Knowzy.Domain;
 using Microsoft.Knowzy.Domain.Enums;
+using Microsoft.Knowzy.WPF.Messages;
 
 namespace Microsoft.Knowzy.WPF.ViewModels.Models
 {
     public class ItemViewModel : PropertyChangedBase
     {
         private readonly Product _product;
+        private readonly IEventAggregator _eventAggregator;
 
-        public ItemViewModel()
+        public ItemViewModel(IEventAggregator eventAggregator)
         {
             _product = new Product();
+            _eventAggregator = eventAggregator;
         }
 
-        public ItemViewModel(Product product)
+        public ItemViewModel(Product product, IEventAggregator eventAggregator)
         {
             _product = product;
+            _eventAggregator = eventAggregator;
         }
 
         public Product Product
@@ -136,6 +140,11 @@ namespace Microsoft.Knowzy.WPF.ViewModels.Models
                 _product.ImageSource = value;
                 NotifyOfPropertyChange(() => ImageSource);
             }
+        }
+
+        public void EditItem()
+        {
+            _eventAggregator.PublishOnUIThread(new EditItemMessage(this));
         }
     }
 }
