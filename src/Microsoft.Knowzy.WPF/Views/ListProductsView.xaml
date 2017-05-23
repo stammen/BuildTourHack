@@ -86,9 +86,9 @@
                         <MenuItem.Icon>
                             <Path Style="{StaticResource SortGeometryStyle}"/>
                         </MenuItem.Icon>
-                        <MenuItem Header="{x:Static localization:Resources.SortAscending_Menu}" cal:Message.Attach="SortProducts('Material','true')"
+                        <MenuItem Header="{x:Static localization:Resources.SortAscending_Menu}" cal:Message.Attach="SortProducts('RawMaterial','true')"
                                   Template="{DynamicResource MenuItemSortGeometryControlTemplate}"/>
-                        <MenuItem Header="{x:Static localization:Resources.SortDescending_Menu}" cal:Message.Attach="SortProducts('Material','false')"
+                        <MenuItem Header="{x:Static localization:Resources.SortDescending_Menu}" cal:Message.Attach="SortProducts('RawMaterial','false')"
                                   Template="{DynamicResource MenuItemSortGeometryControlTemplate}"/>
                     </MenuItem>
                 </Menu>
