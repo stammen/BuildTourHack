@@ -12,13 +12,17 @@
 
 // ******************************************************************
 
+using System;
 using System.IO;
+using Microsoft.Knowzy.Common.Contracts.Helpers;
 
-namespace Microsoft.Knowzy.Common.Helpers
+namespace Microsoft.Knowzy.WPF.Helpers
 {
-    public static class FileHelper
+    public class FileHelper : IFileHelper
     {
-        public static string ReadTextFile(string filePath)
+        public string ActualPath => AppDomain.CurrentDomain.BaseDirectory;
+
+        public string ReadTextFile(string filePath)
         {
             using (var reader = new StreamReader(filePath))
             {
@@ -26,7 +30,7 @@ namespace Microsoft.Knowzy.Common.Helpers
             }
         }
 
-        public static void WriteTextFile(string filePath, string content)
+        public void WriteTextFile(string filePath, string content)
         {
             using (var writer = new StreamWriter(filePath))
             {

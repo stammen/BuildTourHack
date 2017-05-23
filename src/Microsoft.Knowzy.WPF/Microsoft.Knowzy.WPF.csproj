@@ -48,6 +48,9 @@
     <Reference Include="Caliburn.Micro.Platform.Core, Version=3.0.3.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Caliburn.Micro.3.0.3\lib\net45\Caliburn.Micro.Platform.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Windows.Forms" />
@@ -69,6 +72,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Messages\OpenAboutMessage.cs" />
     <Compile Include="Messages\OpenLoginMessage.cs" />
     <Compile Include="Messages\UpdateLanesMessage.cs" />
@@ -205,28 +210,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.Knowzy.AuthenticationService\Microsoft.Knowzy.AuthenticationService.csproj">
-      <Project>{95837a34-3978-40b0-bc36-ae6ca31b0284}</Project>
-      <Name>Microsoft.Knowzy.AuthenticationService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Microsoft.Knowzy.Common\Microsoft.Knowzy.Common.csproj">
-      <Project>{b05257e2-fbec-4cb5-8c87-1cc89e193cfd}</Project>
-      <Name>Microsoft.Knowzy.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Microsoft.Knowzy.ConfigurationService\Microsoft.Knowzy.ConfigurationService.csproj">
-      <Project>{98369ef9-affa-4164-92e1-9e449515af1f}</Project>
-      <Name>Microsoft.Knowzy.ConfigurationService</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj">
-      <Project>{f1f587fe-c52d-43db-b82d-7531aebb720a}</Project>
-      <Name>Microsoft.Knowzy.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Microsoft.KnowzyJsonDataProvider\Microsoft.Knowzy.JsonDataProvider.csproj">
-      <Project>{e7dfaac0-bd7d-4391-9e74-c7310df96559}</Project>
-      <Name>Microsoft.Knowzy.JsonDataProvider</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Assets\blacknose400x300.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -245,6 +228,28 @@
     <None Include="Assets\Rainbownose400x300.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Knowzy.AuthenticationService\Microsoft.Knowzy.AuthenticationService.csproj">
+      <Project>{abe64476-a9ef-4a57-802c-c2cc7bbe1afa}</Project>
+      <Name>Microsoft.Knowzy.AuthenticationService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Knowzy.Common\Microsoft.Knowzy.Common.csproj">
+      <Project>{f99001e8-e315-46aa-a6cd-718a15ac0b04}</Project>
+      <Name>Microsoft.Knowzy.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Knowzy.ConfigurationService\Microsoft.Knowzy.ConfigurationService.csproj">
+      <Project>{fec807ff-1c76-4d0c-bb45-92255ce90972}</Project>
+      <Name>Microsoft.Knowzy.ConfigurationService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj">
+      <Project>{1443fcd4-b293-409e-8e58-39d2c0f49572}</Project>
+      <Name>Microsoft.Knowzy.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.KnowzyJsonDataProvider\Microsoft.KnowzyJsonDataProvider.csproj">
+      <Project>{0bcbe83c-c37a-46b5-ad95-cb972ffcde62}</Project>
+      <Name>Microsoft.KnowzyJsonDataProvider</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
