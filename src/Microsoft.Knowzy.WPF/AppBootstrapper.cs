@@ -21,6 +21,8 @@ using Microsoft.Knowzy.Common.Contracts;
 using Microsoft.Knowzy.DataProvider;
 using System.Threading;
 using Microsoft.Knowzy.Authentication;
+using Microsoft.Knowzy.Common.Contracts.Helpers;
+using Microsoft.Knowzy.WPF.Helpers;
 
 namespace Microsoft.Knowzy.WPF
 {
@@ -50,6 +52,9 @@ namespace Microsoft.Knowzy.WPF
             builder.RegisterType<JsonDataProvider>().As<IDataProvider>().SingleInstance();
             builder.RegisterType<ConfigurationService>().As<IConfigurationService>().SingleInstance();
             builder.RegisterType<AuthenticationService>().As<IAuthenticationService>().SingleInstance();
+
+            builder.RegisterType<FileHelper>().As<IFileHelper>().SingleInstance();
+            builder.RegisterType<JsonHelper>().As<IJsonHelper>().SingleInstance();
 
             _container = builder.Build();
         }

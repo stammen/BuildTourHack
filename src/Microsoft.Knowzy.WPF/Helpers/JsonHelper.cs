@@ -12,15 +12,16 @@
 
 // ******************************************************************
 
+using Microsoft.Knowzy.Common.Contracts.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 
-namespace Microsoft.Knowzy.Common.Helpers
+namespace Microsoft.Knowzy.WPF.Helpers
 {
-    public static class JsonHelper
+    public class JsonHelper : IJsonHelper
     {
-        static JsonHelper()
+        public JsonHelper()
         {
             JsonConvert.DefaultSettings = () => new JsonSerializerSettings
             {
@@ -30,14 +31,14 @@ namespace Microsoft.Knowzy.Common.Helpers
             };
         }
 
-        public static T Deserialize<T>(string serializedObject)
+        public T Deserialize<T>(string serializedObject)
         {
             return string.IsNullOrWhiteSpace(serializedObject)
             ? default(T)
             : JsonConvert.DeserializeObject<T>(serializedObject, new StringEnumConverter());
         }
 
-        public static string Serialize<T>(T objectToSerialize)
+        public string Serialize<T>(T objectToSerialize)
         {
             return JsonConvert.SerializeObject(objectToSerialize);
         }

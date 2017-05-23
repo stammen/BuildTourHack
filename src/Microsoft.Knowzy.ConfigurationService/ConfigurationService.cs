@@ -13,8 +13,7 @@
 // ******************************************************************
 
 using Microsoft.Knowzy.Common.Contracts;
-using Microsoft.Knowzy.Common.Helpers;
-using System;
+using Microsoft.Knowzy.Common.Contracts.Helpers;
 
 namespace Microsoft.Knowzy.Configuration
 {
@@ -22,9 +21,9 @@ namespace Microsoft.Knowzy.Configuration
     {
         const string ConfigurationFilePath = "Config.json";
 
-        public ConfigurationService()
+        public ConfigurationService(IFileHelper fileHelper, IJsonHelper jsonHelper)
         {
-            Configuration = JsonHelper.Deserialize<ConfigurationModel>(FileHelper.ReadTextFile(AppDomain.CurrentDomain.BaseDirectory + ConfigurationFilePath));
+            Configuration = jsonHelper.Deserialize<ConfigurationModel>(fileHelper.ReadTextFile(fileHelper.ActualPath + ConfigurationFilePath));
         }
 
         public IConfigurationModel Configuration

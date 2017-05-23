@@ -2,16 +2,19 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E7DFAAC0-BD7D-4391-9E74-C7310DF96559}</ProjectGuid>
+    <ProjectGuid>{0BCBE83C-C37A-46B5-AD95-CB972FFCDE62}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.Knowzy.DataProvider</RootNamespace>
-    <AssemblyName>Microsoft.Knowzy.JsonDataProvider</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <RootNamespace>Microsoft.KnowzyJsonDataProvider</RootNamespace>
+    <AssemblyName>Microsoft.KnowzyJsonDataProvider</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,8 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
+    <None Include="project.json" />
+    <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JsonDataProvider.cs" />
@@ -40,13 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.Knowzy.Common\Microsoft.Knowzy.Common.csproj">
-      <Project>{b05257e2-fbec-4cb5-8c87-1cc89e193cfd}</Project>
+      <Project>{f99001e8-e315-46aa-a6cd-718a15ac0b04}</Project>
       <Name>Microsoft.Knowzy.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj">
-      <Project>{f1f587fe-c52d-43db-b82d-7531aebb720a}</Project>
+      <Project>{1443fcd4-b293-409e-8e58-39d2c0f49572}</Project>
       <Name>Microsoft.Knowzy.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
