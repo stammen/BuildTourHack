@@ -246,9 +246,9 @@
       <Project>{1443fcd4-b293-409e-8e58-39d2c0f49572}</Project>
       <Name>Microsoft.Knowzy.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Microsoft.KnowzyJsonDataProvider\Microsoft.KnowzyJsonDataProvider.csproj">
+    <ProjectReference Include="..\Microsoft.KnowzyJsonDataProvider\Microsoft.Knowzy.JsonDataProvider.csproj">
       <Project>{0bcbe83c-c37a-46b5-ad95-cb972ffcde62}</Project>
-      <Name>Microsoft.KnowzyJsonDataProvider</Name>
+      <Name>Microsoft.Knowzy.JsonDataProvider</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

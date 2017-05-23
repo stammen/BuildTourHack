@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.WPF", "src\Microsoft.Knowzy.WPF\Microsoft.Knowzy.WPF.csproj", "{A5C6D61A-0FD5-48F8-B574-4B46D188550B}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -34,7 +34,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Common", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.Domain", "src\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj", "{1443FCD4-B293-409E-8E58-39D2C0F49572}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.KnowzyJsonDataProvider", "src\Microsoft.KnowzyJsonDataProvider\Microsoft.KnowzyJsonDataProvider.csproj", "{0BCBE83C-C37A-46B5-AD95-CB972FFCDE62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.JsonDataProvider", "src\Microsoft.KnowzyJsonDataProvider\Microsoft.Knowzy.JsonDataProvider.csproj", "{0BCBE83C-C37A-46B5-AD95-CB972FFCDE62}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1443FCD4-B293-409E-8E58-39D2C0F49572} = {1443FCD4-B293-409E-8E58-39D2C0F49572}
+		{F99001E8-E315-46AA-A6CD-718A15AC0B04} = {F99001E8-E315-46AA-A6CD-718A15AC0B04}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Knowzy.ConfigurationService", "src\Microsoft.Knowzy.ConfigurationService\Microsoft.Knowzy.ConfigurationService.csproj", "{FEC807FF-1C76-4D0C-BB45-92255CE90972}"
 EndProject
