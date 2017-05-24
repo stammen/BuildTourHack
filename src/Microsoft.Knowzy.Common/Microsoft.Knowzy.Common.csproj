@@ -45,6 +45,7 @@
     <Compile Include="Contracts\Helpers\IFileHelper.cs" />
     <Compile Include="Contracts\Helpers\IJsonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UwpHelpers\ExecutionMode.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj">

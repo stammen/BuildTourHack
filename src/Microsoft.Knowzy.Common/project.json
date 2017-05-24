@@ -5,7 +5,8 @@
   },
   "dependencies": {
     "Microsoft.NETCore": "5.0.0",
-    "Microsoft.NETCore.Portable.Compatibility": "1.0.0"
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.0",
+    "UwpDesktop": "10.0.14393.3"
   },
   "frameworks": {
     "dotnet": {
