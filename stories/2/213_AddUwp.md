@@ -102,22 +102,32 @@ We are going to need to add at least 2 UWP methods to our DeskTop Bridge version
 
 We can add UWP APIs to our Knowzy app at any location we need the UWP code. However, it will be easier if we create a set of UWP helper classes and place then all in a single C# library. 
 
-Let's take a look at how the Knowzy solution is organzied:
+Since all of the other dependencies in the Knowzy WPF solution are Portable Class Libraries, we will add a new Portable Class Library called Microsoft.Knowzy.UwpHelpers.
 
-![Microsoft.Knowzy.Helpers](images/213-microsoft-knowzy-helpers.png)
+* Right-click on the src folder in the solution
 
-We see that there is a project called Microsoft.Knowzy.Common. This project is referenced by the other projects in this solution, so if we add our 
-UWP helpers here, all of the other projects will be able to use that code.
+* Select the **Visual C# | Class Library (Portable)** project template.
 
-There already exists a NuGet package called DesktopBridge.Helpers that contains code to detect if an app is running as a UWP Desktop Bridge App. Let's add this NuGet package to our Microsoft.Knowzy.Common project.
+![Create Portable Class Library](images/213-create-pcl.png)
 
-* Right-click on the Microsoft.Knowzy.Common project and select **Manage NuGet Packages...**
+* Name the library Microsoft.Knowzy.UwpHelpers. Make sure you are saving the project to the **src** directory.
+
+![Create Portable Class Library](images/213-create-pcl.png)
+
+* Select the following Targets and click **OK**:
+
+![Create Portable Class Library 2](images/213-create-pcl-2.png)
+
+There already exists a NuGet package called [UwpDesktop(https://www.nuget.org/packages/UwpDesktop)that makes it easy for you call into UWP APIs 
+from Desktop and Centennial apps (WPF, WinForms, etc.) Let's add this NuGet package to our Microsoft.Knowzy.UwpHelpers project.
+
+* Right-click on the Microsoft.Knowzy.UwpHelpers project and select **Manage NuGet Packages...**
 
 ![Manage NuGet Packages](images/213-manage-nuget-packages.png)
 
 * Click on **Browse**, enter DesktopBridge.Helpers in the search field and then click on  **Install**
 
-![Install DesktopBridge.Helpers](images/213-install-desktopbridge-helpers.png)
+![Install UwpDesktop](images/213-uwpdesktop.png)
 
 * **Note:** Every time you add a NuGet package to a Desktop Bridge project you should probably rebuild the solution so the newly added NuGet package DLLs are correctly added to the UWP project.
 If you get a DLL not found exception when running your app, it may be because the AppX is missing the newly added DLL.
