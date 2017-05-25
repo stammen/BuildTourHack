@@ -21,6 +21,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using Microsoft.Knowzy.Authentication;
+using Microsoft.Knowzy.UwpHelpers;
+using System;
 
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
@@ -69,12 +71,10 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         protected override void OnViewAttached(object view, object context)
         {
-            /*
             foreach (var item in _dataProvider.GetData())
             {
                 DevelopmentItems.Add(new ItemViewModel(item, _eventAggregator));
             }
-            */
             base.OnViewAttached(view, context);
         }
 
@@ -88,6 +88,19 @@ namespace Microsoft.Knowzy.WPF.ViewModels
         {
             if (SelectedIndexTab == TabGridView) return;
             SelectedIndexTab ++;
+        }
+
+        public async void Show3DView()
+        {
+            if (ExecutionMode.IsRunningAsUwp())
+            {
+                Uri uri = new Uri("com.microsoft.knowzy.protocol.3d://" + "message?nose=" + "https://www.remix3d.com/details/G009SXPQ5S3P");
+                await UriProtocol.SendUri(uri);
+            }
+            else
+            {
+                MessageBox.Show("3D View not implemented in WPF version", "Microsoft.Knowzy.WPF");
+            };
         }
 
         public void NewItem()

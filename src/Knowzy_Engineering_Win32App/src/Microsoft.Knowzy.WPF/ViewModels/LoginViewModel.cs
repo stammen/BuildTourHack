@@ -16,6 +16,7 @@ using System;
 using Caliburn.Micro;
 using Microsoft.Knowzy.Authentication;
 
+
 namespace Microsoft.Knowzy.WPF.ViewModels
 {
     public class LoginViewModel : Screen

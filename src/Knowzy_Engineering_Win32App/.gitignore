@@ -11,7 +11,7 @@
 *.userprefs
 
 # Desktop Bridge created folders
-src/Knowzy_Engineering_Win32App/src/Microsoft.Knowzy.UWP/desktop/
+src/Microsoft.Knowzy.UWP/desktop/
 
 # Build results
 [Dd]ebug/

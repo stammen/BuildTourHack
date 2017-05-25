@@ -188,7 +188,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Localization\Resources.en-US.resx" />
+    <EmbeddedResource Include="Localization\Resources.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Localization\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -245,6 +247,10 @@
     <ProjectReference Include="..\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj">
       <Project>{1443fcd4-b293-409e-8e58-39d2c0f49572}</Project>
       <Name>Microsoft.Knowzy.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Knowzy.UwpHelpers\Microsoft.Knowzy.UwpHelpers.csproj">
+      <Project>{780fb6b6-9163-4fcb-a84e-e331c74d2ad5}</Project>
+      <Name>Microsoft.Knowzy.UwpHelpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\Microsoft.KnowzyJsonDataProvider\Microsoft.Knowzy.JsonDataProvider.csproj">
       <Project>{0bcbe83c-c37a-46b5-ad95-cb972ffcde62}</Project>

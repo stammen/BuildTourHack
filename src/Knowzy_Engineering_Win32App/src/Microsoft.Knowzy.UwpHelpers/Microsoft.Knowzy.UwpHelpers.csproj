@@ -5,10 +5,10 @@
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0BCBE83C-C37A-46B5-AD95-CB972FFCDE62}</ProjectGuid>
+    <ProjectGuid>{780FB6B6-9163-4FCB-A84E-E331C74D2AD5}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Microsoft.Knowzy.JsonDataProvider</RootNamespace>
-    <AssemblyName>Microsoft.Knowzy.JsonDataProvider</AssemblyName>
+    <RootNamespace>Microsoft.Knowzy.UwpHelpers</RootNamespace>
+    <AssemblyName>Microsoft.Knowzy.UwpHelpers</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>$(SolutionDir)\bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -28,7 +28,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>$(SolutionDir)\bin\Release\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -38,22 +38,12 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JsonDataProvider.cs" />
+    <Compile Include="AppFolder.cs" />
+    <Compile Include="ExecutionMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Microsoft.Knowzy.Common\Microsoft.Knowzy.Common.csproj">
-      <Project>{f99001e8-e315-46aa-a6cd-718a15ac0b04}</Project>
-      <Name>Microsoft.Knowzy.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Microsoft.Knowzy.Domain\Microsoft.Knowzy.Domain.csproj">
-      <Project>{1443fcd4-b293-409e-8e58-39d2c0f49572}</Project>
-      <Name>Microsoft.Knowzy.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Microsoft.Knowzy.UwpHelpers\Microsoft.Knowzy.UwpHelpers.csproj">
-      <Project>{780fb6b6-9163-4fcb-a84e-e331c74d2ad5}</Project>
-      <Name>Microsoft.Knowzy.UwpHelpers</Name>
-    </ProjectReference>
+    <Compile Include="Toast.cs" />
+    <Compile Include="UriProtocol.cs" />
+    <Compile Include="WindowsHello.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

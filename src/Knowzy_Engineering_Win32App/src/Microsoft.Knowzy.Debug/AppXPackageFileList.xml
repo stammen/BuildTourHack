@@ -8,5 +8,11 @@
     <LayoutFile Include="$(MyProjectOutputPath)\Microsoft.Knowzy.WPF.exe">
       <PackagePath>$(PackageLayout)\desktop\Microsoft.Knowzy.WPF.exe</PackagePath>
     </LayoutFile>
+    <LayoutFile Include="$(MyProjectOutputPath)\Microsoft.Knowzy.JsonDataProvider.dll">
+      <PackagePath>$(PackageLayout)\desktop\Microsoft.Knowzy.JsonDataProvider.dll</PackagePath>
+    </LayoutFile>
+    <LayoutFile Include="$(MyProjectOutputPath)\Microsoft.Knowzy.UwpHelpers.dll">
+      <PackagePath>$(PackageLayout)\desktop\Microsoft.Knowzy.UwpHelpers.dll</PackagePath>
+    </LayoutFile>
   </ItemGroup>
 </Project>
