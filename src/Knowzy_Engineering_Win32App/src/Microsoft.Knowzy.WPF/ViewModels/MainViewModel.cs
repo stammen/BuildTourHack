@@ -69,11 +69,12 @@ namespace Microsoft.Knowzy.WPF.ViewModels
 
         protected override void OnViewAttached(object view, object context)
         {
+            /*
             foreach (var item in _dataProvider.GetData())
             {
                 DevelopmentItems.Add(new ItemViewModel(item, _eventAggregator));
             }
-            
+            */
             base.OnViewAttached(view, context);
         }
 
