@@ -248,6 +248,10 @@
       <Project>{1443fcd4-b293-409e-8e58-39d2c0f49572}</Project>
       <Name>Microsoft.Knowzy.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Knowzy.UwpHelpers.AppService\Microsoft.Knowzy.UwpHelpers.AppService.csproj">
+      <Project>{e96528d3-44bb-4427-86e2-7e3eb5251c97}</Project>
+      <Name>Microsoft.Knowzy.UwpHelpers.AppService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Microsoft.Knowzy.UwpHelpers\Microsoft.Knowzy.UwpHelpers.csproj">
       <Project>{780fb6b6-9163-4fcb-a84e-e331c74d2ad5}</Project>
       <Name>Microsoft.Knowzy.UwpHelpers</Name>

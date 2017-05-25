@@ -21,11 +21,38 @@ namespace Microsoft.Knowzy.UwpHelpers
             }
         }
 
+        public static string Local
+        {
+            get
+            {
+                string path = null;
+                if (ExecutionMode.IsRunningAsUwp())
+                {
+                    path = GetSafeAppxLocalFolder();
+                }
+                return path;
+            }
+        }
+
         internal static string GetSafeAppxFolder()
         {
             try
             {
                 return Windows.ApplicationModel.Package.Current.InstalledLocation.Path;
+            }
+            catch (Exception ex)
+            {
+
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+            return null;
+        }
+
+        internal static string GetSafeAppxLocalFolder()
+        {
+            try
+            {
+                return Windows.Storage.ApplicationData.Current.LocalFolder.Path;
             }
             catch (Exception ex)
             {
