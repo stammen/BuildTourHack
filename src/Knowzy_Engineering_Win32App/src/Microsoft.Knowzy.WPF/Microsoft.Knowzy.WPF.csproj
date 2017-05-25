@@ -248,17 +248,13 @@
       <Project>{e5aba667-109a-40e2-b51b-ce9130ad0734}</Project>
       <Name>Microsoft.Knowzy.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Microsoft.Knowzy.UwpHelpers.AppService\Microsoft.Knowzy.UwpHelpers.AppService.csproj">
-      <Project>{e96528d3-44bb-4427-86e2-7e3eb5251c97}</Project>
-      <Name>Microsoft.Knowzy.UwpHelpers.AppService</Name>
+    <ProjectReference Include="..\Microsoft.Knowzy.JsonDataProvider\Microsoft.Knowzy.JsonDataProvider.csproj">
+      <Project>{c74e752e-eaee-4031-b642-c4a3c349fd05}</Project>
+      <Name>Microsoft.Knowzy.JsonDataProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\Microsoft.Knowzy.UwpHelpers\Microsoft.Knowzy.UwpHelpers.csproj">
       <Project>{780fb6b6-9163-4fcb-a84e-e331c74d2ad5}</Project>
       <Name>Microsoft.Knowzy.UwpHelpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Microsoft.KnowzyJsonDataProvider\Microsoft.KnowzyJsonDataProvider.csproj">
-      <Project>{2079a70d-2c88-4a7a-a10b-596c75c8eab9}</Project>
-      <Name>Microsoft.KnowzyJsonDataProvider</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

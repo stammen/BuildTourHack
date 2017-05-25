@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2079A70D-2C88-4A7A-A10B-596C75C8EAB9}</ProjectGuid>
+    <ProjectGuid>{C74E752E-EAEE-4031-B642-C4A3C349FD05}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.KnowzyJsonDataProvider</RootNamespace>
-    <AssemblyName>Microsoft.KnowzyJsonDataProvider</AssemblyName>
+    <RootNamespace>Microsoft.Knowzy.JsonDataProvider</RootNamespace>
+    <AssemblyName>Microsoft.Knowzy.JsonDataProvider</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,6 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Microsoft.Knowzy.Common\Microsoft.Knowzy.Common.csproj">
       <Project>{99e0aeb6-35dd-4792-826e-cec83ec2a137}</Project>
       <Name>Microsoft.Knowzy.Common</Name>
@@ -59,9 +62,6 @@
       <Project>{9fbbad51-3ea8-4048-8ce0-af738aadb181}</Project>
       <Name>Microsoft.Knowzy.UwpHelpers</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
